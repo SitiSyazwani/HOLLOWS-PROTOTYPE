@@ -25,6 +25,7 @@ public class Flashlight : MonoBehaviour
     // Private Variables
     //===================
     private Light2D flashlightLight;
+    private bool flashOn = true;
     #endregion
 
     #region Own Methods
@@ -36,6 +37,22 @@ public class Flashlight : MonoBehaviour
 
     void Update()
     {
+        //Toggle Flashlight
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (flashOn)
+            {
+                flashlightLight.enabled = false;
+                flashOn = false;
+            }
+            else
+            {
+                flashlightLight.enabled = true;
+                flashOn = true; 
+            }
+            
+
+        }
         // Get the player's position (our parent's position)
         Vector3 playerPos = transform.parent.position;
 
