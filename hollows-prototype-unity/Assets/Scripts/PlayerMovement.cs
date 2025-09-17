@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     private float currentEnergy;
     private bool isSprinting;
     public bool isHiding = false;
+    public bool isTriggering = false;
 
     void Start()
     {

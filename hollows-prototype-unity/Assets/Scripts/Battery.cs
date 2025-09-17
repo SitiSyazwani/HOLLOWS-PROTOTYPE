@@ -12,15 +12,17 @@ using UnityEngine.UI;
 // Modified Date: -
 // Description	: This is file for collision.
 //---------------------------------------------------------------------------------
-public class Battery : MonoBehaviour 
+public class Item : MonoBehaviour 
 {
     // The UI element to be shown/hidden.
     // Assign this in the Inspector.
     public GameObject popupUI;
     public GameObject message;
     public GameObject battHealth; 
+    public GameObject item;
 
-    private bool batteryFound = false;
+    private bool itemFound = false;
+    private bool keyFound = false;
     private float delayTime = 3f;
     // Use this tag to identify the player object.
     // Make sure your player GameObject has this tag.
@@ -60,9 +62,18 @@ public class Battery : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("Player entered the trigger. Showing UI popup.");
+
+            if(gameObject.name == "Exit")
+            {
+                WinLose winlose = FindObjectOfType<WinLose>();
+                if (keyFound)
+                {
+                    winlose.state = WinLose.GameState.win;
+                }
+            }
             // Show the UI popup.
             popupUI.SetActive(true);
-            batteryFound = true;
+            itemFound = true;
                 
             
         }
@@ -82,12 +93,21 @@ public class Battery : MonoBehaviour
 
     void Inventory()
     {
-        if (batteryFound)
+        if (itemFound)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
                 message.SetActive(true);
-                battHealth.SetActive(true);
+                if(gameObject.name == "Battery")
+                {
+                    battHealth.SetActive(true);
+                }
+                if(gameObject.name == "Key")
+                {
+                    keyFound = true;
+                }
+                item.SetActive(false);
+                
             }
         }
 

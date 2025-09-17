@@ -6,9 +6,11 @@ public class EnemyAI : MonoBehaviour
     public Transform player;
     public Transform[] patrolPoints;
     public float patrolSpeed = 2f;
-    public float chaseSpeed = 5f;
+    public float chaseSpeed = 10f;
     public float investigateTimeout = 5f; // seconds before giving up if no chase
-    public float chaseRange = 3f;         // how close player must be to trigger chase
+    public float chaseRange = 5f;         // how close player must be to trigger chase
+    public float catchDistance = 0.5f;    // Distance threshold for "caught"
+    
 
     private NavMeshAgent agent;
     private int currentPatrolIndex = 0;
@@ -20,6 +22,7 @@ public class EnemyAI : MonoBehaviour
     private State currentState = State.Patrol;
 
     private PlayerMovement playerStatus; // <-- script that holds isHiding flag
+    [SerializeField] private WinLose winlose;
 
     void Start()
     {
@@ -60,6 +63,21 @@ public class EnemyAI : MonoBehaviour
             agent.speed = patrolSpeed;
             Debug.Log("Enemy is investigating last click position!");
         }
+
+        // Enemy catches player if close enough
+        if ((currentState == State.Chase &&
+            Vector3.Distance(transform.position, player.position) <= catchDistance))
+        {
+            winlose.state = WinLose.GameState.lose;
+            Debug.Log("Enemy caught the player! Game Over.");
+        }
+
+        if(Vector3.Distance(transform.position, player.position) <= catchDistance)
+        {
+            winlose.state = WinLose.GameState.lose;
+            Debug.Log("Enemy caught the player! Game Over.");
+        }
+
     }
 
     private void PatrolLogic()
@@ -74,20 +92,21 @@ public class EnemyAI : MonoBehaviour
     {
         investigateTimer -= Time.deltaTime;
 
-        // If player is close AND not hiding, start chase
+        // If player is close AND not hiding -> chase
         if (Vector3.Distance(transform.position, player.position) <= chaseRange && !playerStatus.isHiding)
         {
             currentState = State.Chase;
             Debug.Log("Enemy spotted player, starting chase!");
         }
-        else if (investigateTimer <= 0f || playerStatus.isHiding)
+        // If timer expired or player hiding -> patrol again
+        else if (investigateTimer <= 0f)
         {
-            // Timeout or player is hiding -> back to patrol
             currentState = State.Patrol;
             StartPatrol();
             Debug.Log("Enemy gave up investigation, resuming patrol.");
         }
     }
+
 
     private void ChaseLogic()
     {
@@ -142,5 +161,16 @@ public class EnemyAI : MonoBehaviour
         agent.speed = patrolSpeed;
         Debug.Log("Enemy is investigating forced position: " + position);
     }
+
+    public void HearSound(Vector3 soundPosition)
+    {
+        currentState = State.Investigate;
+        investigateTimer = investigateTimeout;
+        lastClickPosition = soundPosition;
+        agent.SetDestination(lastClickPosition);
+        agent.speed = chaseSpeed; // use same speed for investigate/chase
+        Debug.Log("Enemy heard a sound! Investigating " + soundPosition);
+    }
+
 
 }

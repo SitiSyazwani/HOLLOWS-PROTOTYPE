@@ -26,6 +26,8 @@ public class Flashlight : MonoBehaviour
     //===================
     private Light2D flashlightLight;
     private bool flashOn = true;
+    private AudioSource flashSound;
+    private Collider2D flashCollider;
     #endregion
 
     #region Own Methods
@@ -33,6 +35,8 @@ public class Flashlight : MonoBehaviour
     {
         flashlightLight = GetComponent<Light2D>();
         flashlightLight.lightType = Light2D.LightType.Point;
+        flashSound = GetComponent<AudioSource>();
+        flashCollider = GetComponentInChildren<Collider2D>();
     }
 
     void Update()
@@ -42,17 +46,36 @@ public class Flashlight : MonoBehaviour
         {
             if (flashOn)
             {
+                //Debug.Log("Flash toggled OFF!");
+                if (flashSound != null) Debug.Log("Flash toggled OFF!"); flashSound.Play();
                 flashlightLight.enabled = false;
                 flashOn = false;
+                flashCollider.enabled = false;
+
+                EnemyAI enemy = FindObjectOfType<EnemyAI>();
+                if (enemy != null)
+                {
+                    enemy.HearSound(transform.position);
+                }
+
             }
             else
             {
+                //Debug.Log("Flash toggled ON!");
+                if (flashSound != null) Debug.Log("Flash toggled ON!"); flashSound.Play();
                 flashlightLight.enabled = true;
-                flashOn = true; 
-            }
-            
+                flashOn = true;
+                flashCollider.enabled = true;
 
+                EnemyAI enemy = FindObjectOfType<EnemyAI>();
+                if (enemy != null)
+                {
+                    enemy.HearSound(transform.position);
+                }
+
+            }
         }
+
         // Get the player's position (our parent's position)
         Vector3 playerPos = transform.parent.position;
 
@@ -64,9 +87,6 @@ public class Flashlight : MonoBehaviour
         float rotZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rotZ - 90);
 
-        //// Set the light properties
-        //flashlightLight.pointLightOuterAngle = angle;
-        //flashlightLight.pointLightOuterRadius = maxRadius;
 
         // Cast a single ray to check for obstructions
         RaycastHit2D hit = Physics2D.Raycast(playerPos, direction, maxRadius, obstructionMask);
@@ -75,6 +95,8 @@ public class Flashlight : MonoBehaviour
             // If the ray hits an obstruction, shorten the light's radius
             flashlightLight.pointLightOuterRadius = Vector2.Distance(playerPos, hit.point);
         }
+
+
     }
     #endregion
 }

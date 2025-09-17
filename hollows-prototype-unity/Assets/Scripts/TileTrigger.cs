@@ -15,11 +15,13 @@ public class TileTrigger : MonoBehaviour
 {
     private SpriteRenderer sprite;
     private bool isVisible = false; // tracked state
+    private AudioSource glassSound;
    
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
         sprite.enabled = false; // hidden at start
+        glassSound = GetComponent<AudioSource>();
     }
 
     // Called when flashlight cone touches tile
@@ -39,15 +41,17 @@ public class TileTrigger : MonoBehaviour
             Reveal();
         }
 
-        if (isVisible && other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             Debug.Log("Player stepped on broken tile!");
+            glassSound.Play();
             // Find the enemy and send it to investigate here
             EnemyAI enemy = FindObjectOfType<EnemyAI>();
             if (enemy != null)
             {
-                enemy.InvestigateAt(transform.position);
+                enemy.HearSound(transform.position);
             }
+
         }
     }
 
