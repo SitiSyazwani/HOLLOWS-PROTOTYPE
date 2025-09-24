@@ -3,9 +3,12 @@ using UnityEngine.Tilemaps;
 
 public class CameraFollow : MonoBehaviour
 {
+    [Header("Camera Settings")]
+    [SerializeField] private float smoothSpeed = 0.125f;
+    [SerializeField] private float zoomLevel = 5f; 
+
     public Transform player;
     public Tilemap groundTilemap; // get the tilemap
-    public float smoothSpeed = 0.125f;
 
     private Camera cam;
     private Vector3 minBounds;
@@ -25,13 +28,16 @@ public class CameraFollow : MonoBehaviour
     {
         if (player == null) return;
 
-        //get camera to follow player
+        // Set the camera's orthographic size based on the zoom level.
+        cam.orthographicSize = zoomLevel;
+
+        // Get camera to follow player
         Vector3 targetPosition = player.position;
 
+        // Clamp camera so it stays inside the tilemap
         float camHeight = cam.orthographicSize;
         float camWidth = cam.aspect * camHeight;
 
-        // Clamp camera so it stays inside the tilemap
         float clampedX = Mathf.Clamp(targetPosition.x, minBounds.x + camWidth, maxBounds.x - camWidth);
         float clampedY = Mathf.Clamp(targetPosition.y, minBounds.y + camHeight, maxBounds.y - camHeight);
 

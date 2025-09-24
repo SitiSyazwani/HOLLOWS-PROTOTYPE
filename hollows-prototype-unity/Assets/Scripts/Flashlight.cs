@@ -1,6 +1,3 @@
-//#define LOG_TRACE_INFO
-//#define LOG_EXTRA_INFO
-
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -11,15 +8,21 @@ using UnityEngine.Rendering.Universal;
 // Modified Date: -
 // Description	: This is the code for the flashlight effects and control.
 //---------------------------------------------------------------------------------
-public class Flashlight : MonoBehaviour 
+public class Flashlight : MonoBehaviour
 {
     #region Variables
     //===================
     // Public Variables
     //===================
+    [Header("Flashlight Settings")]
     public float maxRadius = 5f;
     public float angle = 45f;
     public LayerMask obstructionMask;
+
+    [Header("Battery Settings")]
+    public float maxBatteryLife = 3.0f; // Represents 3 bars
+    public float drainRate = 0.1f; // How fast the battery drains per second
+    public GameObject[] batteryBars; // An array to hold the 3 UI squares
 
     //===================
     // Private Variables
@@ -28,6 +31,7 @@ public class Flashlight : MonoBehaviour
     private bool flashOn = true;
     private AudioSource flashSound;
     private Collider2D flashCollider;
+    private float currentBatteryLife;
     #endregion
 
     #region Own Methods
@@ -37,44 +41,65 @@ public class Flashlight : MonoBehaviour
         flashlightLight.lightType = Light2D.LightType.Point;
         flashSound = GetComponent<AudioSource>();
         flashCollider = GetComponentInChildren<Collider2D>();
+        currentBatteryLife = maxBatteryLife;
     }
 
     void Update()
     {
-        //Toggle Flashlight
-        if (Input.GetMouseButtonDown(1))
+        // Toggle Flashlight
+        // Only allow toggling if there is still battery life
+        if (Input.GetMouseButtonDown(1) && currentBatteryLife > 0)
         {
             if (flashOn)
             {
-                //Debug.Log("Flash toggled OFF!");
-                if (flashSound != null) Debug.Log("Flash toggled OFF!"); flashSound.Play();
+                Debug.Log("Flash toggled OFF!");
+                if (flashSound != null) flashSound.Play();
                 flashlightLight.enabled = false;
                 flashOn = false;
                 flashCollider.enabled = false;
-
-                EnemyAI enemy = FindObjectOfType<EnemyAI>();
-                if (enemy != null)
-                {
-                    enemy.HearSound(transform.position);
-                }
-
             }
             else
             {
-                //Debug.Log("Flash toggled ON!");
-                if (flashSound != null) Debug.Log("Flash toggled ON!"); flashSound.Play();
+                Debug.Log("Flash toggled ON!");
+                if (flashSound != null) flashSound.Play();
                 flashlightLight.enabled = true;
                 flashOn = true;
                 flashCollider.enabled = true;
-
-                EnemyAI enemy = FindObjectOfType<EnemyAI>();
-                if (enemy != null)
-                {
-                    enemy.HearSound(transform.position);
-                }
-
             }
         }
+
+        // Drain battery if the flashlight is on
+        if (flashOn)
+        {
+            currentBatteryLife -= drainRate * Time.deltaTime;
+            currentBatteryLife = Mathf.Max(currentBatteryLife, 0f); // Ensure battery doesn't go below 0
+        }
+
+        // Update the UI based on battery life
+        if (batteryBars.Length >= 3)
+        {
+            // Bar 3
+            if (currentBatteryLife <= 2.0f && batteryBars[2].activeSelf)
+            {
+                batteryBars[2].SetActive(false);
+            }
+            // Bar 2
+            if (currentBatteryLife <= 1.0f && batteryBars[1].activeSelf)
+            {
+                batteryBars[1].SetActive(false);
+            }
+            // Bar 1
+            if (currentBatteryLife <= 0.0f && batteryBars[0].activeSelf)
+            {
+                batteryBars[0].SetActive(false);
+                // Turn off the flashlight when battery is completely dead
+                flashlightLight.enabled = false;
+                flashOn = false;
+                flashCollider.enabled = false;
+                Debug.Log("Battery dead! Flashlight cannot be turned on.");
+            }
+        }
+
 
         // Get the player's position (our parent's position)
         Vector3 playerPos = transform.parent.position;
@@ -95,8 +120,21 @@ public class Flashlight : MonoBehaviour
             // If the ray hits an obstruction, shorten the light's radius
             flashlightLight.pointLightOuterRadius = Vector2.Distance(playerPos, hit.point);
         }
+    }
 
-
+    // Public method to be called by other scripts
+    public void RechargeBattery()
+    {
+        // Increase the battery life to full
+        currentBatteryLife = maxBatteryLife;
+        // Turn all the battery bars back on
+        for (int i = 0; i < batteryBars.Length; i++)
+        {
+            if (batteryBars[i] != null)
+            {
+                batteryBars[i].SetActive(true);
+            }
+        }
     }
     #endregion
 }

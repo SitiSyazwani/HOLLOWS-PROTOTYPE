@@ -5,18 +5,21 @@ public class Hiding : MonoBehaviour
     public GameObject uiPrompt;   // Assign a "Press H to Hide" UI (disable by default)
 
     private bool playerInside = false;
-    private bool isHiding = false;
+    //public bool isHiding;
     private GameObject player;    // reference to player object
+    private PlayerMovement playerMovement;
 
     void Start()
     {
         if (uiPrompt != null)
             uiPrompt.SetActive(false);
+
+        playerMovement = FindObjectOfType<PlayerMovement>();
     }
 
     void Update()
     {
-        if (playerInside && Input.GetKeyDown(KeyCode.H))
+        if (playerInside && Input.GetKeyDown(KeyCode.E))
         {
             ToggleHide();
         }
@@ -50,17 +53,29 @@ public class Hiding : MonoBehaviour
     private void ToggleHide()
     {
 
-        if (!isHiding)
+        //if (!isHiding)
+        //{
+        //    // Hide player
+        //    player.SetActive(false);
+        //    isHiding = true;
+        //}
+        //else
+        //{
+        //    // Unhide player
+        //    player.SetActive(true);
+        //    isHiding = false;
+        //}
+        if (!playerMovement.isHiding)
         {
             // Hide player
             player.SetActive(false);
-            isHiding = true;
+            playerMovement.isHiding = true;
         }
         else
         {
             // Unhide player
             player.SetActive(true);
-            isHiding = false;
+            playerMovement.isHiding = false;
         }
     }
 }

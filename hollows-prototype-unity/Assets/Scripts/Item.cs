@@ -17,10 +17,10 @@ namespace Assets.Scripts
     //---------------------------------------------------------------------------------
     public class Item : MonoBehaviour
     {
-        public GameObject popupUI;      // UI popup prompt
-        public GameObject message;      // Pickup message
-        public GameObject battHealth;   // Battery health UI
-        public GameObject item;         // Reference to the collectible item object
+        public GameObject popupUI;       // UI popup prompt
+        public GameObject message;       // Pickup message
+        public GameObject battHealth;    // Battery health UI
+        public GameObject item;          // Reference to the collectible item object
 
         private bool itemFound = false;
         private float delayTime = 3f;
@@ -28,6 +28,9 @@ namespace Assets.Scripts
         // Shared inventory flags
         public static bool keyFound = false;
         public static bool batteryCollected = false;
+
+        // Add a private reference to the Flashlight script
+        private Flashlight flashlight;
 
         void Start()
         {
@@ -40,6 +43,13 @@ namespace Assets.Scripts
             if (col != null) col.isTrigger = true;
 
             if (message != null) message.SetActive(false);
+
+            // Get a reference to the Flashlight component in the scene
+            flashlight = FindObjectOfType<Flashlight>();
+            if (flashlight == null)
+            {
+                Debug.LogError("Flashlight script not found in the scene.");
+            }
         }
 
         void Update()
@@ -51,28 +61,10 @@ namespace Assets.Scripts
         {
             if (other.CompareTag("Player"))
             {
-                if (gameObject.name == "ExitDoor")
-                {
-                    Debug.Log("Player reached exit.");
-
-                    WinLose winlose = FindObjectOfType<WinLose>();
-                    if (keyFound)   // check shared flag
-                    {
-                        winlose.state = WinLose.GameState.win;
-                        Debug.Log("Key found! Player wins!");
-                    }
-                    else
-                    {
-                        popupUI.SetActive(true);
-                        Debug.Log("Exit locked. Key required!");
-                    }
-                }
-                else
-                {
                     Debug.Log("Player entered the trigger. Showing UI popup.");
                     popupUI.SetActive(true);
                     itemFound = true;
-                }
+                
             }
         }
 
@@ -94,6 +86,12 @@ namespace Assets.Scripts
 
                 if (gameObject.name == "Battery")
                 {
+                    // Check if the flashlight reference is valid before calling the method
+                    if (flashlight != null)
+                    {
+                        flashlight.RechargeBattery();
+                    }
+
                     if (battHealth != null) battHealth.SetActive(true);
                     batteryCollected = true;
                     Debug.Log("Battery collected!");
@@ -103,7 +101,17 @@ namespace Assets.Scripts
                 {
                     keyFound = true;
                     Debug.Log("Key collected!");
-                    popupUI.SetActive(false) ;
+                    popupUI.SetActive(false);
+                }
+
+                else if(gameObject.name == "ExitDoor")
+                {
+                    WinLose winlose = FindObjectOfType<WinLose>();
+                    if (keyFound)    // check shared flag
+                    {
+                        winlose.state = WinLose.GameState.win;
+                        Debug.Log("Key found! Player wins!");
+                    }
                 }
 
                 if (item != null) item.SetActive(false);

@@ -6,22 +6,23 @@ public class EnemyAI : MonoBehaviour
     public Transform player;
     public Transform[] patrolPoints;
     public float patrolSpeed = 2f;
-    public float chaseSpeed = 10f;
-    public float investigateTimeout = 5f; // seconds before giving up if no chase
-    public float chaseRange = 5f;         // how close player must be to trigger chase
+    public float chaseSpeed = 30f;
+    public float investigateTimeout = 10f; // seconds before giving up if no chase
+    public float chaseRange = 8f;         // how close player must be to trigger chase
     public float catchDistance = 0.5f;    // Distance threshold for "caught"
     
 
     private NavMeshAgent agent;
     private int currentPatrolIndex = 0;
 
-    private Vector3 lastClickPosition;
+    private Vector3 lastSoundPos;
     private float investigateTimer = 0f;
 
-    private enum State { Patrol, Investigate, Chase }
-    private State currentState = State.Patrol;
+    public enum State { Patrol, Investigate, Chase }
+    public State currentState = State.Patrol;
 
-    private PlayerMovement playerStatus; // <-- script that holds isHiding flag
+    private PlayerMovement playerStatus;
+    private bool isHiding;
     [SerializeField] private WinLose winlose;
 
     void Start()
@@ -34,6 +35,7 @@ public class EnemyAI : MonoBehaviour
             playerStatus = player.GetComponent<PlayerMovement>();
 
         StartPatrol();
+        isHiding = FindObjectOfType<PlayerMovement>().isHiding;
     }
 
     void Update()
@@ -56,26 +58,24 @@ public class EnemyAI : MonoBehaviour
         // Check for right click input
         if (Input.GetMouseButtonDown(1)) // right click
         {
-            lastClickPosition = player.position;
-            currentState = State.Investigate;
-            investigateTimer = investigateTimeout;
-            agent.SetDestination(lastClickPosition);
-            agent.speed = patrolSpeed;
-            Debug.Log("Enemy is investigating last click position!");
+            lastSoundPos = player.position;
+            HearSound(lastSoundPos);
         }
 
         // Enemy catches player if close enough
         if ((currentState == State.Chase &&
-            Vector3.Distance(transform.position, player.position) <= catchDistance))
+            Vector3.Distance(transform.position, player.position) <= catchDistance &&
+            !playerStatus.isHiding))
         {
             winlose.state = WinLose.GameState.lose;
             Debug.Log("Enemy caught the player! Game Over.");
         }
 
-        if(Vector3.Distance(transform.position, player.position) <= catchDistance)
+        // if enemy patrolling but player stands too close,, still get chased
+        if (Vector3.Distance(transform.position, player.position) <= chaseRange && !playerStatus.isHiding)
         {
-            winlose.state = WinLose.GameState.lose;
-            Debug.Log("Enemy caught the player! Game Over.");
+            currentState = State.Chase;
+            Debug.Log("Enemy spotted player, starting chase!");
         }
 
     }
@@ -91,6 +91,7 @@ public class EnemyAI : MonoBehaviour
     private void InvestigateLogic()
     {
         investigateTimer -= Time.deltaTime;
+        agent.speed = chaseSpeed;
 
         // If player is close AND not hiding -> chase
         if (Vector3.Distance(transform.position, player.position) <= chaseRange && !playerStatus.isHiding)
@@ -99,7 +100,7 @@ public class EnemyAI : MonoBehaviour
             Debug.Log("Enemy spotted player, starting chase!");
         }
         // If timer expired or player hiding -> patrol again
-        else if (investigateTimer <= 0f)
+        else if (investigateTimer <= 0f || playerStatus.isHiding)
         {
             currentState = State.Patrol;
             StartPatrol();
@@ -152,24 +153,18 @@ public class EnemyAI : MonoBehaviour
         currentPatrolIndex = (currentPatrolIndex + 1) % patrolPoints.Length;
     }
 
-    public void InvestigateAt(Vector3 position)
-    {
-        currentState = State.Investigate;
-        investigateTimer = investigateTimeout;
-        lastClickPosition = position;
-        agent.SetDestination(lastClickPosition);
-        agent.speed = patrolSpeed;
-        Debug.Log("Enemy is investigating forced position: " + position);
-    }
-
     public void HearSound(Vector3 soundPosition)
     {
-        currentState = State.Investigate;
-        investigateTimer = investigateTimeout;
-        lastClickPosition = soundPosition;
-        agent.SetDestination(lastClickPosition);
-        agent.speed = chaseSpeed; // use same speed for investigate/chase
-        Debug.Log("Enemy heard a sound! Investigating " + soundPosition);
+        if(currentState != State.Chase)
+        {
+            currentState = State.Investigate;
+            investigateTimer = investigateTimeout;
+            lastSoundPos = soundPosition;
+            agent.SetDestination(lastSoundPos);
+            agent.speed = chaseSpeed; // use same speed for investigate/chase
+            Debug.Log("Enemy heard a sound! Investigating " + soundPosition);
+        }
+        
     }
 
 
