@@ -8,7 +8,7 @@ public class EnemyAI : MonoBehaviour
     public float patrolSpeed = 2f;
     public float chaseSpeed = 30f;
     public float investigateTimeout = 10f; // seconds before giving up if no chase
-    public float chaseRange = 8f;         // how close player must be to trigger chase
+    public float chaseRange = 20f;         // how close player must be to trigger chase
     public float catchDistance = 0.5f;    // Distance threshold for "caught"
     
 
@@ -20,6 +20,7 @@ public class EnemyAI : MonoBehaviour
 
     public enum State { Patrol, Investigate, Chase }
     public State currentState = State.Patrol;
+    private bool hasReachedInvestigationTarget = false;
 
     private PlayerMovement playerStatus;
     private bool isHiding;
@@ -90,21 +91,41 @@ public class EnemyAI : MonoBehaviour
 
     private void InvestigateLogic()
     {
-        investigateTimer -= Time.deltaTime;
         agent.speed = chaseSpeed;
 
-        // If player is close AND not hiding -> chase
-        if (Vector3.Distance(transform.position, player.position) <= chaseRange && !playerStatus.isHiding)
+        // 1. Check for immediate Chase interruption (player too close)
+        if (Vector3.Distance(transform.position, player.position) <= chaseRange && !playerStatus.isHiding)
         {
             currentState = State.Chase;
-            Debug.Log("Enemy spotted player, starting chase!");
-        }
-        // If timer expired or player hiding -> patrol again
-        else if (investigateTimer <= 0f || playerStatus.isHiding)
+            hasReachedInvestigationTarget = false; // Reset flag
+            Debug.Log("Enemy spotted player, starting chase!");
+            return; // Exit early as state changed
+        }
+
+        // 2. Check if agent has reached the sound location
+        if (!hasReachedInvestigationTarget)
         {
-            currentState = State.Patrol;
-            StartPatrol();
-            Debug.Log("Enemy gave up investigation, resuming patrol.");
+            // If agent is near destination and not calculating a new path, they have arrived.
+            if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+            {
+                hasReachedInvestigationTarget = true;
+                Debug.Log("Enemy reached sound location. Starting investigation countdown.");
+            }
+        }
+
+        // 3. Handle the investigation timeout once the location is reached
+        if (hasReachedInvestigationTarget)
+        {
+            investigateTimer -= Time.deltaTime;
+
+            // If timer expired or player hiding -> patrol again
+            if (investigateTimer <= 0f || playerStatus.isHiding)
+            {
+                currentState = State.Patrol;
+                StartPatrol();
+                hasReachedInvestigationTarget = false; // Reset flag
+                Debug.Log("Enemy gave up investigation, resuming patrol.");
+            }
         }
     }
 
@@ -162,6 +183,7 @@ public class EnemyAI : MonoBehaviour
             lastSoundPos = soundPosition;
             agent.SetDestination(lastSoundPos);
             agent.speed = chaseSpeed; // use same speed for investigate/chase
+            hasReachedInvestigationTarget = false;
             Debug.Log("Enemy heard a sound! Investigating " + soundPosition);
         }
         
