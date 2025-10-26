@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f669175fb116f664196d7f8a1e1d5cd1
+guid: 5956fa43c159f024a99e5e11b23e7839
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -101,78 +101,16 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Wall_02_0
+      name: Wall_09_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 786
-        width: 786.5
-        height: 786
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape:
-      - - {x: -393.25, y: 74.07837}
-        - {x: -393.25, y: 393}
-        - {x: 393.25, y: 393}
-        - {x: 393.25, y: 77.52124}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 01ee59f4ba40677429443b755acf0620
-      internalID: 310142316
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wall_02_1
-      rect:
-        serializedVersion: 2
-        x: 786
-        y: 786
-        width: 786.5
-        height: 786
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape:
-      - - {x: -393.25, y: 71}
-        - {x: -393.25, y: 393}
-        - {x: 393.25, y: 393}
-        - {x: 393.25, y: 75}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 520f5bd4225b0644c91ee32080410dfa
-      internalID: -852910921
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wall_02_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 786.5
+        y: 788
+        width: 786
         height: 786
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -181,19 +119,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf77288b0828650448f8e2b013e08273
-      internalID: -229827846
+      spriteID: 3cd80babd31d4014baacabd702b1dbce
+      internalID: -1528376251
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wall_02_3
+      name: Wall_09_1
       rect:
         serializedVersion: 2
         x: 786
-        y: 0
-        width: 786.5
+        y: 788
+        width: 786
         height: 786
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -202,8 +140,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a05dbc44655c74468e9efc3f8c28bd0
-      internalID: -457003067
+      spriteID: c062bbd59c3cbf747975907be0480ddc
+      internalID: 1497301376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wall_09_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2
+        width: 786
+        height: 786
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46b8d1b5008d6d74498cd2336ef72692
+      internalID: -460328010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wall_09_3
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 2
+        width: 786
+        height: 786
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbe352ece22df8745b0bc47462cac89d
+      internalID: 654644197
       vertices: []
       indices: 
       edges: []
@@ -219,10 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Wall_02_0: 310142316
-      Wall_02_2: -229827846
-      Wall_02_1: -852910921
-      Wall_02_3: -457003067
+      Wall_09_1: 1497301376
+      Wall_09_3: 654644197
+      Wall_09_2: -460328010
+      Wall_09_0: -1528376251
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
