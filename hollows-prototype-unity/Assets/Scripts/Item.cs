@@ -11,8 +11,7 @@ namespace Assets.Scripts
     //---------------------------------------------------------------------------------
     // Author		: SitiSyazwani
     // Date  		: 2025-09-14
-    // Modified By	: Added Inventory System
-    // Modified Date: 2024-01-20
+    // Modified By	: Rifqah Added Inventory System
     // Description	: Handles item collection and inventory system
     //---------------------------------------------------------------------------------
     public class Item : MonoBehaviour
@@ -32,6 +31,10 @@ namespace Assets.Scripts
         // SIMPLE INVENTORY SYSTEM - No Canvas needed
         public static List<string> collectedItems = new List<string>();
         private static bool showInventory = false;
+
+        // INVENTORY BUTTON
+        //private static GameObject inventoryButton;
+        //private static bool buttonCreated = false;
 
         // Add a private reference to the Flashlight script
         private Flashlight flashlight;
@@ -54,35 +57,99 @@ namespace Assets.Scripts
             {
                 Debug.LogError("Flashlight script not found in the scene.");
             }
+
+            // Create inventory button (only once)
+            //if (!buttonCreated)
+            //{
+            //    CreateInventoryButton();
+            //    buttonCreated = true;
+            //}
         }
 
         void Update()
         {
             HandleItemCollection();
-            HandleInventoryToggle();
+            // Removed keyboard toggle - using button instead
         }
 
-        // SIMPLE INVENTORY TOGGLE
-        void HandleInventoryToggle()
-        {
-            // Toggle inventory with I key
-            if (Input.GetKeyDown(KeyCode.I))
-            {
-                showInventory = !showInventory;
-                Debug.Log("Inventory " + (showInventory ? "shown" : "hidden") + " - Items: " + collectedItems.Count);
-            }
-        }
+        // CREATE INVENTORY BUTTON
+        //void CreateInventoryButton()
+        //{
+        //    // Find existing Canvas or create one
+        //    Canvas canvas = FindObjectOfType<Canvas>();
+        //    if (canvas == null)
+        //    {
+        //        GameObject canvasObj = new GameObject("InventoryCanvas");
+        //        canvas = canvasObj.AddComponent<Canvas>();
+        //        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        //        canvasObj.AddComponent<CanvasScaler>();
+        //        canvasObj.AddComponent<GraphicRaycaster>();
+        //    }
 
-        // SIMPLE INVENTORY DISPLAY - Always works, no canvas needed
+        //    // Create button
+        //    inventoryButton = new GameObject("InventoryButton");
+        //    inventoryButton.transform.SetParent(canvas.transform);
+
+        //    // Add button component
+        //    Button button = inventoryButton.AddComponent<Button>();
+        //    Image image = inventoryButton.AddComponent<Image>();
+
+        //    // Set button color (semi-transparent gray)
+        //    image.color = new Color(0.3f, 0.3f, 0.3f, 0.7f);
+
+        //    // Set button position (top-right corner)
+        //    RectTransform rt = inventoryButton.GetComponent<RectTransform>();
+        //    rt.anchorMin = new Vector2(1f, 1f); // Top-right
+        //    rt.anchorMax = new Vector2(1f, 1f);
+        //    rt.pivot = new Vector2(1f, 1f);
+        //    rt.sizeDelta = new Vector2(120f, 40f);
+        //    rt.anchoredPosition = new Vector2(-10f, -10f); // 10px from top-right corner
+
+        //    // Create button text
+        //    GameObject textObj = new GameObject("ButtonText");
+        //    textObj.transform.SetParent(inventoryButton.transform);
+        //    Text text = textObj.AddComponent<Text>();
+        //    text.text = "INVENTORY";
+        //    text.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+        //    text.fontSize = 12;
+        //    text.color = Color.white;
+        //    text.alignment = TextAnchor.MiddleCenter;
+
+        //    // Center text in button
+        //    RectTransform textRt = textObj.GetComponent<RectTransform>();
+        //    textRt.anchorMin = Vector2.zero;
+        //    textRt.anchorMax = Vector2.one;
+        //    textRt.sizeDelta = Vector2.zero;
+        //    textRt.anchoredPosition = Vector2.zero;
+
+        //    // Add click event
+        //    button.onClick.AddListener(ToggleInventory);
+
+        //    Debug.Log("Inventory button created in top-right corner");
+        //}
+        // SIMPLE INVENTORY BUTTON USING ONGUI
         void OnGUI()
         {
+            // Draw inventory button (always visible)
+            float buttonWidth = 120f;
+            float buttonHeight = 40f;
+            float buttonX = Screen.width - buttonWidth - 20f; // 20px from right edge
+            float buttonY = 20f; // 20px from top
+
+            // Draw the button
+            if (GUI.Button(new Rect(buttonX, buttonY, buttonWidth, buttonHeight), "INVENTORY"))
+            {
+                ToggleInventory();
+            }
+
+            // Draw inventory display if open
             if (!showInventory) return;
 
-            // Inventory box at top center
+            // Inventory box below the button
             float boxWidth = 300f;
             float boxHeight = 100f;
             float xPos = (Screen.width - boxWidth) / 2f;
-            float yPos = 20f;
+            float yPos = 70f;
 
             // Draw inventory background
             GUI.Box(new Rect(xPos, yPos, boxWidth, boxHeight), "INVENTORY");
@@ -120,8 +187,16 @@ namespace Assets.Scripts
             }
 
             // Draw instructions
-            GUI.Label(new Rect(xPos, yPos + boxHeight - 20f, boxWidth, 20f), "Press I to close");
+            GUI.Label(new Rect(xPos, yPos + boxHeight - 20f, boxWidth, 20f), "Click button to close");
         }
+
+        // TOGGLE INVENTORY (called by button click)
+        public void ToggleInventory()
+        {
+            showInventory = !showInventory;
+            Debug.Log("Inventory " + (showInventory ? "shown" : "hidden") + " - Items: " + collectedItems.Count);
+        }
+
 
         void OnTriggerEnter2D(Collider2D other)
         {
