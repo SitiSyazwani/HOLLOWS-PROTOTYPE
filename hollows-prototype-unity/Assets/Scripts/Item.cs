@@ -32,10 +32,6 @@ namespace Assets.Scripts
         public static List<string> collectedItems = new List<string>();
         private static bool showInventory = false;
 
-        // INVENTORY BUTTON
-        //private static GameObject inventoryButton;
-        //private static bool buttonCreated = false;
-
         // Add a private reference to the Flashlight script
         private Flashlight flashlight;
 
@@ -58,12 +54,6 @@ namespace Assets.Scripts
                 Debug.LogError("Flashlight script not found in the scene.");
             }
 
-            // Create inventory button (only once)
-            //if (!buttonCreated)
-            //{
-            //    CreateInventoryButton();
-            //    buttonCreated = true;
-            //}
         }
 
         void Update()
@@ -73,67 +63,12 @@ namespace Assets.Scripts
         }
 
         // CREATE INVENTORY BUTTON
-        //void CreateInventoryButton()
-        //{
-        //    // Find existing Canvas or create one
-        //    Canvas canvas = FindObjectOfType<Canvas>();
-        //    if (canvas == null)
-        //    {
-        //        GameObject canvasObj = new GameObject("InventoryCanvas");
-        //        canvas = canvasObj.AddComponent<Canvas>();
-        //        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-        //        canvasObj.AddComponent<CanvasScaler>();
-        //        canvasObj.AddComponent<GraphicRaycaster>();
-        //    }
-
-        //    // Create button
-        //    inventoryButton = new GameObject("InventoryButton");
-        //    inventoryButton.transform.SetParent(canvas.transform);
-
-        //    // Add button component
-        //    Button button = inventoryButton.AddComponent<Button>();
-        //    Image image = inventoryButton.AddComponent<Image>();
-
-        //    // Set button color (semi-transparent gray)
-        //    image.color = new Color(0.3f, 0.3f, 0.3f, 0.7f);
-
-        //    // Set button position (top-right corner)
-        //    RectTransform rt = inventoryButton.GetComponent<RectTransform>();
-        //    rt.anchorMin = new Vector2(1f, 1f); // Top-right
-        //    rt.anchorMax = new Vector2(1f, 1f);
-        //    rt.pivot = new Vector2(1f, 1f);
-        //    rt.sizeDelta = new Vector2(120f, 40f);
-        //    rt.anchoredPosition = new Vector2(-10f, -10f); // 10px from top-right corner
-
-        //    // Create button text
-        //    GameObject textObj = new GameObject("ButtonText");
-        //    textObj.transform.SetParent(inventoryButton.transform);
-        //    Text text = textObj.AddComponent<Text>();
-        //    text.text = "INVENTORY";
-        //    text.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
-        //    text.fontSize = 12;
-        //    text.color = Color.white;
-        //    text.alignment = TextAnchor.MiddleCenter;
-
-        //    // Center text in button
-        //    RectTransform textRt = textObj.GetComponent<RectTransform>();
-        //    textRt.anchorMin = Vector2.zero;
-        //    textRt.anchorMax = Vector2.one;
-        //    textRt.sizeDelta = Vector2.zero;
-        //    textRt.anchoredPosition = Vector2.zero;
-
-        //    // Add click event
-        //    button.onClick.AddListener(ToggleInventory);
-
-        //    Debug.Log("Inventory button created in top-right corner");
-        //}
-        // SIMPLE INVENTORY BUTTON USING ONGUI
         void OnGUI()
         {
             // Draw inventory button (always visible)
             float buttonWidth = 120f;
             float buttonHeight = 40f;
-            float buttonX = Screen.width - buttonWidth - 20f; // 20px from right edge
+            float buttonX = 20f; // 20px from left edge
             float buttonY = 20f; // 20px from top
 
             // Draw the button
