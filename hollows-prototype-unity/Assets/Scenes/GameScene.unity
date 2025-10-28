@@ -34967,6 +34967,9 @@ MonoBehaviour:
   catchDistance: 0.5
   animator: {fileID: 1482887389}
   redOverlay: {fileID: 1612079076}
+  pulseSpeed: 4
+  maxIntensity: 0.7
+  minIntensity: 0.3
   currentState: 0
   winlose: {fileID: 519420035}
 --- !u!95 &1482887389
@@ -38187,6 +38190,9 @@ MonoBehaviour:
   catchDistance: 0.5
   animator: {fileID: 1482887389}
   redOverlay: {fileID: 0}
+  pulseSpeed: 2
+  maxIntensity: 0.7
+  minIntensity: 0.3
   currentState: 0
   winlose: {fileID: 519420035}
 --- !u!195 &1773315683
