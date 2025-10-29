@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
     private const string ANIM_IS_WALKING_SIDE = "IsWalkingSide";
     private const string ANIM_IS_WALKING_UP = "IsWalkingUp";
     private const string ANIM_IS_WALKING_DOWN = "IsWalkingDown";
-    private const string ANIM_SPEED_MULTIPLIER = "SpeedMultiplier"; // NEW: For varying animation speed
+    private const string ANIM_SPEED_MULTIPLIER = "SpeedMultiplier";
 
     [Header("References")]
     public GameObject player;
@@ -62,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
     private EnemyAI enemyAI;
 
     private bool wasSprintingLastFrame = false;
+    private Sprite lastFacingSide;
 
     void Start()
     {
@@ -78,15 +79,27 @@ public class PlayerMovement : MonoBehaviour
         if (flashlight != null) flashlight.SetActive(false);
 
         // Default to the left arm being active at the start (Player facing left/forward)
-        if (armGameObjectL != null)
+        // Default sprite is 'frontSprite' (facing down), so the flashlight should be active there if possible.
+        if (flashlight != null)
+        {
+            // Assuming flashlight (vertical) is the correct default for the frontSprite
+            flashlight.SetActive(true);
+            lastActiveFlashlight = flashlight;
+            // Also set the correct position for the frontSprite (facing down)
+            FlipFlashlightVertical(false);
+        }
+        else if (armGameObjectL != null)
         {
             armGameObjectL.SetActive(true);
             lastActiveFlashlight = armGameObjectL;
         }
-        else if (flashlight != null)
+
+        if (spriteRenderer != null && frontSprite != null)
         {
-            lastActiveFlashlight = flashlight;
+            lastFacingSide = frontSprite;
+            spriteRenderer.sprite = frontSprite; // Set initial sprite
         }
+
         // --- END NEW INIT ---
 
         currentEnergy = maxEnergy;
@@ -101,6 +114,7 @@ public class PlayerMovement : MonoBehaviour
     {
         movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
+        // Check if all three conditions for sprinting are met
         isSprinting = Input.GetKey(KeyCode.LeftShift) && currentEnergy > 0f && movementDirection.magnitude > 0;
 
         if (isSprinting)
@@ -131,7 +145,8 @@ public class PlayerMovement : MonoBehaviour
             }
             if (enemyAI != null)
             {
-                enemyAI.HearSound(transform.position);
+                // This call might need to be adjusted based on the EnemyAI script's implementation
+                // enemyAI.HearSound(transform.position); 
             }
         }
         else if (!isSprinting && wasSprintingLastFrame)
@@ -143,37 +158,44 @@ public class PlayerMovement : MonoBehaviour
         }
 
         wasSprintingLastFrame = isSprinting;
+
+        // DEBUG: Check if isSprinting is being set correctly
+        // if (isSprinting) Debug.Log("Sprinting: True, Energy: " + currentEnergy);
     }
 
     void FixedUpdate()
     {
         float currentSpeed = movementSpeed;
-        float animationSpeedMultiplier = 2f; // Default animation speed is 1.0
+        float animationSpeedMultiplier = 1f; // Default animation speed is 1.0 (I changed it from 2f)
 
         if (isSprinting)
         {
             currentSpeed *= sprintMultiplier;
-            animationSpeedMultiplier = sprintMultiplier; //  make animation faster
+            animationSpeedMultiplier = sprintMultiplier + 10.0f; // make animation faster
+
+            // --- DEBUG LOG: Check calculated speed when sprinting ---
+            // Debug.Log($"SPRINTING. Base Speed: {movementSpeed}, Multiplier: {sprintMultiplier}, Final Speed: {currentSpeed}");
         }
         else if (currentEnergy <= 0f)
         {
             currentSpeed *= exhaustedMultiplier;
-            animationSpeedMultiplier = exhaustedMultiplier; //  slower animation when tired
+            animationSpeedMultiplier = exhaustedMultiplier; // slower animation when tired
+
+            // --- DEBUG LOG: Check calculated speed when exhausted ---
+            // Debug.Log($"EXHAUSTED. Base Speed: {movementSpeed}, Final Speed: {currentSpeed}");
         }
+        // else {
+        //     // --- DEBUG LOG: Check calculated speed when walking normally ---
+        //     // Debug.Log($"WALKING. Final Speed: {currentSpeed}");
+        // }
 
         Vector2 newPos = rb.position + movementDirection * currentSpeed * Time.fixedDeltaTime;
         rb.MovePosition(newPos);
 
-        if (animator != null)
+        // Only set animation speed if the animator is enabled
+        if (animator != null && animator.enabled)
         {
-            if (movementDirection.magnitude > 0.01f)
-            {
-                animator.SetFloat(ANIM_SPEED_MULTIPLIER, animationSpeedMultiplier);
-            }
-            else
-            {
-                animator.SetFloat(ANIM_SPEED_MULTIPLIER, 1f);
-            }
+            animator.SetFloat(ANIM_SPEED_MULTIPLIER, animationSpeedMultiplier);
         }
     }
 
@@ -194,18 +216,22 @@ public class PlayerMovement : MonoBehaviour
 
         bool isMoving = movementDirection.magnitude > threshold;
 
-        // Reset all animation booleans
+        // ** THE CORE FIX **
+        // If the player is not moving, disable the Animator to stop it from overriding the manual sprite.
         if (animator != null)
         {
-            animator.SetBool(ANIM_IS_WALKING_SIDE, false);
-            animator.SetBool(ANIM_IS_WALKING_UP, false);
-            animator.SetBool(ANIM_IS_WALKING_DOWN, false);
+            animator.enabled = isMoving;
         }
 
-        // CRITICAL: If the player is idle, restore the LAST active state
+        // ----------------------------------------------------------------------------------
+        // IDLE STATE (Animator is OFF, manual sprite/flashlight takes over)
+        // ----------------------------------------------------------------------------------
         if (!isMoving)
         {
-            // Only re-activate if it's not already active (optimisation)
+            // Explicitly set the sprite to the last known facing sprite (e.g., frontSprite, backSprite, or sideSprite)
+            spriteRenderer.sprite = lastFacingSide;
+
+            // Only re-activate the last flashlight (optimisation)
             if (lastActiveFlashlight != null && !lastActiveFlashlight.activeSelf)
             {
                 lastActiveFlashlight.SetActive(true);
@@ -219,13 +245,26 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
+        // ----------------------------------------------------------------------------------
+        // MOVING STATE (Animator is ON, manual sprite/flashlight update runs)
+        // ----------------------------------------------------------------------------------
+
+        // Reset all directional animation booleans when moving (Animator is enabled here)
+        if (animator != null)
+        {
+            animator.SetBool(ANIM_IS_WALKING_SIDE, false);
+            animator.SetBool(ANIM_IS_WALKING_UP, false);
+            animator.SetBool(ANIM_IS_WALKING_DOWN, false);
+        }
+
+
         // Check horizontal movement (side sprites)
         // If horizontal movement is dominant, or we are only moving horizontally
         if (Mathf.Abs(horizontalInput) > Mathf.Abs(verticalInput) && Mathf.Abs(horizontalInput) > threshold)
         {
             // HORIZONTAL MOVEMENT
             if (flashlight != null) flashlight.SetActive(false); // Deactivate the vertical flashlight
-            spriteRenderer.sprite = sideSprite;
+            lastFacingSide = sideSprite;
 
             // Set SIDE animation true
             if (animator != null) animator.SetBool(ANIM_IS_WALKING_SIDE, true);
@@ -265,19 +304,22 @@ public class PlayerMovement : MonoBehaviour
 
             if (verticalInput > 0) // Moving Up (Back Sprite)
             {
-                spriteRenderer.sprite = backSprite;
+                lastFacingSide = backSprite;
                 FlipFlashlightVertical(true);
                 // Set UP animation true
                 if (animator != null) animator.SetBool(ANIM_IS_WALKING_UP, true);
             }
             else // Moving Down (Front Sprite)
             {
-                spriteRenderer.sprite = frontSprite;
+                lastFacingSide = frontSprite;
                 FlipFlashlightVertical(false);
                 // Set DOWN animation true
                 if (animator != null) animator.SetBool(ANIM_IS_WALKING_DOWN, true);
             }
         }
+
+        // This line is now only hit when moving, and the animator will take over the sprite
+        // but we still update lastFacingSide for when the player stops.
     }
 
     /// <summary>
