@@ -8,25 +8,31 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     [Header("References")]
     private TMP_Text tmpText;
     private Button button;
-    
+
     [Header("Settings")]
     [SerializeField] private bool shouldStaySelected = true;
     [SerializeField] private bool disableAllButtonsOnClick = false;
-    
+
     private string originalText;
     private bool isSelected = false;
     private bool isHovering = false;
 
     void Awake()
     {
+        // Get the text component that's a DIRECT child
         tmpText = GetComponentInChildren<TMP_Text>();
         button = GetComponent<Button>();
-        
+
         if (tmpText != null)
         {
             originalText = tmpText.text;
+            Debug.Log($"Button '{gameObject.name}' initialized with text: '{originalText}'");
         }
-        
+        else
+        {
+            Debug.LogError($"Button '{gameObject.name}' has no TMP_Text child!");
+        }
+
         if (button != null)
         {
             button.onClick.AddListener(OnButtonClick);
@@ -40,7 +46,7 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     void Update()
     {
-        // Force the text to stay correct every frame
+        // Force the text to stay correct every frame only if selected
         if (isSelected && tmpText != null)
         {
             string expectedText = $"<color=red><u>{originalText}</u></color>";
@@ -53,31 +59,34 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        // Don't show hover effect if button is disabled or already selected
+        Debug.Log($"Pointer ENTER on: {gameObject.name}");
+
         if (isSelected || (button != null && !button.interactable)) return;
-        
+
         isHovering = true;
         UpdateTextDisplay();
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        // Don't update if button is disabled or already selected
+        Debug.Log($"Pointer EXIT on: {gameObject.name}");
+
         if (isSelected || (button != null && !button.interactable)) return;
-        
+
         isHovering = false;
         UpdateTextDisplay();
     }
 
     private void OnButtonClick()
     {
+        Debug.Log($"Button CLICKED: {gameObject.name}");
+
         if (shouldStaySelected)
         {
             isSelected = true;
             isHovering = false;
             UpdateTextDisplay();
-            
-            // Disable all buttons in the menu
+
             if (disableAllButtonsOnClick)
             {
                 DisableAllMenuButtons();
@@ -87,7 +96,6 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     private void DisableAllMenuButtons()
     {
-        // Find all buttons in the scene and disable them
         Button[] allButtons = FindObjectsOfType<Button>();
         foreach (Button btn in allButtons)
         {
@@ -97,24 +105,32 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     private void UpdateTextDisplay()
     {
-        if (tmpText == null) return;
+        if (tmpText == null)
+        {
+            Debug.LogError($"tmpText is null on {gameObject.name}!");
+            return;
+        }
 
         if (isSelected)
         {
             tmpText.text = $"<color=red><u>{originalText}</u></color>";
+            Debug.Log($"{gameObject.name} -> RED & UNDERLINED");
         }
         else if (isHovering)
         {
             tmpText.text = $"<u>{originalText}</u>";
+            Debug.Log($"{gameObject.name} -> UNDERLINED");
         }
         else
         {
             tmpText.text = originalText;
+            Debug.Log($"{gameObject.name} -> NORMAL");
         }
     }
 
     public void ResetButton()
     {
+        Debug.Log($"RESET Button: {gameObject.name}");
         isSelected = false;
         isHovering = false;
         UpdateTextDisplay();

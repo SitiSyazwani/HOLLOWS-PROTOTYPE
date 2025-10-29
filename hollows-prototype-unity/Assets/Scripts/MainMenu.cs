@@ -6,8 +6,8 @@ using System.Collections;
 public class MainMenu : MonoBehaviour
 {
     [Header("UI Panels")]
-    public GameObject mainMenuPanel;      // Your main buttons (Start, Settings, Quit)
-    public GameObject saveSlotPanel;      // The save slot menu
+    public GameObject mainMenuPanel;
+    public GameObject saveSlotPanel;
     public Image fadePanel;
 
     [Header("Settings")]
@@ -15,7 +15,6 @@ public class MainMenu : MonoBehaviour
 
     void Start()
     {
-        // Make sure save slot panel is hidden at start
         if (saveSlotPanel != null)
         {
             saveSlotPanel.SetActive(false);
@@ -27,18 +26,32 @@ public class MainMenu : MonoBehaviour
         }
     }
 
-    // Call this from your Start button
     public void OpenSaveSlotMenu()
     {
         mainMenuPanel.SetActive(false);
         saveSlotPanel.SetActive(true);
     }
 
-    // Call this to go back to main menu from save slots
     public void BackToMainMenu()
     {
         saveSlotPanel.SetActive(false);
         mainMenuPanel.SetActive(true);
+
+        // Reset all button states in the main menu
+        StartCoroutine(ResetMainMenuButtons());
+    }
+
+    private IEnumerator ResetMainMenuButtons()
+    {
+        // Wait one frame for the panel to be fully active
+        yield return null;
+
+        // Find all ButtonScript components in the main menu panel
+        ButtonScript[] buttons = mainMenuPanel.GetComponentsInChildren<ButtonScript>();
+        foreach (ButtonScript btn in buttons)
+        {
+            btn.ResetButton();
+        }
     }
 
     public void QuitGame()

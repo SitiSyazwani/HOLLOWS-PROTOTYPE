@@ -268,7 +268,6 @@ GameObject:
   m_Component:
   - component: {fileID: 44353983}
   - component: {fileID: 44353984}
-  - component: {fileID: 44353985}
   m_Layer: 5
   m_Name: Main Menu
   m_TagString: Untagged
@@ -316,20 +315,6 @@ MonoBehaviour:
   saveSlotPanel: {fileID: 863938401}
   fadePanel: {fileID: 1550954923}
   fadeDuration: 2
---- !u!114 &44353985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 44353982}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 611561f8b9ff64e47802669478634323, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shouldStaySelected: 1
-  disableAllButtonsOnClick: 0
 --- !u!1 &55721450
 GameObject:
   m_ObjectHideFlags: 0
