@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Character
   - Exit
+  - Battery
+  - Key
   layers:
   - Default
   - TransparentFX
