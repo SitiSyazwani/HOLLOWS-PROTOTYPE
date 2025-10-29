@@ -5,11 +5,7 @@ public class AppQuit : MonoBehaviour
 {
     private void Update()
     {
-        // Check for the Escape key press
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            ExitGame();
-        }
+        
     }
 
     void ExitGame()
