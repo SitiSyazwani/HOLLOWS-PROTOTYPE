@@ -450,6 +450,72 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    //private void UpdateVFX()
+    //{
+    //    bool isChasing = (currentState == State.Chase);
+
+    //    // Only update if chase state changed
+    //    if (isChasing != wasChasing)
+    //    {
+    //        if (redOverlay != null)
+    //        {
+    //            redOverlay.SetActive(isChasing);
+    //            Debug.Log("VFX: Red overlay " + (isChasing ? "ON" : "OFF"));
+
+    //            // Reset pulse timer when starting chase
+    //            if (isChasing)
+    //                pulseTimer = 0f;
+    //        }
+    //        else
+    //        {
+    //            Debug.LogWarning("Red overlay not assigned in Inspector!");
+    //        }
+
+    //        wasChasing = isChasing;
+    //    }
+
+    //    // Update VFX effects when chasing
+    //    if (isChasing && redOverlay != null && overlayImage != null)
+    //    {
+    //        UpdateChaseVFX();
+    //    }
+    //}
+
+    //private void UpdateChaseVFX()
+    //{
+    //    // Calculate distance-based intensity
+    //    float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+    //    float distanceIntensity = 1f - Mathf.Clamp01(distanceToPlayer / chaseRange);
+
+    //    // Update pulse timer
+    //    pulseTimer += Time.deltaTime * pulseSpeed;
+
+    //    // Calculate pulse effect (sin wave between -1 and 1, normalized to 0-1)
+    //    float pulse = (Mathf.Sin(pulseTimer) + 1f) * 0.5f; // 0 to 1
+
+    //    // Combine distance intensity with pulse effect
+    //    float baseAlpha = Mathf.Lerp(minIntensity, maxIntensity, distanceIntensity);
+    //    float pulsedAlpha = baseAlpha * (0.8f + 0.2f * pulse); // Pulse modulates alpha by 20%
+
+    //    // Apply to overlay
+    //    Color currentColor = overlayImage.color;
+    //    currentColor.a = pulsedAlpha;
+
+    //    // Optional: Add subtle color variation based on pulse
+    //    float colorPulse = Mathf.Sin(pulseTimer * 0.7f) * 0.1f;
+    //    currentColor.r = Mathf.Clamp01(0.8f + colorPulse);
+    //    currentColor.g = Mathf.Clamp01(0.2f - colorPulse * 0.5f);
+    //    currentColor.b = Mathf.Clamp01(0.2f - colorPulse * 0.5f);
+
+    //    overlayImage.color = currentColor;
+
+    //    // Optional: Add heartbeat-like intense pulses occasionally
+    //    if (pulseTimer % 6.28f < 0.1f) // Every ~? seconds
+    //    {
+    //        currentColor.a = Mathf.Min(currentColor.a + 0.2f, 0.9f);
+    //        overlayImage.color = currentColor;
+    //    }
+    //}
     private void UpdateVFX()
     {
         bool isChasing = (currentState == State.Chase);
@@ -459,6 +525,7 @@ public class EnemyAI : MonoBehaviour
         {
             if (redOverlay != null)
             {
+                // SIMPLE: Just use SetActive but ensure it doesn't break UI
                 redOverlay.SetActive(isChasing);
                 Debug.Log("VFX: Red overlay " + (isChasing ? "ON" : "OFF"));
 
@@ -466,11 +533,6 @@ public class EnemyAI : MonoBehaviour
                 if (isChasing)
                     pulseTimer = 0f;
             }
-            else
-            {
-                Debug.LogWarning("Red overlay not assigned in Inspector!");
-            }
-
             wasChasing = isChasing;
         }
 
@@ -490,31 +552,24 @@ public class EnemyAI : MonoBehaviour
         // Update pulse timer
         pulseTimer += Time.deltaTime * pulseSpeed;
 
-        // Calculate pulse effect (sin wave between -1 and 1, normalized to 0-1)
+        // Calculate pulse effect
         float pulse = (Mathf.Sin(pulseTimer) + 1f) * 0.5f; // 0 to 1
 
         // Combine distance intensity with pulse effect
         float baseAlpha = Mathf.Lerp(minIntensity, maxIntensity, distanceIntensity);
-        float pulsedAlpha = baseAlpha * (0.8f + 0.2f * pulse); // Pulse modulates alpha by 20%
+        float pulsedAlpha = baseAlpha * (0.8f + 0.2f * pulse);
 
         // Apply to overlay
         Color currentColor = overlayImage.color;
         currentColor.a = pulsedAlpha;
 
-        // Optional: Add subtle color variation based on pulse
+        // Color effects
         float colorPulse = Mathf.Sin(pulseTimer * 0.7f) * 0.1f;
         currentColor.r = Mathf.Clamp01(0.8f + colorPulse);
         currentColor.g = Mathf.Clamp01(0.2f - colorPulse * 0.5f);
         currentColor.b = Mathf.Clamp01(0.2f - colorPulse * 0.5f);
 
         overlayImage.color = currentColor;
-
-        // Optional: Add heartbeat-like intense pulses occasionally
-        if (pulseTimer % 6.28f < 0.1f) // Every ~? seconds
-        {
-            currentColor.a = Mathf.Min(currentColor.a + 0.2f, 0.9f);
-            overlayImage.color = currentColor;
-        }
     }
 
     private void UpdateAnimation()
