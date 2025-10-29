@@ -262,6 +262,9 @@ public class EnemyAI : MonoBehaviour
 
     public void HearSound(Vector3 soundPosition)
     {
+        if (agent == null)
+            agent = GetComponent<NavMeshAgent>();
+
         if (currentState != State.Chase)
         {
             currentState = State.Investigate;
