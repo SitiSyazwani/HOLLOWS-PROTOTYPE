@@ -148,7 +148,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         float currentSpeed = movementSpeed;
-        float animationSpeedMultiplier = 1f; // Default animation speed is 1.0
+        float animationSpeedMultiplier = 2f; // Default animation speed is 1.0
 
         if (isSprinting)
         {
