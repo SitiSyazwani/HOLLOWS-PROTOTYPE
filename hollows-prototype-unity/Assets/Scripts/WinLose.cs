@@ -22,6 +22,7 @@ public class WinLose : MonoBehaviour
     public GameObject LosePanel;
     public enum GameState { win, lose, playing };
     public GameState state = GameState.playing;
+    public GameObject MessageBox;
 
     //===================
     // Private Variables
@@ -54,6 +55,7 @@ public class WinLose : MonoBehaviour
         playerMovement.player.SetActive(false);
         enemyAI.gameObject.SetActive(false);
         WinPanel.SetActive(true);
+        MessageBox.SetActive(false);
     }
 
     private void loseCondition()
@@ -61,6 +63,7 @@ public class WinLose : MonoBehaviour
         playerMovement.player.SetActive(false);
         enemyAI.gameObject.SetActive(false);
         LosePanel.SetActive(true);
+        MessageBox.SetActive(false);
     }
 
     public void ReplayGame()

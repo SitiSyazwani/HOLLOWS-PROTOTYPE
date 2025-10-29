@@ -26,7 +26,15 @@ public class PlayerMovement : MonoBehaviour
     [Tooltip("The arm GameObject used when facing Right (localScale.x < 0)")]
     [SerializeField] private GameObject armGameObjectR;
 
-    // armLocalXOffset and armLocalPositionBase are now obsolete and removed.
+    [Header("Animation Settings")]
+    [Tooltip("The Animator component on the player GameObject.")]
+    [SerializeField] private Animator animator;
+
+    // Animator Parameter Names
+    private const string ANIM_IS_WALKING_SIDE = "IsWalkingSide";
+    private const string ANIM_IS_WALKING_UP = "IsWalkingUp";
+    private const string ANIM_IS_WALKING_DOWN = "IsWalkingDown";
+    private const string ANIM_SPEED_MULTIPLIER = "SpeedMultiplier"; // NEW: For varying animation speed
 
     [Header("References")]
     public GameObject player;
@@ -59,6 +67,10 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = player.GetComponent<Rigidbody2D>();
         spriteRenderer = player.GetComponent<SpriteRenderer>();
+        if (animator == null)
+        {
+            animator = player.GetComponent<Animator>();
+        }
 
         // --- NEW: Initialize the state of the separate flashlight components ---
         if (armGameObjectL != null) armGameObjectL.SetActive(false);
@@ -105,13 +117,10 @@ public class PlayerMovement : MonoBehaviour
         if (energyBar != null)
         {
             float energyPercent = currentEnergy / maxEnergy;
-            // The existing energy bar logic seems to be for a vertical bar. If it's horizontal, you might want to use:
-            // energyBar.localScale = new Vector3(energyPercent, energyBar.localScale.y, energyBar.localScale.z);
-            // Sticking to original code's y-axis scaling here:
             energyBar.localScale = new Vector3(energyBar.localScale.x, energyPercent, energyBar.localScale.z);
         }
 
-        // --- Sprite/Flashlight State Logic ---
+        // --- Sprite/Flashlight/Animation State Logic ---
         UpdateSprite();
 
         if (isSprinting && !wasSprintingLastFrame)
@@ -139,22 +148,38 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         float currentSpeed = movementSpeed;
+        float animationSpeedMultiplier = 2f; // Default animation speed is 1.0
 
         if (isSprinting)
         {
             currentSpeed *= sprintMultiplier;
+            animationSpeedMultiplier = sprintMultiplier; //  make animation faster
         }
         else if (currentEnergy <= 0f)
         {
             currentSpeed *= exhaustedMultiplier;
+            animationSpeedMultiplier = exhaustedMultiplier; //  slower animation when tired
         }
 
-        rb.velocity = movementDirection * currentSpeed;
+        Vector2 newPos = rb.position + movementDirection * currentSpeed * Time.fixedDeltaTime;
+        rb.MovePosition(newPos);
+
+        if (animator != null)
+        {
+            if (movementDirection.magnitude > 0.01f)
+            {
+                animator.SetFloat(ANIM_SPEED_MULTIPLIER, animationSpeedMultiplier);
+            }
+            else
+            {
+                animator.SetFloat(ANIM_SPEED_MULTIPLIER, 1f);
+            }
+        }
     }
 
+
     /// <summary>
-    /// Handles changing the sprite and enabling/disabling the correct arm or vertical flashlight.
-    /// This is the sole authority for setting armGameObjectL, armGameObjectR, and flashlight active states.
+    /// Handles changing the sprite, enabling/disabling the correct flashlight, and setting animation states.
     /// </summary>
     void UpdateSprite()
     {
@@ -167,8 +192,18 @@ public class PlayerMovement : MonoBehaviour
         float verticalInput = movementDirection.y;
         float threshold = 0.01f;
 
+        bool isMoving = movementDirection.magnitude > threshold;
+
+        // Reset all animation booleans
+        if (animator != null)
+        {
+            animator.SetBool(ANIM_IS_WALKING_SIDE, false);
+            animator.SetBool(ANIM_IS_WALKING_UP, false);
+            animator.SetBool(ANIM_IS_WALKING_DOWN, false);
+        }
+
         // CRITICAL: If the player is idle, restore the LAST active state
-        if (Mathf.Abs(horizontalInput) < threshold && Mathf.Abs(verticalInput) < threshold)
+        if (!isMoving)
         {
             // Only re-activate if it's not already active (optimisation)
             if (lastActiveFlashlight != null && !lastActiveFlashlight.activeSelf)
@@ -180,7 +215,7 @@ public class PlayerMovement : MonoBehaviour
                 if (armGameObjectR != null && armGameObjectR != lastActiveFlashlight) armGameObjectR.SetActive(false);
                 if (flashlight != null && flashlight != lastActiveFlashlight) flashlight.SetActive(false);
             }
-            // If the player is idle, and we have a lastActiveFlashlight, stop all other logic.
+            // If the player is idle, we are done.
             return;
         }
 
@@ -192,22 +227,23 @@ public class PlayerMovement : MonoBehaviour
             if (flashlight != null) flashlight.SetActive(false); // Deactivate the vertical flashlight
             spriteRenderer.sprite = sideSprite;
 
+            // Set SIDE animation true
+            if (animator != null) animator.SetBool(ANIM_IS_WALKING_SIDE, true);
+
             // Handle Side-Facing Movement
             if (horizontalInput > 0) // Moving Right
             {
                 spriteRenderer.flipX = true;
-                // FIX: Right Arm should be active when facing/moving Right (flipX=true)
                 if (armGameObjectL != null) armGameObjectL.SetActive(false); // Deactivate Left Arm
                 if (armGameObjectR != null) armGameObjectR.SetActive(true); // Activate Right Arm
-                lastActiveFlashlight = armGameObjectR; // FIX: Store the ACTIVATED arm
+                lastActiveFlashlight = armGameObjectR; // Store the ACTIVATED arm
             }
             else // Moving Left
             {
                 spriteRenderer.flipX = false;
-                // FIX: Left Arm should be active when facing/moving Left (flipX=false)
                 if (armGameObjectR != null) armGameObjectR.SetActive(false); // Deactivate Right Arm
                 if (armGameObjectL != null) armGameObjectL.SetActive(true); // Activate Left Arm
-                lastActiveFlashlight = armGameObjectL; // FIX: Store the ACTIVATED arm
+                lastActiveFlashlight = armGameObjectL; // Store the ACTIVATED arm
             }
         }
         // Check vertical movement (front/back sprites)
@@ -227,17 +263,19 @@ public class PlayerMovement : MonoBehaviour
                 lastActiveFlashlight = flashlight; // Store as last active
             }
 
-            if (verticalInput > 0) // Moving Up
+            if (verticalInput > 0) // Moving Up (Back Sprite)
             {
                 spriteRenderer.sprite = backSprite;
-                // NEW: Flip flashlight for facing UP
                 FlipFlashlightVertical(true);
+                // Set UP animation true
+                if (animator != null) animator.SetBool(ANIM_IS_WALKING_UP, true);
             }
-            else // Moving Down
+            else // Moving Down (Front Sprite)
             {
                 spriteRenderer.sprite = frontSprite;
-                // NEW: Flip flashlight for facing DOWN
                 FlipFlashlightVertical(false);
+                // Set DOWN animation true
+                if (animator != null) animator.SetBool(ANIM_IS_WALKING_DOWN, true);
             }
         }
     }

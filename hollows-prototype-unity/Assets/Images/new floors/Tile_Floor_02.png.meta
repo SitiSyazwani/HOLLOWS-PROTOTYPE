@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 250
+  spritePixelsToUnits: 500
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -109,9 +109,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 831
-        width: 278.5
-        height: 277
+        y: 554
+        width: 557
+        height: 554
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -129,10 +129,10 @@ TextureImporter:
       name: Tile_Floor_02_1
       rect:
         serializedVersion: 2
-        x: 278
-        y: 831
-        width: 278.5
-        height: 277
+        x: 557
+        y: 554
+        width: 557
+        height: 554
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,10 +150,10 @@ TextureImporter:
       name: Tile_Floor_02_2
       rect:
         serializedVersion: 2
-        x: 556
-        y: 831
-        width: 278.5
-        height: 277
+        x: 0
+        y: 0
+        width: 557
+        height: 554
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,10 +171,10 @@ TextureImporter:
       name: Tile_Floor_02_3
       rect:
         serializedVersion: 2
-        x: 834
-        y: 831
-        width: 278.5
-        height: 277
+        x: 557
+        y: 0
+        width: 557
+        height: 554
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,258 +184,6 @@ TextureImporter:
       bones: []
       spriteID: b41045711a3358445883275683d21b0b
       internalID: -746887217
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tile_Floor_02_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 554
-        width: 278.5
-        height: 277
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d4d48c1a4b1cf3643922339e583db5e2
-      internalID: 1055866279
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tile_Floor_02_5
-      rect:
-        serializedVersion: 2
-        x: 278
-        y: 554
-        width: 278.5
-        height: 277
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c466e83e0e2d027469d1896da3eff444
-      internalID: -651249688
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tile_Floor_02_6
-      rect:
-        serializedVersion: 2
-        x: 556
-        y: 554
-        width: 278.5
-        height: 277
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7b92535b718caaf4490cc98190dde1a3
-      internalID: 101038929
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tile_Floor_02_7
-      rect:
-        serializedVersion: 2
-        x: 834
-        y: 554
-        width: 278.5
-        height: 277
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a30cfb96a33ed484bb868c59322b19c4
-      internalID: -1759325740
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tile_Floor_02_8
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 277
-        width: 278.5
-        height: 277
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 47da4e7c798440c4d970edb7f1e2fd3e
-      internalID: 388593757
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tile_Floor_02_9
-      rect:
-        serializedVersion: 2
-        x: 278
-        y: 277
-        width: 278.5
-        height: 277
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8233b05d60bfa1e408e11118672d925e
-      internalID: -1092249912
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tile_Floor_02_10
-      rect:
-        serializedVersion: 2
-        x: 556
-        y: 277
-        width: 278.5
-        height: 277
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 603bc7316cb9c004b88bc2c86a60f1b7
-      internalID: -1602099167
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tile_Floor_02_11
-      rect:
-        serializedVersion: 2
-        x: 834
-        y: 277
-        width: 278.5
-        height: 277
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 52f20ffa4d718b543b533e578c382367
-      internalID: -174756142
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tile_Floor_02_12
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 278.5
-        height: 277
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c7245b5eb685626499d3089c8c17ea62
-      internalID: -1844904782
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tile_Floor_02_13
-      rect:
-        serializedVersion: 2
-        x: 278
-        y: 0
-        width: 278.5
-        height: 277
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 025532ae1105c7c469ee1f8081c7f231
-      internalID: 2056678007
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tile_Floor_02_14
-      rect:
-        serializedVersion: 2
-        x: 556
-        y: 0
-        width: 278.5
-        height: 277
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d742055e15df40c43ab5567799209189
-      internalID: 643646422
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tile_Floor_02_15
-      rect:
-        serializedVersion: 2
-        x: 834
-        y: 0
-        width: 278.5
-        height: 277
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5bc8cd6d7af65a841ba6ccfa590d5041
-      internalID: -1912705290
       vertices: []
       indices: 
       edges: []
@@ -451,22 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Tile_Floor_02_9: -1092249912
-      Tile_Floor_02_13: 2056678007
-      Tile_Floor_02_12: -1844904782
-      Tile_Floor_02_4: 1055866279
       Tile_Floor_02_3: -746887217
-      Tile_Floor_02_11: -174756142
       Tile_Floor_02_1: 15640401
-      Tile_Floor_02_8: 388593757
-      Tile_Floor_02_14: 643646422
       Tile_Floor_02_2: -1558658218
-      Tile_Floor_02_5: -651249688
-      Tile_Floor_02_15: -1912705290
       Tile_Floor_02_0: -1944031834
-      Tile_Floor_02_10: -1602099167
-      Tile_Floor_02_6: 101038929
-      Tile_Floor_02_7: -1759325740
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
