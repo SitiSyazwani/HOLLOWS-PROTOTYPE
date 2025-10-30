@@ -6,8 +6,6 @@ TagManager:
   tags:
   - Character
   - Exit
-  - Battery
-  - Key
   layers:
   - Default
   - TransparentFX
@@ -44,10 +42,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Blood
-    uniqueID: 547269585
-    locked: 0
-  - name: Foreground
-    uniqueID: 2767074993
     locked: 0
