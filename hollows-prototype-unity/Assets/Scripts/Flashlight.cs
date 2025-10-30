@@ -108,8 +108,8 @@ public class Flashlight : MonoBehaviour
 
         if (currentArm != null)
         {
-            currentHorizontalLight = currentArm.GetComponent<Light2D>();
-            currentHorizontalFlashlightCollider = currentArm.GetComponent<Collider2D>();
+            currentHorizontalLight = currentArm.GetComponentInChildren<Light2D>();
+            currentHorizontalFlashlightCollider = currentArm.GetComponentInChildren<Collider2D>();
         }
 
         if (currentHorizontalLight != null) currentHorizontalLight.enabled = flashOn && isArmActive;
