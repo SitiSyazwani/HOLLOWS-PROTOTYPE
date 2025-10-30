@@ -282,7 +282,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FloorWood
+      name: InteriorTilesLITE_0
       rect:
         serializedVersion: 2
         x: 0
@@ -294,16 +294,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: d92a6a034da93cc60800000000000000
-      internalID: 7837278012694766237
+      spriteID: 954de422562c5c947ada6b57f77247d6
+      internalID: 196231268
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBorder_BRCorner
+      name: InteriorTilesLITE_1
       rect:
         serializedVersion: 2
         x: 32
@@ -315,16 +315,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: fe54e07a987d34fe0800000000000000
-      internalID: -1205883288991939089
+      spriteID: 961c4306abe97ef47a8cf12c3b24985a
+      internalID: -1758283001
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBorder_WallTop
+      name: InteriorTilesLITE_2
       rect:
         serializedVersion: 2
         x: 64
@@ -336,16 +336,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 34f6efd74e6909d00800000000000000
-      internalID: 977447027249934147
+      spriteID: 4ab2694846a44be448e358c8dce097b7
+      internalID: -1487636567
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBorder_WallBottom
+      name: InteriorTilesLITE_3
       rect:
         serializedVersion: 2
         x: 96
@@ -357,16 +357,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c8245d5ffc4735150800000000000000
-      internalID: 5860155976670593676
+      spriteID: 88d3933ae459a2b479532ea9c08f92bf
+      internalID: 1485362217
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBorder_BLCorner
+      name: InteriorTilesLITE_4
       rect:
         serializedVersion: 2
         x: 192
@@ -378,16 +378,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 0cd005471b873d3f0800000000000000
-      internalID: -877224798851166784
+      spriteID: 3269a3bac7df7f04692801d9698d1c2a
+      internalID: -248779837
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBorder_TLTurn
+      name: InteriorTilesLITE_5
       rect:
         serializedVersion: 2
         x: 224
@@ -399,16 +399,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 2977247f3683b9560800000000000000
-      internalID: 7321507621222119314
+      spriteID: 42d012b71302d7a43b641ddd972944ed
+      internalID: -1655336685
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBorder_TRTurn
+      name: InteriorTilesLITE_6
       rect:
         serializedVersion: 2
         x: 256
@@ -420,16 +420,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 69c2dd97d8c9e9800800000000000000
-      internalID: 621105930072566934
+      spriteID: 5f1a7d8d953396d4fbb005cb58955a8a
+      internalID: -1700510514
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBorder_LowCorners
+      name: InteriorTilesLITE_7
       rect:
         serializedVersion: 2
         x: 288
@@ -441,16 +441,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 0e2041af214d50290800000000000000
-      internalID: -7924694791318404384
+      spriteID: e7f1954f65fcbce49be0f970f4672a0c
+      internalID: -338775302
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBorder_UpLoop
+      name: InteriorTilesLITE_8
       rect:
         serializedVersion: 2
         x: 320
@@ -462,16 +462,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 238e31a383cacf280800000000000000
-      internalID: -9008135797155305422
+      spriteID: 2d1168bb706f05a4f9e4b83b07374322
+      internalID: 1644339886
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CarpetRed_UpLeft
+      name: InteriorTilesLITE_9
       rect:
         serializedVersion: 2
         x: 416
@@ -483,16 +483,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: ab9dc40df891aaed0800000000000000
-      internalID: -2402079345783023174
+      spriteID: ea9708654deec4f47ab6a00c4fc71c1c
+      internalID: 538207725
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RedCarpet_UpMid
+      name: InteriorTilesLITE_10
       rect:
         serializedVersion: 2
         x: 448
@@ -504,16 +504,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b53a231907a844f20800000000000000
-      internalID: 3405999434275922779
+      spriteID: 9fc9fb33558cf7e4e801df67eba48dea
+      internalID: 1612391832
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CarpetRed_UpRight
+      name: InteriorTilesLITE_11
       rect:
         serializedVersion: 2
         x: 480
@@ -525,16 +525,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b75f3572a2b012560800000000000000
-      internalID: 7287117947738518907
+      spriteID: 8ba339b7fc13b3d4381d63a532a20369
+      internalID: -1642300501
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FloorStone
+      name: InteriorTilesLITE_12
       rect:
         serializedVersion: 2
         x: 0
@@ -546,16 +546,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b0a1d22d247c08290800000000000000
-      internalID: -7890087457345168885
+      spriteID: afa3aefc212719c44b33cfb54150f95b
+      internalID: 1514422416
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBorder_WallLeft
+      name: InteriorTilesLITE_13
       rect:
         serializedVersion: 2
         x: 32
@@ -567,16 +567,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 505316de5045bf480800000000000000
-      internalID: -8864399057114548987
+      spriteID: 44f787ed9689cfb4d8eac93eda6c7c20
+      internalID: 250490697
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBasic_UpLeft
+      name: InteriorTilesLITE_14
       rect:
         serializedVersion: 2
         x: 64
@@ -588,16 +588,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 54fb6c0de045ca910800000000000000
-      internalID: 1849945969551392581
+      spriteID: 297ddb015a81fb6438f0c75b697d4958
+      internalID: -2043779050
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBasic_UpMid
+      name: InteriorTilesLITE_15
       rect:
         serializedVersion: 2
         x: 96
@@ -609,16 +609,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b6ee092fe960cd730800000000000000
-      internalID: 4025099446706564715
+      spriteID: 43ab64de0265ba24b9f171c9fb0fa3cc
+      internalID: -850379940
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBasic_UpRight
+      name: InteriorTilesLITE_16
       rect:
         serializedVersion: 2
         x: 128
@@ -630,16 +630,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 18b510984cf7ce100800000000000000
-      internalID: 138626170630527873
+      spriteID: 4feec042dea597546b9acf7eac8b858b
+      internalID: -1026106963
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBasic_UpSingle
+      name: InteriorTilesLITE_17
       rect:
         serializedVersion: 2
         x: 160
@@ -651,16 +651,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 3fe9e94776ebbf2c0800000000000000
-      internalID: -4396711259649696013
+      spriteID: 33111ca8e4de7be4a8fbe45352f4e347
+      internalID: -1688605978
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBorder_WallRight
+      name: InteriorTilesLITE_18
       rect:
         serializedVersion: 2
         x: 192
@@ -672,16 +672,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 405ca30229cf3e4f0800000000000000
-      internalID: -800518604205669116
+      spriteID: dc2a66c4e330e8847ba0a42ff798ae04
+      internalID: -1129751213
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBorder_BLTurn
+      name: InteriorTilesLITE_19
       rect:
         serializedVersion: 2
         x: 224
@@ -693,16 +693,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b0ac4c5fc04925ed0800000000000000
-      internalID: -2426714465815442933
+      spriteID: 574ddb40353d64a41913c6e8aa81cdf2
+      internalID: -991075067
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBorder_BRTurn
+      name: InteriorTilesLITE_20
       rect:
         serializedVersion: 2
         x: 256
@@ -714,16 +714,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7b482cdb26f71cc90800000000000000
-      internalID: -7151294671220472649
+      spriteID: 5429bf88c7d702c4fa966989a528555a
+      internalID: 2134103204
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBorder_2Vert
+      name: InteriorTilesLITE_21
       rect:
         serializedVersion: 2
         x: 288
@@ -735,16 +735,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 847461da369692030800000000000000
-      internalID: 3470420864692275016
+      spriteID: ca67e8c9779a20748a3b34e73c9ea9a6
+      internalID: -156693896
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBorder_TopCorners
+      name: InteriorTilesLITE_22
       rect:
         serializedVersion: 2
         x: 320
@@ -756,16 +756,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: d96c1df51d43b5670800000000000000
-      internalID: 8528468393216558749
+      spriteID: 08a8aca45b9859e4faedf689bacb63c5
+      internalID: 749731501
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBorder_LeftLoop
+      name: InteriorTilesLITE_23
       rect:
         serializedVersion: 2
         x: 352
@@ -777,16 +777,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 5d8e9a861a81a5ed0800000000000000
-      internalID: -2424598367860823851
+      spriteID: 35650819a3d1dc94fad17d12f44d1990
+      internalID: -1113628415
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBorder_LeftCorners
+      name: InteriorTilesLITE_24
       rect:
         serializedVersion: 2
         x: 384
@@ -798,16 +798,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a9fd6fa3def22cd10800000000000000
-      internalID: 2144329068524789658
+      spriteID: b7d805a4a39c27d4b9462b88bcadfc9f
+      internalID: -1093154599
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CarpetRed_MidLeft
+      name: InteriorTilesLITE_25
       rect:
         serializedVersion: 2
         x: 416
@@ -819,16 +819,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 454dd15ea9b469220800000000000000
-      internalID: 2492262572437132372
+      spriteID: eb9bb85b2efd1eb439a015c06ab13068
+      internalID: -1529808227
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CarpetRed_Mid
+      name: InteriorTilesLITE_26
       rect:
         serializedVersion: 2
         x: 448
@@ -840,16 +840,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 25f04774c3969ad80800000000000000
-      internalID: -8238938335679869102
+      spriteID: fd3684d77ec933e4b8ec6d68b3af7d51
+      internalID: -889616168
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CarpetRed_MidRight
+      name: InteriorTilesLITE_27
       rect:
         serializedVersion: 2
         x: 480
@@ -861,16 +861,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 3248406d4a09656c0800000000000000
-      internalID: -4154974568563047389
+      spriteID: 76adb72b254dd91438cfca3a0c9772e6
+      internalID: -1665421282
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FloorKitchen
+      name: InteriorTilesLITE_28
       rect:
         serializedVersion: 2
         x: 0
@@ -882,16 +882,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 4f03879b27ac3f8f0800000000000000
-      internalID: -507839738875989772
+      spriteID: 4b74c9a9d90a61948aa0153275f29ae1
+      internalID: 1500134974
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBorder_TRCorner
+      name: InteriorTilesLITE_29
       rect:
         serializedVersion: 2
         x: 32
@@ -903,16 +903,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 5209a232e8a190030800000000000000
-      internalID: 3461326986388607013
+      spriteID: 71a769c54192ab04d98c9fd87c45d2f1
+      internalID: -803025647
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBasic_DownLeft
+      name: InteriorTilesLITE_30
       rect:
         serializedVersion: 2
         x: 64
@@ -924,16 +924,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 590f3af0bc0d79500800000000000000
-      internalID: 403020262232289429
+      spriteID: 65c45ceadd53d184ea68a43b23c10951
+      internalID: -1758964409
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBasic_DownMid
+      name: InteriorTilesLITE_31
       rect:
         serializedVersion: 2
         x: 96
@@ -945,16 +945,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: ab82bb259abc2eab0800000000000000
-      internalID: -4980194309820438342
+      spriteID: f852054129661534eabe477c7fdc1e36
+      internalID: 407116000
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBasic_DownRight
+      name: InteriorTilesLITE_32
       rect:
         serializedVersion: 2
         x: 128
@@ -966,16 +966,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 03fec975c872f1b40800000000000000
-      internalID: 5413088760841432880
+      spriteID: 1e6e3b1d894a97245b5055b768a3b61f
+      internalID: -647798926
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBasic_DownSingle
+      name: InteriorTilesLITE_33
       rect:
         serializedVersion: 2
         x: 160
@@ -987,16 +987,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 21f4e7e562f85e300800000000000000
-      internalID: 280787946737389330
+      spriteID: 9e0bcec8b18767c43a76ee21beef7a47
+      internalID: 1755947834
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBorder_TLCorner
+      name: InteriorTilesLITE_34
       rect:
         serializedVersion: 2
         x: 192
@@ -1008,16 +1008,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 74fc710c482c7f980800000000000000
-      internalID: -8505115495851634873
+      spriteID: dafafeea26bb04e44a7c205595625574
+      internalID: 1924167766
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBorder_DownLoop
+      name: InteriorTilesLITE_35
       rect:
         serializedVersion: 2
         x: 288
@@ -1029,16 +1029,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 731e399e8003492f0800000000000000
-      internalID: -967095205141159625
+      spriteID: 2d92ade83566f7545a0b549bb02d0479
+      internalID: 1058455179
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBorder_RightCorners
+      name: InteriorTilesLITE_36
       rect:
         serializedVersion: 2
         x: 320
@@ -1050,16 +1050,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: ed03d282ab1910240800000000000000
-      internalID: 4756242910203949278
+      spriteID: 8c76ff81cc2b7614b9b065892b719bf9
+      internalID: -1392514575
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBorder_2Hori
+      name: InteriorTilesLITE_37
       rect:
         serializedVersion: 2
         x: 352
@@ -1071,16 +1071,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: d9f332f89a8e69280800000000000000
-      internalID: -9036779787323752547
+      spriteID: 597def771d36b684abc2590009065f03
+      internalID: 1739874210
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBorder_RightLoop
+      name: InteriorTilesLITE_38
       rect:
         serializedVersion: 2
         x: 384
@@ -1092,16 +1092,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a5ae01475abcbafa0800000000000000
-      internalID: -5788308984577332646
+      spriteID: a8fe3d79fc2b86f45a4d795b0f319ef3
+      internalID: -1279951316
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CarpetRed_DownRight
+      name: InteriorTilesLITE_39
       rect:
         serializedVersion: 2
         x: 416
@@ -1113,16 +1113,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 8c94bf53e2bf85a20800000000000000
-      internalID: 3051464923436239304
+      spriteID: f03edfebe5756fc4c8e9e09c37c00334
+      internalID: -301063166
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CarpetRed_DownMid
+      name: InteriorTilesLITE_40
       rect:
         serializedVersion: 2
         x: 448
@@ -1134,16 +1134,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: e89f2ce3c46856c20800000000000000
-      internalID: 3199110772345207182
+      spriteID: 2f5e9a9c57e476b44b1f821559c8e611
+      internalID: 1654590542
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CarpetRed_DownRigh
+      name: InteriorTilesLITE_41
       rect:
         serializedVersion: 2
         x: 480
@@ -1155,16 +1155,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: da11115eb07ce2520800000000000000
-      internalID: 2679297682233692589
+      spriteID: 2a30d3005987203429a1038d6d7d7ffe
+      internalID: 1416110955
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBlueStripe_UpLeft
+      name: InteriorTilesLITE_42
       rect:
         serializedVersion: 2
         x: 0
@@ -1176,16 +1176,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 0cfb7b52bf5909640800000000000000
-      internalID: 5084728885203419072
+      spriteID: cb45ed4618967e048a0472b5a52ba272
+      internalID: 1234729047
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBlueStripe_UpMid
+      name: InteriorTilesLITE_43
       rect:
         serializedVersion: 2
         x: 32
@@ -1197,16 +1197,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a5b475aa279fd8f90800000000000000
-      internalID: -6949624379083371686
+      spriteID: 7658690da54528748bed7ba6b5468c3f
+      internalID: -1004589686
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBlueStripe_UpRight
+      name: InteriorTilesLITE_44
       rect:
         serializedVersion: 2
         x: 64
@@ -1218,16 +1218,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 9e49375c5b1926720800000000000000
-      internalID: 2837990925084628201
+      spriteID: 13dac3d634e7e0549b495a5285ebd6be
+      internalID: 179872331
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBlueStripe_UpSingle
+      name: InteriorTilesLITE_45
       rect:
         serializedVersion: 2
         x: 96
@@ -1239,16 +1239,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 0b6c14e33d04afc40800000000000000
-      internalID: 5546817167086962352
+      spriteID: e9de8a0408b2ecc4789d0b74a00f07a9
+      internalID: -1267276225
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallRed_UpLeft
+      name: InteriorTilesLITE_46
       rect:
         serializedVersion: 2
         x: 128
@@ -1260,16 +1260,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 9c7e1aa25ef9f8200800000000000000
-      internalID: 184541916357060553
+      spriteID: c021a6c54c494c5449c7b1ec14296d29
+      internalID: -934036547
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallRed_UpMid
+      name: InteriorTilesLITE_47
       rect:
         serializedVersion: 2
         x: 160
@@ -1281,16 +1281,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 32e805013c01de240800000000000000
-      internalID: 4822529205962051107
+      spriteID: bbde4b8796899154ba9915fe8298cf91
+      internalID: 1327908889
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallRed_UpRight
+      name: InteriorTilesLITE_48
       rect:
         serializedVersion: 2
         x: 192
@@ -1302,16 +1302,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: bbf0a6b2b8ed25960800000000000000
-      internalID: 7589373011382898619
+      spriteID: feb93a4ac81b80745a7f449cc96a1197
+      internalID: -1548314350
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallRed_UpSingle
+      name: InteriorTilesLITE_49
       rect:
         serializedVersion: 2
         x: 224
@@ -1323,16 +1323,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 16905e9eb66dc9dc0800000000000000
-      internalID: -3630791440593516191
+      spriteID: d088bde8751a8f1419e15dde4189b918
+      internalID: -109813473
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Window1_Up
+      name: InteriorTilesLITE_50
       rect:
         serializedVersion: 2
         x: 256
@@ -1344,16 +1344,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 1dc80d32e8c5224f0800000000000000
-      internalID: -855019213690991407
+      spriteID: 85c792602a988c840b6d9ed1d121ab51
+      internalID: 1713514023
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WIndow2_Up
+      name: InteriorTilesLITE_51
       rect:
         serializedVersion: 2
         x: 288
@@ -1365,16 +1365,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 2aa3e91fdcc25c800800000000000000
-      internalID: 631960585749019298
+      spriteID: abc5874e7993b194cad158d515330847
+      internalID: 1712209144
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Window3
+      name: InteriorTilesLITE_52
       rect:
         serializedVersion: 2
         x: 320
@@ -1386,16 +1386,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 634c99b6cdd9c44d0800000000000000
-      internalID: -3148968469415214026
+      spriteID: fc3afb086c8dc0246b1321319c1aeb1d
+      internalID: 676603010
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CurtainRed_Up
+      name: InteriorTilesLITE_53
       rect:
         serializedVersion: 2
         x: 352
@@ -1407,16 +1407,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 58245201e8ddb20c0800000000000000
-      internalID: -4599338992202857851
+      spriteID: 8e0e167c8d78d6849b3d8f5c8cab8e2c
+      internalID: -1363965155
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Table_UpLeft
+      name: InteriorTilesLITE_54
       rect:
         serializedVersion: 2
         x: 384
@@ -1428,16 +1428,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 077553573f5a5b0a0800000000000000
-      internalID: -6866399591794387088
+      spriteID: 5c214434746239d40b10a2313350089e
+      internalID: -847902059
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Table_UpMid
+      name: InteriorTilesLITE_55
       rect:
         serializedVersion: 2
         x: 416
@@ -1451,14 +1451,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 434364d028fcc8e4483be1b3c048b194
-      internalID: 410296942
+      spriteID: 33a24942f19efbf449e28a7e5e75eeaa
+      internalID: 334708521
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Table_UpRight
+      name: InteriorTilesLITE_56
       rect:
         serializedVersion: 2
         x: 448
@@ -1472,14 +1472,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e405b051c6a75134f918d34449151937
-      internalID: 395775485
+      spriteID: f06f9ba9353e0b245ab244411aeecba6
+      internalID: -1719885616
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EndTableSmall_Up
+      name: InteriorTilesLITE_57
       rect:
         serializedVersion: 2
         x: 480
@@ -1493,14 +1493,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d1604ecd04f32b47bf26e182b001f12
-      internalID: -1055367927
+      spriteID: e78d59f170c109648bedd286b2d31629
+      internalID: 1331753082
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBlueStripe_DownLeft
+      name: InteriorTilesLITE_58
       rect:
         serializedVersion: 2
         x: 0
@@ -1514,14 +1514,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5721b15b91697444fb9dc9c295595f18
-      internalID: 1262458706
+      spriteID: ca0b383a47c7c2840903c2d72c1ff8d4
+      internalID: -1527172966
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBlueStripe_DownMid
+      name: InteriorTilesLITE_59
       rect:
         serializedVersion: 2
         x: 32
@@ -1535,14 +1535,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eea8d5b53d773b041b191aa0ad207448
-      internalID: 534424746
+      spriteID: 5205fe4bd002b444aa59e824f45b3b85
+      internalID: -1148447343
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBlueStripe_DownRight
+      name: InteriorTilesLITE_60
       rect:
         serializedVersion: 2
         x: 64
@@ -1556,14 +1556,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fab72aacd297dd04bb794f878bdfa928
-      internalID: 1592248017
+      spriteID: 1e21247e7198d4542a579188fed72b01
+      internalID: 317952575
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallBlueStripe_DownSingle
+      name: InteriorTilesLITE_61
       rect:
         serializedVersion: 2
         x: 96
@@ -1577,14 +1577,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec1aa39b63bbd8a4b9d8c10a3f2d3e86
-      internalID: 185886828
+      spriteID: 7846e4600c415dc478e7f5d16092d11d
+      internalID: 2095361278
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallRed_DownLeft
+      name: InteriorTilesLITE_62
       rect:
         serializedVersion: 2
         x: 128
@@ -1598,14 +1598,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7e8541a73581004397f01e76c694bdc
-      internalID: -744968848
+      spriteID: 011ea289cb5b5c14197c1a83f727d6a3
+      internalID: 1465519606
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallRed_DownMid
+      name: InteriorTilesLITE_63
       rect:
         serializedVersion: 2
         x: 160
@@ -1619,14 +1619,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58aafc5ca12ae3e41bfcb83981f39b37
-      internalID: -655058226
+      spriteID: e3627e2d37a350d4895b6ac2514d7d5d
+      internalID: 408473376
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallRed_DownRight
+      name: InteriorTilesLITE_64
       rect:
         serializedVersion: 2
         x: 192
@@ -1640,14 +1640,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3ee7e53f3c4beb458f42c4efcce7753
-      internalID: -983423922
+      spriteID: 1ce2d76025c2b18459387a0f74064ce2
+      internalID: 1800266121
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallRed_DownSingle
+      name: InteriorTilesLITE_65
       rect:
         serializedVersion: 2
         x: 224
@@ -1661,14 +1661,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e34a8af280efe8147b0e08ba235a95f1
-      internalID: -1882188577
+      spriteID: 8765c5e1cadd32e4ea44613082a3979f
+      internalID: -1428015062
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Window1_Down
+      name: InteriorTilesLITE_66
       rect:
         serializedVersion: 2
         x: 256
@@ -1682,14 +1682,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db4d280c1a5221d4aa120ed0aa998485
-      internalID: -862751008
+      spriteID: 2ebe8e4226cfc31489ed7fa2ba2f174c
+      internalID: 263468683
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Window2_Down
+      name: InteriorTilesLITE_67
       rect:
         serializedVersion: 2
         x: 288
@@ -1703,14 +1703,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2af02e2c010c0c44fb37f2493658023f
-      internalID: -1681739238
+      spriteID: ded9ec162fb52cf498ceed0af85c0788
+      internalID: -1087374031
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Clock
+      name: InteriorTilesLITE_68
       rect:
         serializedVersion: 2
         x: 320
@@ -1724,14 +1724,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 07991b8f8326f3c4a94d9bfb23c6fce9
-      internalID: -1826012424
+      spriteID: 10293feddfae45d4aa5832d4a6f13f9d
+      internalID: 1708704824
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CurtainRed_Down
+      name: InteriorTilesLITE_69
       rect:
         serializedVersion: 2
         x: 352
@@ -1745,14 +1745,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70d2c64b9a0dc7f4599166bf50d1cf72
-      internalID: 1399690326
+      spriteID: 927b6328d3483db409546fd1f1690480
+      internalID: -1965453785
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Table_MidLeft
+      name: InteriorTilesLITE_70
       rect:
         serializedVersion: 2
         x: 384
@@ -1763,17 +1763,21 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -13.664612, y: -16}
+        - {x: -13.930847, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: -16}
       tessellationDetail: 0
       bones: []
-      spriteID: f40efc527e377f54daba89ad4b2c8669
-      internalID: 2017017681
+      spriteID: 21e1e580d93b46f4293a94c8254243d6
+      internalID: 2069272471
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Table_Mid
+      name: InteriorTilesLITE_71
       rect:
         serializedVersion: 2
         x: 416
@@ -1787,14 +1791,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c2b8cb85ff766a478bddff3a6604511
-      internalID: 1111450605
+      spriteID: 4caff7ff2f838624f994f05c55ce2767
+      internalID: -1346161848
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Table_MidRight
+      name: InteriorTilesLITE_72
       rect:
         serializedVersion: 2
         x: 448
@@ -1805,17 +1809,21 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -16, y: -16}
+        - {x: -16, y: 16}
+        - {x: 14.180786, y: 16}
+        - {x: 13.648346, y: -15.65332}
       tessellationDetail: 0
       bones: []
-      spriteID: f7878c0d33da0aa47bf4a0d17794798f
-      internalID: -19462916
+      spriteID: 75576ca75db84bf4bbb878ce02aa6491
+      internalID: -1629502375
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EndTableSmall_Down
+      name: InteriorTilesLITE_73
       rect:
         serializedVersion: 2
         x: 480
@@ -1829,14 +1837,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9b262fda48733549a56389a75d0d64f
-      internalID: 1131049359
+      spriteID: 3ed995ca3865c09408988f0ed332d2d0
+      internalID: -1518748263
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulletinBoard
+      name: InteriorTilesLITE_74
       rect:
         serializedVersion: 2
         x: 0
@@ -1850,14 +1858,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c4dbd3a02125504cb86a2a84f58dc7f
-      internalID: -1976150506
+      spriteID: 258f3173055100d46acaaff70b8a6a95
+      internalID: 529140788
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ChairOffice_FrontUp
+      name: InteriorTilesLITE_75
       rect:
         serializedVersion: 2
         x: 32
@@ -1871,14 +1879,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d7d2cc05ca8c2642b003a90e6133ddf
-      internalID: -3261744
+      spriteID: b818f7b3973c44142a7e304661fd0615
+      internalID: 1286125370
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Phone_Wall
+      name: InteriorTilesLITE_76
       rect:
         serializedVersion: 2
         x: 64
@@ -1892,14 +1900,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: acb9c4f8b997dd744b8ba56fa474e13e
-      internalID: 1370278839
+      spriteID: 69769b212c79f2645a888d3ecae0c374
+      internalID: 1609789785
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cabinet1
+      name: InteriorTilesLITE_77
       rect:
         serializedVersion: 2
         x: 128
@@ -1913,14 +1921,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 827f4271ffb8d68458fb2c2c631d36d3
-      internalID: -2141168896
+      spriteID: 44afab5054da9cf43a67fcdc07adc8cc
+      internalID: -30744906
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cabinet2
+      name: InteriorTilesLITE_78
       rect:
         serializedVersion: 2
         x: 160
@@ -1934,35 +1942,39 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b077fc062ce82b44689be06eb4cfe043
-      internalID: 1433357928
+      spriteID: 70c4d81cba1c6ea41970d425b609eec2
+      internalID: -655391162
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Counter_Up
+      name: InteriorTilesLITE_79
       rect:
         serializedVersion: 2
         x: 192
         y: 256
         width: 32
         height: 32
-      alignment: 0
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -16, y: -16}
+        - {x: -16, y: -6.151642}
+        - {x: 16, y: -6.1516724}
+        - {x: 16, y: -16}
       tessellationDetail: 0
       bones: []
-      spriteID: 4e2dd39a30fe57048b0b7bdb0ab454f7
-      internalID: 1366364759
+      spriteID: 82e497799b1f8c44581efc7d423a8ff6
+      internalID: -1367479876
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CounterLeft_Corner
+      name: InteriorTilesLITE_80
       rect:
         serializedVersion: 2
         x: 224
@@ -1976,14 +1988,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f591bc3ddebedc44eace8c1c0b4ac969
-      internalID: -97907240
+      spriteID: 0e1f7d5ad2545b94ca3d3d90576f02f5
+      internalID: -838709516
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CounterRight_Corner
+      name: InteriorTilesLITE_81
       rect:
         serializedVersion: 2
         x: 256
@@ -1997,14 +2009,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 853a89423eda75c4b95c9be2fd0dc365
-      internalID: 818692651
+      spriteID: e4dd50a4b1d7408449d726e67c267bfd
+      internalID: 198674494
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlantTall_Up
+      name: InteriorTilesLITE_82
       rect:
         serializedVersion: 2
         x: 288
@@ -2018,14 +2030,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b547af3e2cc28e4ab38565d0ac17ef6
-      internalID: -939558280
+      spriteID: 2e35619eeeb6d6b4e80522ddffcfabf3
+      internalID: 928387709
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bookcase1_Up
+      name: InteriorTilesLITE_83
       rect:
         serializedVersion: 2
         x: 320
@@ -2039,14 +2051,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9be3f46a268120c4a9c889ccdbaa006c
-      internalID: -1269349648
+      spriteID: 28864a5a81cc76f4bb70855055fd6f1c
+      internalID: 851225464
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bookcase2_Up
+      name: InteriorTilesLITE_84
       rect:
         serializedVersion: 2
         x: 352
@@ -2060,14 +2072,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36af461063077734f8280629e771a487
-      internalID: -50595532
+      spriteID: f1b75f16c9c56204b98256ca07c51d0e
+      internalID: 527722504
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Table_DownLeft
+      name: InteriorTilesLITE_85
       rect:
         serializedVersion: 2
         x: 384
@@ -2078,17 +2090,21 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -14, y: 2}
+        - {x: -14, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: 2}
       tessellationDetail: 0
       bones: []
-      spriteID: 80033996c450754409035c017743762b
-      internalID: -1447210749
+      spriteID: 0a17a63af3f0eed4a9c0c1ec35de084c
+      internalID: 1220200230
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Table_DownMid
+      name: InteriorTilesLITE_86
       rect:
         serializedVersion: 2
         x: 416
@@ -2099,17 +2115,21 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -16, y: 2.7695312}
+        - {x: -16, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: 2.7695312}
       tessellationDetail: 0
       bones: []
-      spriteID: 22bb0fab44913c949b8daa75ce43f9e5
-      internalID: 670883519
+      spriteID: da21399061e18b640b200c4427e997d8
+      internalID: -2129659019
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Table_DownRight
+      name: InteriorTilesLITE_87
       rect:
         serializedVersion: 2
         x: 448
@@ -2120,17 +2140,21 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -16, y: 2.237091}
+        - {x: -16, y: 16}
+        - {x: 13.914581, y: 16}
+        - {x: 13.648346, y: 2.237091}
       tessellationDetail: 0
       bones: []
-      spriteID: fe6038ae6879d004aa5ce1a7e1862f1f
-      internalID: 972378065
+      spriteID: abb05b40f0af9364c91e64c803da2341
+      internalID: 826994481
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EndTable_Up
+      name: InteriorTilesLITE_88
       rect:
         serializedVersion: 2
         x: 480
@@ -2144,14 +2168,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42d9375ab53cc7d439d3ea3afda8d0fc
-      internalID: 1156381647
+      spriteID: 362243c764f26df45a43e9ca41cc7777
+      internalID: -2125692196
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Soap
+      name: InteriorTilesLITE_89
       rect:
         serializedVersion: 2
         x: 0
@@ -2165,14 +2189,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3cbac1d511726bf459fc740ad4c033af
-      internalID: -1407439710
+      spriteID: 515d02196f74e7344aaf1bd2e97b388a
+      internalID: 928750733
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ChairOffice_FrontDown
+      name: InteriorTilesLITE_90
       rect:
         serializedVersion: 2
         x: 32
@@ -2186,14 +2210,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f55491f1fe1b06f49b303e9e4f4c30be
-      internalID: -773494331
+      spriteID: 9bed1d5e25b69804aae9765dc748ebf8
+      internalID: -1533488623
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Phone_Desk1
+      name: InteriorTilesLITE_91
       rect:
         serializedVersion: 2
         x: 64
@@ -2207,14 +2231,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d367d6919b765e46bd3e74c903c8b99
-      internalID: 1724700092
+      spriteID: ea8b8f6a02a07d544872b9a916f404dc
+      internalID: 1117753811
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stove_Up
+      name: InteriorTilesLITE_92
       rect:
         serializedVersion: 2
         x: 96
@@ -2228,14 +2252,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48b8f7c9f97c1d947870fb817dd53fa7
-      internalID: 1888325343
+      spriteID: 799034b511139df4e80c126fcc012921
+      internalID: 1690186624
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fridge_Up
+      name: InteriorTilesLITE_93
       rect:
         serializedVersion: 2
         x: 128
@@ -2249,14 +2273,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f4a00746fa513f49a944e0a7dd90a39
-      internalID: 1774345004
+      spriteID: 68520d84b194b5b4b920f666c217bcd9
+      internalID: -618286226
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Counter_Down2
+      name: InteriorTilesLITE_94
       rect:
         serializedVersion: 2
         x: 160
@@ -2270,14 +2294,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4b82ebb955cb44438fa811ebcf0c353
-      internalID: 295891228
+      spriteID: 3cdbf733f16a94d4c80ff489f522a7b7
+      internalID: 2101080795
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Counter_Down1
+      name: InteriorTilesLITE_95
       rect:
         serializedVersion: 2
         x: 192
@@ -2288,17 +2312,21 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -16, y: 1.0037689}
+        - {x: -16, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: 0.8813782}
       tessellationDetail: 0
       bones: []
-      spriteID: 72c4655afe5e87f4d8884c961ee641bf
-      internalID: 171123988
+      spriteID: 4bfd87b7ec1d2124ebad31be10acfba2
+      internalID: 1032679341
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CounterLeft_Mid
+      name: InteriorTilesLITE_96
       rect:
         serializedVersion: 2
         x: 224
@@ -2312,14 +2340,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee750f145e480cf4e850fa78a50aea9a
-      internalID: 452877151
+      spriteID: 331f4219b6c5a214cb4614aa0259e739
+      internalID: -1016132336
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CounterRight_Mid
+      name: InteriorTilesLITE_97
       rect:
         serializedVersion: 2
         x: 256
@@ -2333,14 +2361,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b55285976c8350448974095c6ce6968
-      internalID: -991602235
+      spriteID: c1016547ee59fad47aec000c6c5afe97
+      internalID: 364813919
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlantTall_Down
+      name: InteriorTilesLITE_98
       rect:
         serializedVersion: 2
         x: 288
@@ -2354,14 +2382,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d09800065425ef4d9d84323e79c4547
-      internalID: 1915145436
+      spriteID: 098b22181d283b24d86022d0bfd39751
+      internalID: -157383557
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bookcase1_Down
+      name: InteriorTilesLITE_99
       rect:
         serializedVersion: 2
         x: 320
@@ -2375,14 +2403,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f974fb635258824f8b4953816bb6899
-      internalID: -1697272796
+      spriteID: 57a3762db9029ee47941297e1686efc8
+      internalID: 857651728
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bookcase2_Down
+      name: InteriorTilesLITE_100
       rect:
         serializedVersion: 2
         x: 352
@@ -2396,14 +2424,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83bc5d8e144aa0b4c9483655bfe131bf
-      internalID: -1901680514
+      spriteID: 17d8e00e14818a74093b5dcd0702a1e5
+      internalID: -6763428
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chair_Back
+      name: InteriorTilesLITE_101
       rect:
         serializedVersion: 2
         x: 384
@@ -2414,17 +2442,21 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -6.692932, y: -9.850403}
+        - {x: -6.8458557, y: 0.08895874}
+        - {x: 10.739197, y: 0.24186707}
+        - {x: 10.739197, y: -9.544586}
       tessellationDetail: 0
       bones: []
-      spriteID: 24e5e89f3a6366041902952a87e8ee1f
-      internalID: -351799972
+      spriteID: 06cdced31db863149a75de2e171404cb
+      internalID: -984077771
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chair_Left
+      name: InteriorTilesLITE_102
       rect:
         serializedVersion: 2
         x: 416
@@ -2435,17 +2467,21 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -5.052002, y: -13.214508}
+        - {x: -5.052002, y: -6.792145}
+        - {x: 8.098572, y: -6.792145}
+        - {x: 8.098572, y: -13.214508}
       tessellationDetail: 0
       bones: []
-      spriteID: 63192455d900d0049a2efe3665ffdbc4
-      internalID: -451405248
+      spriteID: 75f53efa9dde3b74486fa2e15ae40fee
+      internalID: 620609043
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ChairSeat_Front
+      name: InteriorTilesLITE_103
       rect:
         serializedVersion: 2
         x: 448
@@ -2459,14 +2495,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 61c26105369fedb4a8b80c76eb760ffe
-      internalID: -1087853559
+      spriteID: 51528475495ce494696548cf501f2230
+      internalID: -1563640082
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EndTable_Down
+      name: InteriorTilesLITE_104
       rect:
         serializedVersion: 2
         x: 480
@@ -2480,14 +2516,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f11ce5cd75101d40b07c2ac18be8ac9
-      internalID: -1027488578
+      spriteID: 0ccf45be3e6735a4a8789f4dd98b0d85
+      internalID: 1448474484
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ToothbrushCup
+      name: InteriorTilesLITE_105
       rect:
         serializedVersion: 2
         x: 0
@@ -2501,14 +2537,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19d9e208b5f730142918955b6951d918
-      internalID: 2003799866
+      spriteID: 9eab1523164baed42a78fac8a9abdf3d
+      internalID: 70309844
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ChairOffice_BackUp
+      name: InteriorTilesLITE_106
       rect:
         serializedVersion: 2
         x: 32
@@ -2522,14 +2558,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b557f84a83e457d42a95e07c9883054a
-      internalID: -267716340
+      spriteID: f7a8217dc68e64842976fcb54c0d7369
+      internalID: -1359978423
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Phone_Desk2
+      name: InteriorTilesLITE_107
       rect:
         serializedVersion: 2
         x: 64
@@ -2543,14 +2579,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ca10aa6f54233a438d732dd4d84c421
-      internalID: -136820292
+      spriteID: 31d5fa78efa56e948ac44e20e1503e54
+      internalID: 1098737575
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stove_Down
+      name: InteriorTilesLITE_108
       rect:
         serializedVersion: 2
         x: 96
@@ -2564,14 +2600,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 324735539be83db4b97ed01c2c2eb41c
-      internalID: 700334363
+      spriteID: 056549dca7d1f7643a1ad0a6cd541c15
+      internalID: 769488017
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fridge_Down
+      name: InteriorTilesLITE_109
       rect:
         serializedVersion: 2
         x: 128
@@ -2585,14 +2621,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d00e905b5527554ea983eab6e11874f
-      internalID: 990901131
+      spriteID: 3f8c4ee69b406a54882b26b1dcd003de
+      internalID: 2015823691
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CuttingBoard
+      name: InteriorTilesLITE_110
       rect:
         serializedVersion: 2
         x: 160
@@ -2606,14 +2642,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 32f7b690d0af0d84cb69a3f329b29dca
-      internalID: 1041653236
+      spriteID: e87dad1835fdea746ad48ada401d9479
+      internalID: -1071571233
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SinkKitchen
+      name: InteriorTilesLITE_111
       rect:
         serializedVersion: 2
         x: 192
@@ -2627,14 +2663,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51aaa4e3b1ad53c459a09d0beb841c58
-      internalID: 2021086869
+      spriteID: b126c949228f81a4bbe8e21986a579ab
+      internalID: -105043694
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CounterLeft_Down
+      name: InteriorTilesLITE_112
       rect:
         serializedVersion: 2
         x: 224
@@ -2648,14 +2684,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc8a53cfdab9edc4a92c15093d2cde11
-      internalID: -959087448
+      spriteID: 5e95748584c0740499e4adba0ab39594
+      internalID: 703739516
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CounterRight_Down
+      name: InteriorTilesLITE_113
       rect:
         serializedVersion: 2
         x: 256
@@ -2669,14 +2705,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af37a616c892d034e91421d926589453
-      internalID: -164192710
+      spriteID: 0efe9ba18b5102a45ae7e90f6c6ffe26
+      internalID: -790494721
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Painting_HouseLeft
+      name: InteriorTilesLITE_114
       rect:
         serializedVersion: 2
         x: 288
@@ -2690,14 +2726,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad8a05bfd57fdb5448b43c4df5d611e0
-      internalID: 1663311748
+      spriteID: 7be3bbd866a516e4aa0d250a02807d85
+      internalID: -2052401369
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Painting_HouseRight
+      name: InteriorTilesLITE_115
       rect:
         serializedVersion: 2
         x: 320
@@ -2711,14 +2747,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e4765429ce9ab24d9388110bb32248f
-      internalID: 460129109
+      spriteID: e0d112c6f904961479d997ee5c638b7d
+      internalID: 786546143
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Painting_Tree
+      name: InteriorTilesLITE_116
       rect:
         serializedVersion: 2
         x: 352
@@ -2732,14 +2768,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c55b73b639a2d843a543fcc7d38cf42
-      internalID: 1236461155
+      spriteID: 0282b287e59b32249805cea871d306aa
+      internalID: 978619444
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chair_Front
+      name: InteriorTilesLITE_117
       rect:
         serializedVersion: 2
         x: 384
@@ -2750,17 +2786,21 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -6.916107, y: -10.852982}
+        - {x: -6.6958923, y: 0.5978546}
+        - {x: 10.700531, y: 0.70796204}
+        - {x: 10.810638, y: -10.852982}
       tessellationDetail: 0
       bones: []
-      spriteID: 651243fdd76b2e14680244b4ef2b355d
-      internalID: 1486446515
+      spriteID: 4050fbfa6e9eed846b798f81716d41bf
+      internalID: 1022497147
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chair_Right
+      name: InteriorTilesLITE_118
       rect:
         serializedVersion: 2
         x: 416
@@ -2771,17 +2811,21 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -5.444458, y: -13.605576}
+        - {x: -5.5545654, y: -3.6962128}
+        - {x: 8.758972, y: -3.3659058}
+        - {x: 8.758972, y: -13.715683}
       tessellationDetail: 0
       bones: []
-      spriteID: 7167a3a0398d6b74e8ee766a1d8ede92
-      internalID: 534544015
+      spriteID: 17c3be89209cd774c9c0f1ea5afa3754
+      internalID: -1253413818
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ChairSeat_Right
+      name: InteriorTilesLITE_119
       rect:
         serializedVersion: 2
         x: 448
@@ -2795,14 +2839,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e88e6a80323318c4881ec09bc21c0499
-      internalID: 885787113
+      spriteID: e5e4267ec17634e41a1894c7898714f6
+      internalID: 1238389775
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ChairSeat_Left
+      name: InteriorTilesLITE_120
       rect:
         serializedVersion: 2
         x: 480
@@ -2816,14 +2860,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea1c863d572aca945b1b62b875bdf94f
-      internalID: -1240282467
+      spriteID: ff5d8c4c62771e944a70e46f5437215e
+      internalID: -341830348
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mirror
+      name: InteriorTilesLITE_121
       rect:
         serializedVersion: 2
         x: 0
@@ -2837,14 +2881,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7fb19207f48e3d84f9920b6b5aa7b1f9
-      internalID: 135387338
+      spriteID: d8275b5ce2cfcc34d9e73149a66bd285
+      internalID: 153077860
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ChairOffice_BackDown
+      name: InteriorTilesLITE_122
       rect:
         serializedVersion: 2
         x: 32
@@ -2858,14 +2902,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c86e3953fc4a4584aa0e0820ffe9ed9a
-      internalID: 1767905158
+      spriteID: f78ff918923e0f44ea66134baf81c9d1
+      internalID: 618738294
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Laptop
+      name: InteriorTilesLITE_123
       rect:
         serializedVersion: 2
         x: 64
@@ -2879,14 +2923,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5bbe09d54e70e854ba95ee0afc397e5f
-      internalID: -1675895555
+      spriteID: 9ea2f889cadc2954dae8c5177e36ccc0
+      internalID: 1320860431
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sink_Up1
+      name: InteriorTilesLITE_124
       rect:
         serializedVersion: 2
         x: 96
@@ -2900,14 +2944,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 61dfc6376606e524f8070eecc9ac2227
-      internalID: 1295316407
+      spriteID: 449f807674e084c4c869b222dc905e7b
+      internalID: 450690194
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sink_Up2
+      name: InteriorTilesLITE_125
       rect:
         serializedVersion: 2
         x: 128
@@ -2921,14 +2965,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35e333243bf334d45b00e2225b7389e3
-      internalID: -47177544
+      spriteID: b76bc246fe722ee46becfc4320578f74
+      internalID: 1877878636
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BedSingleAlt_Up
+      name: InteriorTilesLITE_126
       rect:
         serializedVersion: 2
         x: 160
@@ -2942,14 +2986,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b399b36683b21174e9f173c5712616fd
-      internalID: 47917654
+      spriteID: c3ddb235826e4404596a818301f2c5f7
+      internalID: 1817550557
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BedDoubleAlt_UpLeft
+      name: InteriorTilesLITE_127
       rect:
         serializedVersion: 2
         x: 192
@@ -2963,14 +3007,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: adc0e7ca78419e346a26c1561abb45b0
-      internalID: -1476730518
+      spriteID: 9e8598cd3931c4e4480473b9b2da99c0
+      internalID: 1703526953
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BedDoubleAlt_UpRight
+      name: InteriorTilesLITE_128
       rect:
         serializedVersion: 2
         x: 224
@@ -2984,14 +3028,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 551c0f4eae7a9ce48b8ff8807221ee1f
-      internalID: 2073471164
+      spriteID: 0f56a5ad11ad38a41ae2bb4cc78ba35c
+      internalID: -627594912
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LampStand_Up
+      name: InteriorTilesLITE_129
       rect:
         serializedVersion: 2
         x: 256
@@ -3005,14 +3049,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c216bbb14727db448b71ac8ab8dc039
-      internalID: 31134503
+      spriteID: 223397beaf7874c4da7c0554ed7d603d
+      internalID: -1947971497
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Shelf
+      name: InteriorTilesLITE_130
       rect:
         serializedVersion: 2
         x: 288
@@ -3026,14 +3070,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a845e382008f9540a5ea6e0b6e60283
-      internalID: 826053476
+      spriteID: c7deb16bc40e4624f9cc0d1a1752fd60
+      internalID: 1378705122
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Painting_Desk
+      name: InteriorTilesLITE_131
       rect:
         serializedVersion: 2
         x: 320
@@ -3047,14 +3091,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e2e5ac0f48187f4083be43758fa9079
-      internalID: -881198310
+      spriteID: b49172e7218a9e4458f79ce12f8bffa9
+      internalID: -2118273666
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BookOpen
+      name: InteriorTilesLITE_132
       rect:
         serializedVersion: 2
         x: 352
@@ -3068,14 +3112,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2126079088dc9da46b76d6f072744613
-      internalID: 256998139
+      spriteID: 4c7d26be13df12f4d87760b0efff143e
+      internalID: -2029613470
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TVModern_Left
+      name: InteriorTilesLITE_133
       rect:
         serializedVersion: 2
         x: 384
@@ -3089,14 +3133,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e05c4120e31f78458545b94ea9956bb
-      internalID: -570738936
+      spriteID: f758e80207f0f534c9ba3cbcfdffdd2f
+      internalID: 990851104
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TVModern_Right
+      name: InteriorTilesLITE_134
       rect:
         serializedVersion: 2
         x: 416
@@ -3110,14 +3154,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c327753ec961864baeece8025ec2c75
-      internalID: -2080629869
+      spriteID: 5173d609a80f5c442b738d43fb34a056
+      internalID: 1952030646
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TVOld_Left
+      name: InteriorTilesLITE_135
       rect:
         serializedVersion: 2
         x: 448
@@ -3131,14 +3175,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39b5b2fd62698f84e94a8b3190bfe63b
-      internalID: 2048244782
+      spriteID: dd37ce756b2de6f43bc9aed092941a33
+      internalID: -1356637415
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TVOld_Right
+      name: InteriorTilesLITE_136
       rect:
         serializedVersion: 2
         x: 480
@@ -3152,14 +3196,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1fc5414f9b9902a43a78e7907966f2e4
-      internalID: 422250940
+      spriteID: 759e40a3798d4ee4ea0a9aa31c6a1e06
+      internalID: -247636037
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Toilet1_Front
+      name: InteriorTilesLITE_137
       rect:
         serializedVersion: 2
         x: 0
@@ -3173,14 +3217,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 377f8e30c0309ca4cb2cbc51724a21c8
-      internalID: -1878647328
+      spriteID: dc057d904206b2345a9b9237e35f5b98
+      internalID: 1932942818
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Toilet2_Right
+      name: InteriorTilesLITE_138
       rect:
         serializedVersion: 2
         x: 32
@@ -3194,14 +3238,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ec6ff06701395b47b0265f16e6518e8
-      internalID: 1283411322
+      spriteID: 7e2fea801c11f6a4db1bc927b16b6604
+      internalID: 176853592
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Toilet1_Right
+      name: InteriorTilesLITE_139
       rect:
         serializedVersion: 2
         x: 64
@@ -3215,14 +3259,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62b6bc0c301ba9f4a8a1d1a353df59d0
-      internalID: 697458834
+      spriteID: 265524007f54137408431ef86a434e95
+      internalID: -2034536525
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sink_Down
+      name: InteriorTilesLITE_140
       rect:
         serializedVersion: 2
         x: 96
@@ -3236,14 +3280,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f8ab16846433d1489c21a87f93dc6db
-      internalID: 1311570907
+      spriteID: a8e9e121acf67de4898c8d6180d05b2a
+      internalID: -851452680
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BedSingleAlt_Mid
+      name: InteriorTilesLITE_141
       rect:
         serializedVersion: 2
         x: 160
@@ -3257,14 +3301,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23d4f8f7ad9d54e45a10031966941afa
-      internalID: 1794660311
+      spriteID: 4c94854ba4252a14db28fc87b4fc9b08
+      internalID: 1326225556
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BedDoubleAlt_MidLeft
+      name: InteriorTilesLITE_142
       rect:
         serializedVersion: 2
         x: 192
@@ -3278,14 +3322,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b1201fa154d534498abf05359ecfbb4
-      internalID: -1924919602
+      spriteID: cdc0a980086605240b4a1f1a82a1acc7
+      internalID: 1227093428
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BedDoubleAlt_MidRight
+      name: InteriorTilesLITE_143
       rect:
         serializedVersion: 2
         x: 224
@@ -3299,14 +3343,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4012574903426724aa0a18a64e1ae202
-      internalID: 735704034
+      spriteID: 7439593404373884eb0b8c7bc83cc7a6
+      internalID: -1685185759
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LampStand_Down
+      name: InteriorTilesLITE_144
       rect:
         serializedVersion: 2
         x: 256
@@ -3320,14 +3364,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c604a8c50aca7334383932ac83c5c931
-      internalID: 1652426331
+      spriteID: 23445480313833f4c9aad634c8ac0adb
+      internalID: -1906502903
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LampDesk
+      name: InteriorTilesLITE_145
       rect:
         serializedVersion: 2
         x: 288
@@ -3341,14 +3385,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce79458822fd19049ba678a7c0721ce9
-      internalID: 5470079
+      spriteID: d4d82314e2b384e41a7ce1cd56ab6eab
+      internalID: 143038487
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlowerVase
+      name: InteriorTilesLITE_146
       rect:
         serializedVersion: 2
         x: 320
@@ -3362,14 +3406,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a4bd88ed83846049ac5bad9c44d5f07
-      internalID: -212959971
+      spriteID: 980845be652ebf04e8a024baedbe75b6
+      internalID: -1166313877
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TVOldAlt_Left
+      name: InteriorTilesLITE_147
       rect:
         serializedVersion: 2
         x: 416
@@ -3383,14 +3427,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cbc7a891285bdae4cb3197c294947a70
-      internalID: 1988819659
+      spriteID: 14e99f2af0060244f880b1d28c332daf
+      internalID: -1424702951
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TVOldAlt_Mid
+      name: InteriorTilesLITE_148
       rect:
         serializedVersion: 2
         x: 448
@@ -3404,14 +3448,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf3d356f70117254498c9c6669a4a523
-      internalID: -1607849398
+      spriteID: 588c489cf162ef04ba9c1d6dfd23fdc8
+      internalID: -1428601898
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TVOldAlt_Right
+      name: InteriorTilesLITE_149
       rect:
         serializedVersion: 2
         x: 480
@@ -3425,14 +3469,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4817e16ab6015ca408486da9104153fd
-      internalID: 984696502
+      spriteID: dc56ab3cc2d871a48b3146f9aae6df3a
+      internalID: -1681655345
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Toilet2_Dow
+      name: InteriorTilesLITE_150
       rect:
         serializedVersion: 2
         x: 0
@@ -3446,14 +3490,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec2113ce7a806944c8b65c6c77135f82
-      internalID: 1456407466
+      spriteID: c6d99566c97dd7443888b1ccdadcd629
+      internalID: 976796586
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Toilet2_Left
+      name: InteriorTilesLITE_151
       rect:
         serializedVersion: 2
         x: 32
@@ -3467,14 +3511,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3fb148562e142f4f80344958d048b9d
-      internalID: -130194917
+      spriteID: 5c6cfcc76a4bf95498c788687590c039
+      internalID: -343651555
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Toilet1_Left
+      name: InteriorTilesLITE_152
       rect:
         serializedVersion: 2
         x: 64
@@ -3488,14 +3532,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c0bc7d0b0081da40a9fbf3764dda29f
-      internalID: -337429461
+      spriteID: ec503c49abaf21c4689def113e841f83
+      internalID: 1680332273
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bathtub1_Up
+      name: InteriorTilesLITE_153
       rect:
         serializedVersion: 2
         x: 96
@@ -3509,14 +3553,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 859f9c6ea77a7e042a5335232cf0caa8
-      internalID: 180486810
+      spriteID: 574ec35e181754841b5ad815b28b8ba7
+      internalID: -791370458
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bathtub2_Up
+      name: InteriorTilesLITE_154
       rect:
         serializedVersion: 2
         x: 128
@@ -3530,14 +3574,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 613b15a916d1d2d498f72c667999faf0
-      internalID: 354410917
+      spriteID: fd74612db5e08ad478b27284a66fd860
+      internalID: -1666418359
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BedSingleAlt_Down
+      name: InteriorTilesLITE_155
       rect:
         serializedVersion: 2
         x: 160
@@ -3551,14 +3595,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65f7147c2ed21d94ebf1f9502e88dd08
-      internalID: -1290980248
+      spriteID: 5676250e394e4e94d8a16fbd208ff680
+      internalID: -2039674663
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BedDoubleAlt_DownLeft
+      name: InteriorTilesLITE_156
       rect:
         serializedVersion: 2
         x: 192
@@ -3572,14 +3616,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e1b0d0537c02b1479061e26e358b4f1
-      internalID: 809454276
+      spriteID: 04a4a6db565d1904b97716450b38b7ab
+      internalID: 1172212226
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BedDoubleAlt_DownRight
+      name: InteriorTilesLITE_157
       rect:
         serializedVersion: 2
         x: 224
@@ -3593,14 +3637,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec20db2286e06e44b8b254de396a8568
-      internalID: 1177303226
+      spriteID: cd4f9c3c140723a49a86146ef1442fde
+      internalID: -264637889
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CouchBack_UpLeft
+      name: InteriorTilesLITE_158
       rect:
         serializedVersion: 2
         x: 320
@@ -3614,14 +3658,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 406f3d72556647c4581599a701822b64
-      internalID: 310779096
+      spriteID: ce16176a39e7a514092c197ee873ea47
+      internalID: -516958183
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CouchBack_UpMid
+      name: InteriorTilesLITE_159
       rect:
         serializedVersion: 2
         x: 352
@@ -3635,14 +3679,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7e9eb8dd90c3e14b91c5b774c324ca7
-      internalID: -1807163760
+      spriteID: 2b7390b4b1f8bfc459db44f4d4bb3b1e
+      internalID: -1231988123
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CouchBack_UpRight
+      name: InteriorTilesLITE_160
       rect:
         serializedVersion: 2
         x: 384
@@ -3656,14 +3700,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5ff9959a5133c348a56cd7378a7da98
-      internalID: 2046230259
+      spriteID: e1168872d42a38942a6313c9668c8f97
+      internalID: 1188394607
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CouchSmallFront_UpLeft
+      name: InteriorTilesLITE_161
       rect:
         serializedVersion: 2
         x: 416
@@ -3677,14 +3721,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb72a8472175bb44195567a9e5dbc4cc
-      internalID: 1225973877
+      spriteID: 732aed6979e4c9742a9813533c74d5ff
+      internalID: -329593611
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CouchSmallFront_UpRight
+      name: InteriorTilesLITE_162
       rect:
         serializedVersion: 2
         x: 448
@@ -3698,14 +3742,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ff012ebb3f99624eb2da538b4ac580f
-      internalID: 423794449
+      spriteID: 4f4a8a011a23cce4ab6bd9f9649e496c
+      internalID: 89604921
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CouchRight_Up
+      name: InteriorTilesLITE_163
       rect:
         serializedVersion: 2
         x: 480
@@ -3719,14 +3763,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 41bed13e56942da409d3d26482b4d09d
-      internalID: 2060480369
+      spriteID: c13dbf5321228684ab697ae31a8ed98d
+      internalID: -1321431411
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Toilet1Alt_Up
+      name: InteriorTilesLITE_164
       rect:
         serializedVersion: 2
         x: 0
@@ -3740,14 +3784,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f198325488f3b34891713d0ddbadc77
-      internalID: 672119940
+      spriteID: 3bf467c3e550ad94f9f55a7dc91e898f
+      internalID: -815790658
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Toilet2Alt_Up
+      name: InteriorTilesLITE_165
       rect:
         serializedVersion: 2
         x: 32
@@ -3761,14 +3805,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: efb3529774b3aae4da6bf3a4640ea098
-      internalID: -1896182202
+      spriteID: d43ea4da460e4b349bd96bd77d90b06c
+      internalID: -2110246009
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bathtub1_Down
+      name: InteriorTilesLITE_166
       rect:
         serializedVersion: 2
         x: 96
@@ -3782,14 +3826,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3830c743e1cadfc4ea8432bfeeb3f107
-      internalID: -1987632351
+      spriteID: 0443fafdec4b1be42abb930a4073d41e
+      internalID: 1728068224
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bathtub2_Down
+      name: InteriorTilesLITE_167
       rect:
         serializedVersion: 2
         x: 128
@@ -3803,14 +3847,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8dc143fee367e0f40a51b24254946b44
-      internalID: 381785747
+      spriteID: ce42e75ff61bbaf46a7328031686e130
+      internalID: -1635173892
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BedSingle_Up
+      name: InteriorTilesLITE_168
       rect:
         serializedVersion: 2
         x: 224
@@ -3824,14 +3868,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 805ee17ba1686254993d00989943a0bb
-      internalID: 1705322542
+      spriteID: 0c90b351d2a7b99429a3671c16dd3469
+      internalID: 1669190590
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BedDouble_UpLeft
+      name: InteriorTilesLITE_169
       rect:
         serializedVersion: 2
         x: 256
@@ -3845,14 +3889,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c55480ebc84120c44ac39baf15e7d48d
-      internalID: -312230811
+      spriteID: 4fd4510bec55e2042ace18618aafe64a
+      internalID: 618655656
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BedDouble_UpRight
+      name: InteriorTilesLITE_170
       rect:
         serializedVersion: 2
         x: 288
@@ -3866,14 +3910,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 819e337636ced4342a16c5f8ca9ab7d7
-      internalID: -858632523
+      spriteID: f4aae06b5a8dde541a01913af2c21878
+      internalID: -456684372
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CouchBack_DownLeft
+      name: InteriorTilesLITE_171
       rect:
         serializedVersion: 2
         x: 320
@@ -3887,14 +3931,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4e5bbdc272bf7141b782df3d8dd2057
-      internalID: -1160690661
+      spriteID: 7631da72881af654ca1ce58d1e50faee
+      internalID: -389429986
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CouchBack_DownMid
+      name: InteriorTilesLITE_172
       rect:
         serializedVersion: 2
         x: 352
@@ -3908,14 +3952,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99e6c3ec09eb35c47825d020dc09663a
-      internalID: -1415620589
+      spriteID: c3c4eddd04c244041a9a43881c156720
+      internalID: -288393960
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CouchBack_DownRight
+      name: InteriorTilesLITE_173
       rect:
         serializedVersion: 2
         x: 384
@@ -3929,14 +3973,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c385c5d67b2a5574a8045f98a9275a88
-      internalID: -956251157
+      spriteID: e86ae75d6279ecc46b412bd39587d5ec
+      internalID: 1684891511
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CouchSmallFront_DownLeft
+      name: InteriorTilesLITE_174
       rect:
         serializedVersion: 2
         x: 416
@@ -3947,17 +3991,21 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -14, y: -14}
+        - {x: -14, y: 4}
+        - {x: 16, y: 4}
+        - {x: 16, y: -14}
       tessellationDetail: 0
       bones: []
-      spriteID: 7b39689eaf048ae4a9dbf22bc43d6ad9
-      internalID: 1121260791
+      spriteID: e1a67c4b2e07750478532566591e523b
+      internalID: -1327974302
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CouchSmallFront_DownRight
+      name: InteriorTilesLITE_175
       rect:
         serializedVersion: 2
         x: 448
@@ -3968,17 +4016,21 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -16, y: -14}
+        - {x: -16, y: 4}
+        - {x: 13.8098755, y: 4.049286}
+        - {x: 14, y: -14}
       tessellationDetail: 0
       bones: []
-      spriteID: b98e9ae33f62d2b4590e92c358a64300
-      internalID: 1969423632
+      spriteID: 739af70612313a24d99c9e55581e4cf1
+      internalID: 1913121526
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CouchRight_Down
+      name: InteriorTilesLITE_176
       rect:
         serializedVersion: 2
         x: 480
@@ -3992,14 +4044,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 814aaa9afaa745b4bb2278b0d94e1390
-      internalID: -1608674611
+      spriteID: 6709c90689982f4499315a8f550912ad
+      internalID: 260011422
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Toilet1Alt_Down
+      name: InteriorTilesLITE_177
       rect:
         serializedVersion: 2
         x: 0
@@ -4013,14 +4065,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7f06932967d73b449d8b9d9ccae31c5
-      internalID: 644995239
+      spriteID: bb6504aed13291a49b8227134889d19c
+      internalID: 529494243
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Toilet2_Down
+      name: InteriorTilesLITE_178
       rect:
         serializedVersion: 2
         x: 32
@@ -4034,14 +4086,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a531f0a487b7b244b57ce8b28e9086b
-      internalID: 1123341672
+      spriteID: c05a2ce135741594091b52a3bdf760e3
+      internalID: -122890196
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BedSingle_Down
+      name: InteriorTilesLITE_179
       rect:
         serializedVersion: 2
         x: 224
@@ -4055,14 +4107,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad458133cc4af384fa053ee31e0cf56a
-      internalID: -2023902284
+      spriteID: 49edcdafde0add740bc4f9dc1272e0bd
+      internalID: 1439388288
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BedDouble_DownLeft
+      name: InteriorTilesLITE_180
       rect:
         serializedVersion: 2
         x: 256
@@ -4076,14 +4128,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8007351da72fb545ade16cb6e86c991
-      internalID: -629623010
+      spriteID: 21f59ca8c79117240b38a0e178087919
+      internalID: -756025391
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BedDouble_DownRight
+      name: InteriorTilesLITE_181
       rect:
         serializedVersion: 2
         x: 288
@@ -4097,14 +4149,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 43cf63f7faf339445972b1a5b46d1f4a
-      internalID: -2030487655
+      spriteID: 67a65c7c19633a544b5dc47285c59896
+      internalID: 1715865971
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CouchFront_UpLeft
+      name: InteriorTilesLITE_182
       rect:
         serializedVersion: 2
         x: 320
@@ -4118,14 +4170,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc6b0a844b2128a4aad9488edcde54be
-      internalID: -1453812166
+      spriteID: b80a1664c434f3f4c8aa1f6e60aadaad
+      internalID: 739028585
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CouchFront_UpMid
+      name: InteriorTilesLITE_183
       rect:
         serializedVersion: 2
         x: 352
@@ -4139,14 +4191,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5db9068c34242ae498c73ade73a93fb7
-      internalID: 716017072
+      spriteID: b783cb0137ec1e944b26fb0d2512c644
+      internalID: 1238721690
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CouchFront_UpRight
+      name: InteriorTilesLITE_184
       rect:
         serializedVersion: 2
         x: 384
@@ -4160,14 +4212,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a7135b3904ca6b45b50bf4364c32fc8
-      internalID: 1665820063
+      spriteID: f4b4fb7fd2a74b74b94f6253dfbf9bd6
+      internalID: 957512852
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CouchSmallBack_UpLeft
+      name: InteriorTilesLITE_185
       rect:
         serializedVersion: 2
         x: 416
@@ -4178,17 +4230,21 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -13.241974, y: -16}
+        - {x: -11.589386, y: -5.7276993}
+        - {x: 16, y: -3.7445984}
+        - {x: 16, y: -16}
       tessellationDetail: 0
       bones: []
-      spriteID: e8b9f0e0778bdf74aa85d59d112a1d1f
-      internalID: -841911126
+      spriteID: 69e1abd260a3e134faff2a28c01d4400
+      internalID: -939367769
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CouchSmallBack_UpRight
+      name: InteriorTilesLITE_186
       rect:
         serializedVersion: 2
         x: 448
@@ -4199,17 +4255,21 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -16, y: -15.973709}
+        - {x: -16, y: -3.4140816}
+        - {x: 13.25946, y: -3.4140816}
+        - {x: 15.008453, y: -16}
       tessellationDetail: 0
       bones: []
-      spriteID: af67216010698c746bd3f8e2035a9e8c
-      internalID: 1049897245
+      spriteID: 8a4a0e0cc47b36149aec56f836ccdd01
+      internalID: 1889546330
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CouchLeft_Up
+      name: InteriorTilesLITE_187
       rect:
         serializedVersion: 2
         x: 480
@@ -4220,17 +4280,21 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -16, y: -16}
+        - {x: -16, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: -16}
       tessellationDetail: 0
       bones: []
-      spriteID: f41d01bf6c3b3f647b4af7178b4a30af
-      internalID: -2121343610
+      spriteID: 64f23fdd55cef0d44a260374e61bf1c9
+      internalID: -1614233071
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CouchFront_DownLeft
+      name: InteriorTilesLITE_188
       rect:
         serializedVersion: 2
         x: 320
@@ -4244,14 +4308,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98d8fe0d3bb55d84f9508d6c75fccc41
-      internalID: 251886474
+      spriteID: c13457b38f9dd1e40a52bc1004251989
+      internalID: -991672684
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CouchFront_DownMid
+      name: InteriorTilesLITE_189
       rect:
         serializedVersion: 2
         x: 352
@@ -4265,14 +4329,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d45823b67796dd418ea83f091dac523
-      internalID: -1741457723
+      spriteID: d7a53555c064234489badb653b8fea83
+      internalID: -2028265722
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CouchFront_DownRight
+      name: InteriorTilesLITE_190
       rect:
         serializedVersion: 2
         x: 384
@@ -4286,14 +4350,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f494a27d094a53f4897b2e2b5dc993ba
-      internalID: -850178698
+      spriteID: ebfd63cbc96cf9f4d9fcf5d86737efbe
+      internalID: 1784111189
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CouchSmallBack_DownLeft
+      name: InteriorTilesLITE_191
       rect:
         serializedVersion: 2
         x: 416
@@ -4304,17 +4368,21 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -13.241943, y: -16}
+        - {x: -12.9114685, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: -16}
       tessellationDetail: 0
       bones: []
-      spriteID: 5693658095e2d334fa109ef3f3ddb4a2
-      internalID: -583888268
+      spriteID: f51b784e1e965db4099cb4de393fb88b
+      internalID: 2052418881
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CouchSmallBack_DownRight
+      name: InteriorTilesLITE_192
       rect:
         serializedVersion: 2
         x: 448
@@ -4325,17 +4393,21 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -16, y: -16}
+        - {x: -16, y: 16}
+        - {x: 14.250977, y: 16}
+        - {x: 14.250977, y: -16}
       tessellationDetail: 0
       bones: []
-      spriteID: ca087627a7a9f204c8bca2fd8e102f7e
-      internalID: -929435534
+      spriteID: 0299075ffdf4a974eb308ff487dd6d9d
+      internalID: -1052031983
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CouchLeft_Down
+      name: InteriorTilesLITE_193
       rect:
         serializedVersion: 2
         x: 480
@@ -4346,11 +4418,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -16, y: -16}
+        - {x: -16, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: -16}
       tessellationDetail: 0
       bones: []
-      spriteID: 1a7b7e8fbb428c243a309c71416cb17f
-      internalID: -278924275
+      spriteID: e68bd3d147dec8e4dbf172a99848ce84
+      internalID: -534823406
       vertices: []
       indices: 
       edges: []
@@ -4366,200 +4442,200 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      WallBorder_BLTurn: -2426714465815442933
-      BookOpen: 256998139
-      CounterRight_Mid: -991602235
-      CouchSmallBack_UpRight: 1049897245
-      BedDoubleAlt_MidRight: 735704034
-      WallBlueStripe_DownMid: 534424746
-      Toilet1_Front: -1878647328
-      BedDoubleAlt_UpLeft: -1476730518
-      ToothbrushCup: 2003799866
-      BedDoubleAlt_MidLeft: -1924919602
-      CouchRight_Down: -1608674611
-      Sink_Up2: -47177544
-      CouchFront_UpRight: 1665820063
-      Fridge_Down: 990901131
-      Toilet1_Left: -337429461
-      BedSingleAlt_Up: 47917654
-      Laptop: -1675895555
-      Window3: -3148968469415214026
-      Bathtub1_Up: 180486810
-      BedSingle_Up: 1705322542
-      ChairOffice_BackDown: 1767905158
-      CarpetRed_DownRigh: 2679297682233692589
-      Phone_Desk2: -136820292
-      ChairOffice_BackUp: -267716340
-      CarpetRed_MidLeft: 2492262572437132372
-      CounterLeft_Corner: -97907240
-      Table_MidRight: -19462916
-      WallBorder_WallRight: -800518604205669116
-      WallBorder_RightLoop: -5788308984577332646
-      LampStand_Down: 1652426331
-      CarpetRed_MidRight: -4154974568563047389
-      WallBlueStripe_DownLeft: 1262458706
-      CarpetRed_DownRight: 3051464923436239304
-      Chair_Right: 534544015
-      WallBorder_WallLeft: -8864399057114548987
-      WallBasic_DownLeft: 403020262232289429
-      WallRed_UpLeft: 184541916357060553
-      Toilet2_Right: 1283411322
-      LampDesk: 5470079
-      Bookcase1_Down: -1697272796
-      Bathtub1_Down: -1987632351
-      WallBorder_RightCorners: 4756242910203949278
-      WallBasic_UpLeft: 1849945969551392581
-      CouchSmallFront_DownRight: 1969423632
-      WallBorder_LeftCorners: 2144329068524789658
-      WallBorder_BRCorner: -1205883288991939089
-      Counter_Down1: 171123988
-      ChairOffice_FrontDown: -773494331
-      Counter_Up: 1366364759
-      Phone_Wall: 1370278839
-      WallBlueStripe_UpSingle: 5546817167086962352
-      Window1_Up: -855019213690991407
-      Counter_Down2: 295891228
-      Cabinet1: -2141168896
-      WallBorder_LeftLoop: -2424598367860823851
-      CounterLeft_Mid: 452877151
-      FlowerVase: -212959971
-      Clock: -1826012424
-      WallRed_DownSingle: -1882188577
-      Window2_Down: -1681739238
-      CarpetRed_Mid: -8238938335679869102
-      Painting_Desk: -881198310
-      WallRed_DownRight: -983423922
-      CounterRight_Down: -164192710
-      WallBorder_TLCorner: -8505115495851634873
-      CarpetRed_DownMid: 3199110772345207182
-      Toilet2Alt_Up: -1896182202
-      FloorKitchen: -507839738875989772
-      Stove_Up: 1888325343
-      Table_UpMid: 410296942
-      CouchFront_UpMid: 716017072
-      WallBorder_LowCorners: -7924694791318404384
-      Mirror: 135387338
-      WallRed_UpRight: 7589373011382898619
-      Toilet1_Right: 697458834
-      WallBorder_WallBottom: 5860155976670593676
-      Painting_HouseLeft: 1663311748
-      CouchSmallFront_UpLeft: 1225973877
-      WallBlueStripe_UpRight: 2837990925084628201
-      CouchBack_DownRight: -956251157
-      CouchSmallFront_UpRight: 423794449
-      CurtainRed_Up: -4599338992202857851
-      Toilet1Alt_Down: 644995239
-      CouchBack_UpRight: 2046230259
-      Table_Mid: 1111450605
-      Fridge_Up: 1774345004
-      WallRed_DownLeft: -744968848
-      WallBorder_2Hori: -9036779787323752547
-      Table_UpRight: 395775485
-      ChairOffice_FrontUp: -3261744
-      WallRed_DownMid: -655058226
-      EndTableSmall_Down: 1131049359
-      CouchSmallFront_DownLeft: 1121260791
-      BedDoubleAlt_UpRight: 2073471164
-      EndTable_Down: -1027488578
-      CounterRight_Corner: 818692651
-      Bookcase1_Up: -1269349648
-      BedDouble_DownLeft: -629623010
-      WallBorder_TRCorner: 3461326986388607013
-      WallBorder_DownLoop: -967095205141159625
-      WallBasic_DownSingle: 280787946737389330
-      ChairSeat_Left: -1240282467
-      Phone_Desk1: 1724700092
-      CouchSmallBack_DownLeft: -583888268
-      CouchBack_DownMid: -1415620589
-      BedDouble_DownRight: -2030487655
-      TVOld_Left: 2048244782
-      CouchFront_DownRight: -850178698
-      CurtainRed_Down: 1399690326
-      Chair_Back: -351799972
-      Chair_Left: -451405248
-      LampStand_Up: 31134503
-      PlantTall_Up: -939558280
-      WallBasic_UpRight: 138626170630527873
-      EndTable_Up: 1156381647
-      BedSingleAlt_Down: -1290980248
-      Table_DownMid: 670883519
-      Toilet2_Left: -130194917
-      Shelf: 826053476
-      CouchBack_DownLeft: -1160690661
-      WallBasic_UpMid: 4025099446706564715
-      Soap: -1407439710
-      Table_DownLeft: -1447210749
-      ChairSeat_Front: -1087853559
-      WallRed_UpMid: 4822529205962051107
-      ChairSeat_Right: 885787113
-      TVOld_Right: 422250940
-      Table_DownRight: 972378065
-      Painting_Tree: 1236461155
-      WallBlueStripe_UpLeft: 5084728885203419072
-      CouchFront_UpLeft: -1453812166
-      WallBlueStripe_UpMid: -6949624379083371686
-      WallRed_UpSingle: -3630791440593516191
-      TVOldAlt_Mid: -1607849398
-      CouchFront_DownMid: -1741457723
-      FloorWood: 7837278012694766237
-      WallBorder_TRTurn: 621105930072566934
-      CouchFront_DownLeft: 251886474
-      PlantTall_Down: 1915145436
-      Bathtub2_Down: 381785747
-      CouchLeft_Down: -278924275
-      WallBlueStripe_DownRight: 1592248017
-      Painting_HouseRight: 460129109
-      WallBorder_TLTurn: 7321507621222119314
-      CouchLeft_Up: -2121343610
-      CouchBack_UpLeft: 310779096
-      BedDoubleAlt_DownLeft: 809454276
-      BulletinBoard: -1976150506
-      CounterLeft_Down: -959087448
-      CouchSmallBack_UpLeft: -841911126
-      WallBorder_WallTop: 977447027249934147
-      CarpetRed_UpRight: 7287117947738518907
-      Cabinet2: 1433357928
-      BedDouble_UpRight: -858632523
-      Toilet1Alt_Up: 672119940
-      Table_UpLeft: -6866399591794387088
-      Bookcase2_Up: -50595532
-      Bookcase2_Down: -1901680514
-      Chair_Front: 1486446515
-      WallBasic_UpSingle: -4396711259649696013
-      WallBorder_UpLoop: -9008135797155305422
-      Toilet2_Dow: 1456407466
-      WallBasic_DownMid: -4980194309820438342
-      FloorStone: -7890087457345168885
-      CuttingBoard: 1041653236
-      Window1_Down: -862751008
-      CouchRight_Up: 2060480369
-      TVOldAlt_Left: 1988819659
-      BedSingle_Down: -2023902284
-      CouchBack_UpMid: -1807163760
-      WallBorder_BLCorner: -877224798851166784
-      CouchSmallBack_DownRight: -929435534
-      WallBorder_2Vert: 3470420864692275016
-      WallBlueStripe_DownSingle: 185886828
-      CarpetRed_UpLeft: -2402079345783023174
-      Stove_Down: 700334363
-      Table_MidLeft: 2017017681
-      TVModern_Right: -2080629869
-      BedDoubleAlt_DownRight: 1177303226
-      RedCarpet_UpMid: 3405999434275922779
-      WallBasic_DownRight: 5413088760841432880
-      Bathtub2_Up: 354410917
-      TVOldAlt_Right: 984696502
-      WallBorder_BRTurn: -7151294671220472649
-      BedSingleAlt_Mid: 1794660311
-      EndTableSmall_Up: -1055367927
-      Toilet2_Down: 1123341672
-      WallBorder_TopCorners: 8528468393216558749
-      SinkKitchen: 2021086869
-      Sink_Up1: 1295316407
-      WIndow2_Up: 631960585749019298
-      TVModern_Left: -570738936
-      Sink_Down: 1311570907
-      BedDouble_UpLeft: -312230811
+      InteriorTilesLITE_87: 826994481
+      InteriorTilesLITE_11: -1642300501
+      InteriorTilesLITE_191: 2052418881
+      InteriorTilesLITE_50: 1713514023
+      InteriorTilesLITE_165: -2110246009
+      InteriorTilesLITE_166: 1728068224
+      InteriorTilesLITE_100: -6763428
+      InteriorTilesLITE_67: -1087374031
+      InteriorTilesLITE_135: -1356637415
+      InteriorTilesLITE_95: 1032679341
+      InteriorTilesLITE_7: -338775302
+      InteriorTilesLITE_1: -1758283001
+      InteriorTilesLITE_21: -156693896
+      InteriorTilesLITE_149: -1681655345
+      InteriorTilesLITE_17: -1688605978
+      InteriorTilesLITE_56: -1719885616
+      InteriorTilesLITE_134: 1952030646
+      InteriorTilesLITE_187: -1614233071
+      InteriorTilesLITE_42: 1234729047
+      InteriorTilesLITE_116: 978619444
+      InteriorTilesLITE_74: 529140788
+      InteriorTilesLITE_185: -939367769
+      InteriorTilesLITE_3: 1485362217
+      InteriorTilesLITE_61: 2095361278
+      InteriorTilesLITE_143: -1685185759
+      InteriorTilesLITE_182: 739028585
+      InteriorTilesLITE_78: -655391162
+      InteriorTilesLITE_101: -984077771
+      InteriorTilesLITE_99: 857651728
+      InteriorTilesLITE_152: 1680332273
+      InteriorTilesLITE_34: 1924167766
+      InteriorTilesLITE_176: 260011422
+      InteriorTilesLITE_0: 196231268
+      InteriorTilesLITE_86: -2129659019
+      InteriorTilesLITE_30: -1758964409
+      InteriorTilesLITE_137: 1932942818
+      InteriorTilesLITE_25: -1529808227
+      InteriorTilesLITE_178: -122890196
+      InteriorTilesLITE_161: -329593611
+      InteriorTilesLITE_80: -838709516
+      InteriorTilesLITE_31: 407116000
+      InteriorTilesLITE_190: 1784111189
+      InteriorTilesLITE_6: -1700510514
+      InteriorTilesLITE_158: -516958183
+      InteriorTilesLITE_5: -1655336685
+      InteriorTilesLITE_175: 1913121526
+      InteriorTilesLITE_47: 1327908889
+      InteriorTilesLITE_136: -247636037
+      InteriorTilesLITE_98: -157383557
+      InteriorTilesLITE_70: 2069272471
+      InteriorTilesLITE_15: -850379940
+      InteriorTilesLITE_123: 1320860431
+      InteriorTilesLITE_9: 538207725
+      InteriorTilesLITE_124: 450690194
+      InteriorTilesLITE_88: -2125692196
+      InteriorTilesLITE_93: -618286226
+      InteriorTilesLITE_37: 1739874210
+      InteriorTilesLITE_35: 1058455179
+      InteriorTilesLITE_104: 1448474484
+      InteriorTilesLITE_75: 1286125370
+      InteriorTilesLITE_2: -1487636567
+      InteriorTilesLITE_20: 2134103204
+      InteriorTilesLITE_91: 1117753811
+      InteriorTilesLITE_110: -1071571233
+      InteriorTilesLITE_107: 1098737575
+      InteriorTilesLITE_126: 1817550557
+      InteriorTilesLITE_45: -1267276225
+      InteriorTilesLITE_12: 1514422416
+      InteriorTilesLITE_171: -389429986
+      InteriorTilesLITE_65: -1428015062
+      InteriorTilesLITE_83: 851225464
+      InteriorTilesLITE_103: -1563640082
+      InteriorTilesLITE_73: -1518748263
+      InteriorTilesLITE_151: -343651555
+      InteriorTilesLITE_71: -1346161848
+      InteriorTilesLITE_155: -2039674663
+      InteriorTilesLITE_162: 89604921
+      InteriorTilesLITE_140: -851452680
+      InteriorTilesLITE_32: -647798926
+      InteriorTilesLITE_186: 1889546330
+      InteriorTilesLITE_39: -301063166
+      InteriorTilesLITE_130: 1378705122
+      InteriorTilesLITE_64: 1800266121
+      InteriorTilesLITE_96: -1016132336
+      InteriorTilesLITE_105: 70309844
+      InteriorTilesLITE_33: 1755947834
+      InteriorTilesLITE_28: 1500134974
+      InteriorTilesLITE_49: -109813473
+      InteriorTilesLITE_139: -2034536525
+      InteriorTilesLITE_167: -1635173892
+      InteriorTilesLITE_174: -1327974302
+      InteriorTilesLITE_189: -2028265722
+      InteriorTilesLITE_129: -1947971497
+      InteriorTilesLITE_77: -30744906
+      InteriorTilesLITE_55: 334708521
+      InteriorTilesLITE_76: 1609789785
+      InteriorTilesLITE_146: -1166313877
+      InteriorTilesLITE_159: -1231988123
+      InteriorTilesLITE_68: 1708704824
+      InteriorTilesLITE_106: -1359978423
+      InteriorTilesLITE_36: -1392514575
+      InteriorTilesLITE_60: 317952575
+      InteriorTilesLITE_119: 1238389775
+      InteriorTilesLITE_157: -264637889
+      InteriorTilesLITE_153: -791370458
+      InteriorTilesLITE_168: 1669190590
+      InteriorTilesLITE_183: 1238721690
+      InteriorTilesLITE_184: 957512852
+      InteriorTilesLITE_192: -1052031983
+      InteriorTilesLITE_22: 749731501
+      InteriorTilesLITE_92: 1690186624
+      InteriorTilesLITE_72: -1629502375
+      InteriorTilesLITE_131: -2118273666
+      InteriorTilesLITE_90: -1533488623
+      InteriorTilesLITE_145: 143038487
+      InteriorTilesLITE_82: 928387709
+      InteriorTilesLITE_59: -1148447343
+      InteriorTilesLITE_58: -1527172966
+      InteriorTilesLITE_69: -1965453785
+      InteriorTilesLITE_10: 1612391832
+      InteriorTilesLITE_108: 769488017
+      InteriorTilesLITE_147: -1424702951
+      InteriorTilesLITE_117: 1022497147
+      InteriorTilesLITE_150: 976796586
+      InteriorTilesLITE_115: 786546143
+      InteriorTilesLITE_164: -815790658
+      InteriorTilesLITE_24: -1093154599
+      InteriorTilesLITE_29: -803025647
+      InteriorTilesLITE_114: -2052401369
+      InteriorTilesLITE_173: 1684891511
+      InteriorTilesLITE_41: 1416110955
+      InteriorTilesLITE_81: 198674494
+      InteriorTilesLITE_79: -1367479876
+      InteriorTilesLITE_118: -1253413818
+      InteriorTilesLITE_133: 990851104
+      InteriorTilesLITE_57: 1331753082
+      InteriorTilesLITE_127: 1703526953
+      InteriorTilesLITE_18: -1129751213
+      InteriorTilesLITE_27: -1665421282
+      InteriorTilesLITE_193: -534823406
+      InteriorTilesLITE_111: -105043694
+      InteriorTilesLITE_8: 1644339886
+      InteriorTilesLITE_84: 527722504
+      InteriorTilesLITE_13: 250490697
+      InteriorTilesLITE_141: 1326225556
+      InteriorTilesLITE_89: 928750733
+      InteriorTilesLITE_154: -1666418359
+      InteriorTilesLITE_170: -456684372
+      InteriorTilesLITE_102: 620609043
+      InteriorTilesLITE_46: -934036547
+      InteriorTilesLITE_85: 1220200230
+      InteriorTilesLITE_44: 179872331
+      InteriorTilesLITE_125: 1877878636
+      InteriorTilesLITE_156: 1172212226
+      InteriorTilesLITE_62: 1465519606
+      InteriorTilesLITE_172: -288393960
+      InteriorTilesLITE_181: 1715865971
+      InteriorTilesLITE_180: -756025391
+      InteriorTilesLITE_54: -847902059
+      InteriorTilesLITE_120: -341830348
+      InteriorTilesLITE_109: 2015823691
+      InteriorTilesLITE_122: 618738294
+      InteriorTilesLITE_19: -991075067
+      InteriorTilesLITE_52: 676603010
+      InteriorTilesLITE_66: 263468683
+      InteriorTilesLITE_40: 1654590542
+      InteriorTilesLITE_94: 2101080795
+      InteriorTilesLITE_142: 1227093428
+      InteriorTilesLITE_160: 1188394607
+      InteriorTilesLITE_4: -248779837
+      InteriorTilesLITE_51: 1712209144
+      InteriorTilesLITE_177: 529494243
+      InteriorTilesLITE_113: -790494721
+      InteriorTilesLITE_179: 1439388288
+      InteriorTilesLITE_169: 618655656
+      InteriorTilesLITE_38: -1279951316
+      InteriorTilesLITE_148: -1428601898
+      InteriorTilesLITE_138: 176853592
+      InteriorTilesLITE_16: -1026106963
+      InteriorTilesLITE_23: -1113628415
+      InteriorTilesLITE_63: 408473376
+      InteriorTilesLITE_144: -1906502903
+      InteriorTilesLITE_53: -1363965155
+      InteriorTilesLITE_48: -1548314350
+      InteriorTilesLITE_112: 703739516
+      InteriorTilesLITE_121: 153077860
+      InteriorTilesLITE_26: -889616168
+      InteriorTilesLITE_132: -2029613470
+      InteriorTilesLITE_163: -1321431411
+      InteriorTilesLITE_14: -2043779050
+      InteriorTilesLITE_97: 364813919
+      InteriorTilesLITE_128: -627594912
+      InteriorTilesLITE_43: -1004589686
+      InteriorTilesLITE_188: -991672684
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

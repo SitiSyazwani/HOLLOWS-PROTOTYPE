@@ -112,8 +112,8 @@ TextureImporter:
         y: 904
         width: 786
         height: 786
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -133,8 +133,8 @@ TextureImporter:
         y: 904
         width: 786
         height: 786
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -154,8 +154,8 @@ TextureImporter:
         y: 118
         width: 786
         height: 786
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -175,8 +175,8 @@ TextureImporter:
         y: 118
         width: 786
         height: 786
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -197,14 +197,14 @@ TextureImporter:
         width: 786
         height: 118
       alignment: 9
-      pivot: {x: 0.5, y: -2.3305085}
+      pivot: {x: 0.5, y: -6.661017}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 08da8c2cd76967a4b9b59f81b7ae902c
-      internalID: 439099553
+      spriteID: a98354bd95e053643ade2e8b00f5e10a
+      internalID: -590646980
       vertices: []
       indices: 
       edges: []
@@ -218,14 +218,14 @@ TextureImporter:
         width: 786
         height: 118
       alignment: 9
-      pivot: {x: 0.5, y: -2.3305085}
+      pivot: {x: 0.5, y: -6.661017}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a0ad80a987fc2f40a2507042adac444
-      internalID: 1408602601
+      spriteID: ec14fc8a6adcd7a4e8a4f21ed4cacc07
+      internalID: -276298805
       vertices: []
       indices: 
       edges: []
@@ -241,11 +241,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Wall_05_4: 439099553
+      Wall_05_4: -590646980
       Wall_05_2: -1872369710
       Wall_05_0: -1661908024
       Wall_05_3: 362111153
-      Wall_05_5: 1408602601
+      Wall_05_5: -276298805
       Wall_05_1: 857994059
   spritePackingTag: 
   pSDRemoveMatte: 0

@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Character
   - Exit
+  - Legtrigger
+  - HeadTrigger
+  - FootstepTrigger
+  - border
   layers:
   - Default
   - TransparentFX
@@ -42,4 +46,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1198269759
+    locked: 0
+  - name: Foreground
+    uniqueID: 4064248665
     locked: 0
