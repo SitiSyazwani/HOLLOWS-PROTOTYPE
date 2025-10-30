@@ -28,9 +28,8 @@ namespace Assets.Scripts
         public static bool keyFound = false;
         public static bool batteryCollected = false;
 
-        // SIMPLE INVENTORY SYSTEM - No Canvas needed
+        // Inventory system
         public static List<string> collectedItems = new List<string>();
-        private static bool showInventory = false;
 
         // Add a private reference to the Flashlight script
         private Flashlight flashlight;
@@ -53,85 +52,12 @@ namespace Assets.Scripts
             {
                 Debug.LogError("Flashlight script not found in the scene.");
             }
-
         }
 
         void Update()
         {
             HandleItemCollection();
-            // Removed keyboard toggle - using button instead
         }
-
-        // CREATE INVENTORY BUTTON
-        void OnGUI()
-        {
-            // Draw inventory button (always visible)
-            float buttonWidth = 120f;
-            float buttonHeight = 40f;
-            float buttonX = 20f; // 20px from left edge
-            float buttonY = 20f; // 20px from top
-
-            // Draw the button
-            if (GUI.Button(new Rect(buttonX, buttonY, buttonWidth, buttonHeight), "INVENTORY"))
-            {
-                ToggleInventory();
-            }
-
-            // Draw inventory display if open
-            if (!showInventory) return;
-
-            // Inventory box below the button
-            float boxWidth = 300f;
-            float boxHeight = 100f;
-            float xPos = (Screen.width - boxWidth) / 2f;
-            float yPos = 70f;
-
-            // Draw inventory background
-            GUI.Box(new Rect(xPos, yPos, boxWidth, boxHeight), "INVENTORY");
-
-            // Draw collected items
-            float itemX = xPos + 20f;
-            float itemY = yPos + 30f;
-
-            if (collectedItems.Count == 0)
-            {
-                GUI.Label(new Rect(itemX, itemY, 200f, 30f), "Empty");
-            }
-            else
-            {
-                foreach (string itemName in collectedItems)
-                {
-                    // Set color based on item type
-                    GUIStyle style = new GUIStyle(GUI.skin.label);
-                    if (itemName == "Battery")
-                    {
-                        style.normal.textColor = Color.yellow;
-                    }
-                    else if (itemName == "Key")
-                    {
-                        style.normal.textColor = Color.gray;
-                    }
-                    else
-                    {
-                        style.normal.textColor = Color.white;
-                    }
-
-                    GUI.Label(new Rect(itemX, itemY, 200f, 30f), "• " + itemName, style);
-                    itemY += 25f;
-                }
-            }
-
-            // Draw instructions
-            GUI.Label(new Rect(xPos, yPos + boxHeight - 20f, boxWidth, 20f), "Click button to close");
-        }
-
-        // TOGGLE INVENTORY (called by button click)
-        public void ToggleInventory()
-        {
-            showInventory = !showInventory;
-            Debug.Log("Inventory " + (showInventory ? "shown" : "hidden") + " - Items: " + collectedItems.Count);
-        }
-
 
         void OnTriggerEnter2D(Collider2D other)
         {
@@ -220,6 +146,13 @@ namespace Assets.Scripts
             {
                 collectedItems.Add("Battery");
                 Debug.Log("Battery added to inventory. Total items: " + collectedItems.Count);
+
+                // Refresh inventory UI
+                InventoryUI invUI = FindObjectOfType<InventoryUI>();
+                if (invUI != null)
+                {
+                    invUI.RefreshInventory();
+                }
             }
 
             if (message != null)
@@ -243,6 +176,13 @@ namespace Assets.Scripts
             {
                 collectedItems.Add("Key");
                 Debug.Log("Key added to inventory. Total items: " + collectedItems.Count);
+
+                // Refresh inventory UI
+                InventoryUI invUI = FindObjectOfType<InventoryUI>();
+                if (invUI != null)
+                {
+                    invUI.RefreshInventory();
+                }
             }
 
             if (message != null)
@@ -265,6 +205,13 @@ namespace Assets.Scripts
             {
                 collectedItems.Add(itemName);
                 Debug.Log(itemName + " added to inventory. Total items: " + collectedItems.Count);
+
+                // Refresh inventory UI
+                InventoryUI invUI = FindObjectOfType<InventoryUI>();
+                if (invUI != null)
+                {
+                    invUI.RefreshInventory();
+                }
             }
 
             if (message != null)
@@ -344,6 +291,8 @@ namespace Assets.Scripts
         public static void ClearInventory()
         {
             collectedItems.Clear();
+            keyFound = false;
+            batteryCollected = false;
             Debug.Log("Inventory cleared");
         }
     }
