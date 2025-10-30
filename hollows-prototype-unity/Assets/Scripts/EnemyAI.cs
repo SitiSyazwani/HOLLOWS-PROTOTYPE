@@ -4,6 +4,10 @@ using UnityEngine.UI;
 
 public class EnemyAI : MonoBehaviour
 {
+    [Header("Animation Shake")]
+    public Animator cameraAnimator;
+    private bool wasShaking = false;
+
     public Transform player;
     public Transform[] patrolPoints;
     public float patrolSpeed = 2f;
@@ -19,6 +23,7 @@ public class EnemyAI : MonoBehaviour
     public float pulseSpeed = 2f;
     public float maxIntensity = 0.7f;
     public float minIntensity = 0.3f;
+    private bool hasShaken = false;
 
     private NavMeshAgent agent;
     private int currentPatrolIndex = 0;
@@ -100,6 +105,7 @@ public class EnemyAI : MonoBehaviour
 
         UpdateAnimation();
         UpdateVFX(); // Added VFX update
+        UpdateCameraShake();
 
         // Check for right click input (simulating player making noise)
         if (Input.GetMouseButtonDown(1))
@@ -243,6 +249,48 @@ public class EnemyAI : MonoBehaviour
         currentColor.b = Mathf.Clamp01(0.2f - colorPulse * 0.5f);
 
         overlayImage.color = currentColor;
+    }
+    //private void UpdateCameraShake()
+    //{
+    //    if (cameraAnimator == null) return;
+
+    //    float distance = Vector3.Distance(transform.position, player.position);
+    //    bool shouldShake = (distance < 5f && currentState != State.Chase);
+
+    //    if (shouldShake && !wasShaking)
+    //    {
+    //        cameraAnimator.Play("CameraShake", -1, 0f);
+    //        Debug.Log("Camera shake triggered!");
+    //    }
+    //    else if (!shouldShake && wasShaking)
+    //    {
+    //        // Force return to Idle state
+    //        cameraAnimator.Play("Idle", -1, 0f);
+    //        Debug.Log("Returning to Idle state");
+    //    }
+
+    //    wasShaking = shouldShake;
+    //}
+    private void UpdateCameraShake()
+    {
+        if (cameraAnimator == null) return;
+
+        float distance = Vector3.Distance(transform.position, player.position);
+        bool isInProximity = (distance < 8f && currentState != State.Chase);
+
+        // One-time shake when entering proximity
+        if (isInProximity && !hasShaken)
+        {
+            cameraAnimator.Play("CameraShake", -1, 0f);
+            hasShaken = true;
+            Debug.Log("ONE-TIME SHAKE!");
+        }
+
+        // Reset when far away
+        if (distance > 12f)
+        {
+            hasShaken = false;
+        }
     }
 
     private void UpdateAnimation()
