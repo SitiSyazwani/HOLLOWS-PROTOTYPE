@@ -40,7 +40,7 @@ public class EnemyAI : MonoBehaviour
     public float pulseSpeed = 2f;
     public float maxIntensity = 0.7f;
     public float minIntensity = 0.3f;
-    private bool hasShaken = false;
+    //private bool hasShaken = false;
 
     private NavMeshAgent agent;
     private int currentPatrolIndex = 0;

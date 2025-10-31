@@ -9,20 +9,20 @@ using System.Collections.Generic;
 namespace Assets.Scripts
 {
     //---------------------------------------------------------------------------------
-    // Author		: SitiSyazwani
-    // Date  		: 2025-09-14
-    // Modified By	: Rifqah Added Inventory System
-    // Description	: Handles item collection and inventory system
+    // Author        : SitiSyazwani
+    // Date          : 2025-09-14
+    // Modified By   : Rifqah Added Inventory System
+    // Description   : Handles item collection and inventory system
     //---------------------------------------------------------------------------------
     public class Item : MonoBehaviour
     {
         public GameObject popupUI;       // UI popup prompt
-        public GameObject message;       // Pickup message
+        // Removed: public GameObject message; // Pickup message
         public GameObject battHealth;    // Battery health UI
         public GameObject item;          // Reference to the collectible item object
 
         private bool itemFound = false;
-        private float delayTime = 3f;
+        //private float delayTime = 3f;
 
         // Shared inventory flags
         public static bool keyFound = false;
@@ -44,7 +44,7 @@ namespace Assets.Scripts
             Collider2D col = GetComponent<Collider2D>();
             if (col != null) col.isTrigger = true;
 
-            if (message != null) message.SetActive(false);
+            // Removed: if (message != null) message.SetActive(false);
 
             // Get a reference to the Flashlight component in the scene
             flashlight = FindObjectOfType<Flashlight>();
@@ -83,7 +83,7 @@ namespace Assets.Scripts
         {
             if (itemFound && Input.GetKeyDown(KeyCode.E))
             {
-                if (message != null) message.SetActive(true);
+                // Removed: if (message != null) message.SetActive(true);
 
                 // Determine what type of item this is
                 if (gameObject.CompareTag("Battery") || gameObject.name.Contains("Battery"))
@@ -114,11 +114,7 @@ namespace Assets.Scripts
                 // Hide popup after collection
                 popupUI.SetActive(false);
 
-                // Disable message after delay
-                if (message != null && message.activeSelf)
-                {
-                    StartCoroutine(DisableObjectAfterDelay(delayTime));
-                }
+                // Removed old message disable logic
             }
         }
 
@@ -155,14 +151,7 @@ namespace Assets.Scripts
                 }
             }
 
-            if (message != null)
-            {
-                Text messageText = message.GetComponent<Text>();
-                if (messageText != null)
-                {
-                    messageText.text = "Battery Collected!";
-                }
-            }
+            // Removed message display logic
         }
 
         void CollectKey()
@@ -185,14 +174,7 @@ namespace Assets.Scripts
                 }
             }
 
-            if (message != null)
-            {
-                Text messageText = message.GetComponent<Text>();
-                if (messageText != null)
-                {
-                    messageText.text = "Key Collected!";
-                }
-            }
+            // Removed message display logic
         }
 
         void CollectGenericItem()
@@ -214,14 +196,7 @@ namespace Assets.Scripts
                 }
             }
 
-            if (message != null)
-            {
-                Text messageText = message.GetComponent<Text>();
-                if (messageText != null)
-                {
-                    messageText.text = itemName + " Collected!";
-                }
-            }
+            // Removed message display logic
         }
 
         void CheckExitCondition()
@@ -238,42 +213,21 @@ namespace Assets.Scripts
                 winlose.state = WinLose.GameState.win;
                 Debug.Log("Key found! Player wins!");
 
-                if (message != null)
-                {
-                    Text messageText = message.GetComponent<Text>();
-                    if (messageText != null)
-                    {
-                        messageText.text = "You Escaped! You Win!";
-                    }
-                    message.SetActive(true);
-                }
+                // Removed success message display logic
             }
             else
             {
                 Debug.Log("Need key to exit!");
 
-                if (message != null)
-                {
-                    Text messageText = message.GetComponent<Text>();
-                    if (messageText != null)
-                    {
-                        messageText.text = "You need a Key to escape!";
-                    }
-                    message.SetActive(true);
-                    StartCoroutine(DisableObjectAfterDelay(2f));
-                }
+                // Removed failure message display logic
             }
+
+            // Since the old message logic is removed, 
+            // the text that says "You need a Key to escape!" 
+            // will now come from the DialogueTrigger script!
         }
 
-        IEnumerator DisableObjectAfterDelay(float seconds)
-        {
-            yield return new WaitForSeconds(seconds);
-            if (message != null)
-            {
-                message.SetActive(false);
-                Debug.Log("Message hidden after delay");
-            }
-        }
+        // Removed: IEnumerator DisableObjectAfterDelay(float seconds)
 
         // Static method to check if player has item (can be called from other scripts)
         public static bool HasItem(string itemName)

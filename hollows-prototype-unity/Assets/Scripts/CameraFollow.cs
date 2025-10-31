@@ -5,7 +5,7 @@ public class CameraFollow : MonoBehaviour
 {
     [Header("Camera Settings")]
     [SerializeField] private float smoothSpeed = 0.125f;
-    [SerializeField] private float zoomLevel = 5f;
+    [SerializeField] private float zoomLevel = 3f;
 
     public Transform player;
     public Tilemap groundTilemap; // get the tilemap
