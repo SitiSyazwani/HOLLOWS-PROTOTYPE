@@ -121,11 +121,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 786
-        width: 787
-        height: 786
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 0
+        width: 1574
+        height: 1572
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -133,69 +133,6 @@ TextureImporter:
       bones: []
       spriteID: 7a1e0e5bb99b38543949fc88c428f05c
       internalID: -558013925
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wall_06_1
-      rect:
-        serializedVersion: 2
-        x: 787
-        y: 786
-        width: 787
-        height: 786
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: eefd7a5ec7ec6b743b17ee443c73bc23
-      internalID: 143497438
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wall_06_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 787
-        height: 786
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 69187e6e04242dd428bfb22d419879ab
-      internalID: -2076528928
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wall_06_3
-      rect:
-        serializedVersion: 2
-        x: 787
-        y: 0
-        width: 787
-        height: 786
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 64ddfad6ba9722b4a852d4bc2f103cec
-      internalID: 100216221
       vertices: []
       indices: 
       edges: []
@@ -211,10 +148,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Wall_06_3: 100216221
-      Wall_06_2: -2076528928
       Wall_06_0: -558013925
-      Wall_06_1: 143497438
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
