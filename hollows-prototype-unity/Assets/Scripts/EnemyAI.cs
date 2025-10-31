@@ -4,9 +4,18 @@ using UnityEngine.UI;
 
 public class EnemyAI : MonoBehaviour
 {
-    [Header("Animation Shake")]
-    public Animator cameraAnimator;
-    private bool wasShaking = false;
+    //[Header("Animation Shake")]
+    //public Animator cameraAnimator;
+    //private bool wasShaking = false;
+    //[Header("Exclamation Mark UI")]
+    //public GameObject exclamationTopLeft;
+    //public GameObject exclamationTopRight;
+    //public GameObject exclamationBottomLeft;
+    //public GameObject exclamationBottomRight;
+
+    //[Header("Proximity Alert")]
+    //public float proximityRange = 8f;
+    //public float detectionAngle = 45f; // Degrees for corner detection
 
     public Transform player;
     public Transform[] patrolPoints;
@@ -17,6 +26,14 @@ public class EnemyAI : MonoBehaviour
     public float chaseRange = 20f;         // how close player must be to trigger chase
     public float catchDistance = 0.5f;     // Distance threshold for "caught"
     public Animator animator;
+
+    [Header("Exclamation Marks")]
+    public GameObject exclamationTopLeft;
+    public GameObject exclamationTopRight;
+    public GameObject exclamationBottomLeft;
+    public GameObject exclamationBottomRight;
+    public float proximityRange = 8f;
+
 
     [Header("VFX Settings")]
     public GameObject redOverlay; // Assign your red overlay panel from Canvas in Inspector
@@ -74,6 +91,15 @@ public class EnemyAI : MonoBehaviour
                 Debug.LogWarning("Red Overlay GameObject doesn't have an Image component!");
             }
         }
+        // Ensure UI elements are properly positioned
+        if (exclamationTopLeft != null)
+        {
+            RectTransform rect = exclamationTopLeft.GetComponent<RectTransform>();
+            if (rect.parent.GetComponent<Canvas>() == null)
+            {
+                Debug.LogError("Exclamation marks must be children of Canvas!");
+            }
+        }
 
         StartPatrol();
     }
@@ -105,7 +131,8 @@ public class EnemyAI : MonoBehaviour
 
         UpdateAnimation();
         UpdateVFX(); // Added VFX update
-        UpdateCameraShake();
+        //UpdateCameraShake();
+        UpdateExclamationMark();
 
         // Check for right click input (simulating player making noise)
         if (Input.GetMouseButtonDown(1))
@@ -250,47 +277,81 @@ public class EnemyAI : MonoBehaviour
 
         overlayImage.color = currentColor;
     }
+
     //private void UpdateCameraShake()
     //{
     //    if (cameraAnimator == null) return;
 
     //    float distance = Vector3.Distance(transform.position, player.position);
-    //    bool shouldShake = (distance < 5f && currentState != State.Chase);
+    //    bool isInProximity = (distance < 8f && currentState != State.Chase);
 
-    //    if (shouldShake && !wasShaking)
+    //    // One-time shake when entering proximity
+    //    if (isInProximity && !hasShaken)
     //    {
     //        cameraAnimator.Play("CameraShake", -1, 0f);
-    //        Debug.Log("Camera shake triggered!");
-    //    }
-    //    else if (!shouldShake && wasShaking)
-    //    {
-    //        // Force return to Idle state
-    //        cameraAnimator.Play("Idle", -1, 0f);
-    //        Debug.Log("Returning to Idle state");
+    //        hasShaken = true;
+    //        Debug.Log("ONE-TIME SHAKE!");
     //    }
 
-    //    wasShaking = shouldShake;
+    //    // Reset when far away
+    //    if (distance > 12f)
+    //    {
+    //        hasShaken = false;
+    //    }
     //}
-    private void UpdateCameraShake()
+    private void UpdateExclamationMark()
     {
-        if (cameraAnimator == null) return;
+        if (player == null || Camera.main == null) return;
 
         float distance = Vector3.Distance(transform.position, player.position);
-        bool isInProximity = (distance < 8f && currentState != State.Chase);
+        bool showExclamation = (distance < proximityRange && currentState != State.Chase);
 
-        // One-time shake when entering proximity
-        if (isInProximity && !hasShaken)
-        {
-            cameraAnimator.Play("CameraShake", -1, 0f);
-            hasShaken = true;
-            Debug.Log("ONE-TIME SHAKE!");
-        }
+        // Hide all first
+        SetAllExclamationMarks(false);
 
-        // Reset when far away
-        if (distance > 12f)
+        if (showExclamation)
         {
-            hasShaken = false;
+            // Show only the correct corner mark
+            ShowCorrectCornerMark();
         }
+    }
+
+    private void ShowCorrectCornerMark()
+    {
+        Vector3 viewportPos = Camera.main.WorldToViewportPoint(transform.position);
+
+        if (viewportPos.x < 0.5f && viewportPos.y < 0.5f)
+        {
+            // Monster is bottom-left of screen
+            if (exclamationBottomLeft != null)
+                exclamationBottomLeft.SetActive(true);
+        }
+        else if (viewportPos.x >= 0.5f && viewportPos.y < 0.5f)
+        {
+            // Monster is bottom-right of screen
+            if (exclamationBottomRight != null)
+                exclamationBottomRight.SetActive(true);
+        }
+        else if (viewportPos.x < 0.5f && viewportPos.y >= 0.5f)
+        {
+            // Monster is top-left of screen
+            if (exclamationTopLeft != null)
+                exclamationTopLeft.SetActive(true);
+        }
+        else
+        {
+            // Monster is top-right of screen
+            if (exclamationTopRight != null)
+                exclamationTopRight.SetActive(true);
+        }
+    }
+
+    private void SetAllExclamationMarks(bool active)
+    {
+        if (exclamationTopLeft != null) exclamationTopLeft.SetActive(active);
+        if (exclamationTopRight != null) exclamationTopRight.SetActive(active);
+        if (exclamationBottomLeft != null) exclamationBottomLeft.SetActive(active);
+        if (exclamationBottomRight != null) exclamationBottomRight.SetActive(active);
     }
 
     private void UpdateAnimation()
