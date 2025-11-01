@@ -52,25 +52,6 @@ namespace Assets.Scripts
             {
                 Debug.LogError("Flashlight script not found in the scene.");
             }
-
-            // ====== TEMPORARY DEBUG CODE - ADD TEST ITEMS ======
-            #if UNITY_EDITOR
-                if (collectedItems.Count == 0) // Only add if inventory is empty
-                {
-                    collectedItems.Add("Metal Bed Frame Piece");
-                    collectedItems.Add("Toothbrush Handle");
-                    collectedItems.Add("Wire");
-                    Debug.Log(" TEST: Added crafting items to inventory");
-        
-                    // Refresh inventory UI if it exists
-                    InventoryUI invUI = FindObjectOfType<InventoryUI>();
-                    if (invUI != null)
-                    {
-                        invUI.RefreshInventory();
-                    }
-                }
-            #endif
-                        // ====== END DEBUG CODE ======
         }
 
         void Update()
@@ -116,27 +97,42 @@ namespace Assets.Scripts
                 else if (gameObject.CompareTag("ExitDoor") || gameObject.name.Contains("Exit"))
                 {
                     CheckExitCondition();
+                    // Exit condition handles its own message timing
+                    return; // Exit early for exit door
                 }
                 else
                 {
-                    // Generic item collection
                     CollectGenericItem();
                 }
 
-                // Hide the collected item
-                if (item != null)
-                {
-                    item.SetActive(false);
-                    Debug.Log("Item hidden: " + gameObject.name);
-                }
-
-                // Hide popup after collection
+                // Hide popup
                 popupUI.SetActive(false);
 
-                // Disable message after delay
+                // START COROUTINE FOR MESSAGE (for all items except exit door)
                 if (message != null && message.activeSelf)
                 {
                     StartCoroutine(DisableObjectAfterDelay(delayTime));
+                    Debug.Log("Started coroutine to hide message for: " + gameObject.name);
+                }
+
+                // Hide the collected item AFTER starting coroutine
+                if (item != null)
+                {
+                    // Just hide the visual
+                    SpriteRenderer renderer = item.GetComponent<SpriteRenderer>();
+                    if (renderer != null)
+                    {
+                        renderer.enabled = false;
+                    }
+
+                    // Disable collider so can't collect again
+                    Collider2D col = item.GetComponent<Collider2D>();
+                    if (col != null)
+                    {
+                        col.enabled = false;
+                    }
+
+                    Debug.Log("Item hidden: " + gameObject.name);
                 }
             }
         }
@@ -216,16 +212,15 @@ namespace Assets.Scripts
 
         void CollectGenericItem()
         {
-            string itemName = gameObject.name;
+            string itemName = gameObject.name; // Just use GameObject name
+
             Debug.Log("Collecting generic item: " + itemName);
 
-            // Add to inventory with the object's name
             if (!collectedItems.Contains(itemName))
             {
                 collectedItems.Add(itemName);
                 Debug.Log(itemName + " added to inventory. Total items: " + collectedItems.Count);
 
-                // Refresh inventory UI
                 InventoryUI invUI = FindObjectOfType<InventoryUI>();
                 if (invUI != null)
                 {
@@ -286,11 +281,17 @@ namespace Assets.Scripts
 
         IEnumerator DisableObjectAfterDelay(float seconds)
         {
+            Debug.Log("Coroutine started - will hide message in " + seconds + " seconds");
             yield return new WaitForSeconds(seconds);
+
             if (message != null)
             {
                 message.SetActive(false);
                 Debug.Log("Message hidden after delay");
+            }
+            else
+            {
+                Debug.LogError("Message is null!");
             }
         }
 

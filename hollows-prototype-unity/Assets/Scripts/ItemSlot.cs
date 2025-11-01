@@ -15,6 +15,10 @@ namespace Assets.Scripts
         [Header("Item Icons")]
         public Sprite batteryIcon;
         public Sprite keyIcon;
+        public Sprite metalBedFrameIcon;  // NEW
+        public Sprite toothbrushIcon;      // NEW
+        public Sprite wireIcon;            // NEW
+        public Sprite lockpickIcon;        // NEW
         public Sprite defaultIcon;
 
         [Header("Tooltip")]
@@ -40,11 +44,14 @@ namespace Assets.Scripts
         {
             itemName = item;
             hasItem = true;
+            isInCraftingSlot = false; // Important - reset this flag
 
+            // Set the text
             if (itemNameText != null)
             {
                 itemNameText.text = item;
 
+                // Set text color based on item type
                 if (item == "Battery")
                 {
                     itemNameText.color = Color.yellow;
@@ -59,9 +66,10 @@ namespace Assets.Scripts
                 }
             }
 
+            // Set the icon
             if (itemIcon != null)
             {
-                itemIcon.enabled = true;
+                itemIcon.enabled = true; // Important - show the icon
 
                 if (item == "Battery" && batteryIcon != null)
                 {
@@ -73,6 +81,26 @@ namespace Assets.Scripts
                     itemIcon.sprite = keyIcon;
                     currentIcon = keyIcon;
                 }
+                else if (item == "Metal Bed Frame Piece" && metalBedFrameIcon != null)
+                {
+                    itemIcon.sprite = metalBedFrameIcon;
+                    currentIcon = metalBedFrameIcon;
+                }
+                else if (item == "Toothbrush Handle" && toothbrushIcon != null)
+                {
+                    itemIcon.sprite = toothbrushIcon;
+                    currentIcon = toothbrushIcon;
+                }
+                else if (item == "Wire" && wireIcon != null)
+                {
+                    itemIcon.sprite = wireIcon;
+                    currentIcon = wireIcon;
+                }
+                else if (item == "Makeshift Lockpick Set" && lockpickIcon != null)
+                {
+                    itemIcon.sprite = lockpickIcon;
+                    currentIcon = lockpickIcon;
+                }
                 else if (defaultIcon != null)
                 {
                     itemIcon.sprite = defaultIcon;
@@ -80,6 +108,7 @@ namespace Assets.Scripts
                 }
             }
 
+            // Hide empty slot indicator
             if (emptySlotIndicator != null)
             {
                 emptySlotIndicator.SetActive(false);
