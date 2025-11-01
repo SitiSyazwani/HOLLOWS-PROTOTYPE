@@ -180,9 +180,23 @@ namespace Assets.Scripts
 
                 if (targetSlot != null)
                 {
+                    // Place in slot
                     draggableItem.transform.SetParent(targetSlot.transform, false);
-                    draggableItem.transform.position = targetSlot.transform.position;
 
+                    // Reset scale to avoid tiny or huge icons
+                    draggableItem.transform.localScale = Vector3.one;
+
+                    // Center inside the slot
+                    RectTransform rect = draggableItem.GetComponent<RectTransform>();
+                    rect.anchoredPosition = Vector2.zero;
+
+                    // Keep the same size as the original item icon
+                    if (itemIcon != null)
+                    {
+                        rect.sizeDelta = itemIcon.rectTransform.sizeDelta;
+                    }
+
+                    // Make it fully visible
                     CanvasGroup cg = draggableItem.GetComponent<CanvasGroup>();
                     if (cg != null)
                     {
@@ -191,7 +205,6 @@ namespace Assets.Scripts
                     }
 
                     targetSlot.PlaceItem(itemName, draggableItem);
-
                     Debug.Log("Placed " + itemName + " in slot " + targetSlot.slotNumber);
                 }
                 else
@@ -204,6 +217,8 @@ namespace Assets.Scripts
             draggableItem = null;
             isDragging = false;
         }
+
+
 
         void CreateDraggableItem()
         {
