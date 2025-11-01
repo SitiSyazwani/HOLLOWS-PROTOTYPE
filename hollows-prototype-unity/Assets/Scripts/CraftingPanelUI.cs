@@ -16,6 +16,7 @@ namespace Assets.Scripts
         [Header("UI")]
         public Button craftButton;
         public TMP_Text recipeInstructionText;
+        public TMP_Text feedbackText;
         public GameObject successPanel;
 
         void Start()
