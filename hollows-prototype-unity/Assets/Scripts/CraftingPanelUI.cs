@@ -136,6 +136,7 @@ namespace Assets.Scripts
             if (successPanel != null)
             {
                 successPanel.SetActive(true);
+                Invoke("HideSuccessPanel", 2f); // Hide success after 2 seconds
             }
 
             if (feedbackText != null)
@@ -151,13 +152,15 @@ namespace Assets.Scripts
                 invUI.RefreshInventory();
             }
 
-            // Close crafting after a delay
-            Invoke("CloseCrafting", 2f);
         }
 
-        void CloseCrafting()
+        // Add this new method to hide just the success panel
+        void HideSuccessPanel()
         {
-            gameObject.SetActive(false);
+            if (successPanel != null)
+            {
+                successPanel.SetActive(false);
+            }
         }
 
         public void ResetSlots()

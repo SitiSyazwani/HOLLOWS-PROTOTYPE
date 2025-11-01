@@ -52,6 +52,25 @@ namespace Assets.Scripts
             {
                 Debug.LogError("Flashlight script not found in the scene.");
             }
+
+            // ====== TEMPORARY DEBUG CODE - ADD TEST ITEMS ======
+            #if UNITY_EDITOR
+                if (collectedItems.Count == 0) // Only add if inventory is empty
+                {
+                    collectedItems.Add("Metal Bed Frame Piece");
+                    collectedItems.Add("Toothbrush Handle");
+                    collectedItems.Add("Wire");
+                    Debug.Log(" TEST: Added crafting items to inventory");
+        
+                    // Refresh inventory UI if it exists
+                    InventoryUI invUI = FindObjectOfType<InventoryUI>();
+                    if (invUI != null)
+                    {
+                        invUI.RefreshInventory();
+                    }
+                }
+            #endif
+                        // ====== END DEBUG CODE ======
         }
 
         void Update()
