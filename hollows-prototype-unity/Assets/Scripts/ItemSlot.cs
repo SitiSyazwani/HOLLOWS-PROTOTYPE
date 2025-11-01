@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 namespace Assets.Scripts
 {
-    public class ItemSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
+    public class ItemSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
     {
         [Header("UI References")]
         public TMP_Text itemNameText;
@@ -24,6 +24,8 @@ namespace Assets.Scripts
         private string itemName = "";
         private bool hasItem = false;
         private Sprite currentIcon;
+        private bool isDragging = false;
+        private GameObject draggableItem;
 
         void Start()
         {
@@ -113,23 +115,10 @@ namespace Assets.Scripts
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            if (hasItem)
+            if (!isDragging && hasItem)
             {
                 EquipItem();
             }
-        }
-
-        public void OnPointerEnter(PointerEventData eventData)
-        {
-            if (hasItem)
-            {
-                ShowTooltip();
-            }
-        }
-
-        public void OnPointerExit(PointerEventData eventData)
-        {
-            HideTooltip();
         }
 
         void EquipItem()
@@ -140,6 +129,115 @@ namespace Assets.Scripts
             {
                 EquippedItemUI.Instance.EquipItem(itemName, currentIcon);
             }
+        }
+
+        public void OnBeginDrag(PointerEventData eventData)
+        {
+            if (!hasItem) return;
+
+            isDragging = true;
+            CreateDraggableItem();
+        }
+
+        public void OnDrag(PointerEventData eventData)
+        {
+            if (draggableItem != null)
+            {
+                draggableItem.transform.position = eventData.position;
+            }
+        }
+
+        public void OnEndDrag(PointerEventData eventData)
+        {
+            if (draggableItem != null)
+            {
+                CraftingSlot targetSlot = null;
+
+                var results = new System.Collections.Generic.List<RaycastResult>();
+                EventSystem.current.RaycastAll(eventData, results);
+
+                foreach (var result in results)
+                {
+                    CraftingSlot slot = result.gameObject.GetComponent<CraftingSlot>();
+                    if (slot != null && slot.IsEmpty())
+                    {
+                        targetSlot = slot;
+                        break;
+                    }
+                }
+
+                if (targetSlot != null)
+                {
+                    draggableItem.transform.SetParent(targetSlot.transform);
+                    draggableItem.transform.position = targetSlot.transform.position;
+
+                    CanvasGroup cg = draggableItem.GetComponent<CanvasGroup>();
+                    if (cg != null)
+                    {
+                        cg.alpha = 1f;
+                        cg.blocksRaycasts = true;
+                    }
+
+                    targetSlot.PlaceItem(itemName, draggableItem);
+
+                    Debug.Log("Placed " + itemName + " in slot " + targetSlot.slotNumber);
+                }
+                else
+                {
+                    Destroy(draggableItem);
+                    Debug.Log("Item not placed - destroyed");
+                }
+            }
+
+            draggableItem = null;
+            isDragging = false;
+        }
+
+        void CreateDraggableItem()
+        {
+            Canvas canvas = GetComponentInParent<Canvas>();
+            if (canvas == null)
+            {
+                Debug.LogError("No Canvas found!");
+                return;
+            }
+
+            draggableItem = new GameObject(itemName + "_Draggable");
+            draggableItem.transform.SetParent(canvas.transform, false);
+
+            RectTransform rect = draggableItem.AddComponent<RectTransform>();
+            rect.sizeDelta = new Vector2(100, 100);
+            rect.position = transform.position; // Start at slot position
+
+            Image img = draggableItem.AddComponent<Image>();
+            if (currentIcon != null)
+            {
+                img.sprite = currentIcon;
+            }
+            else
+            {
+                img.color = Color.white;
+            }
+            img.raycastTarget = false;
+
+            CanvasGroup cg = draggableItem.AddComponent<CanvasGroup>();
+            cg.alpha = 0.7f;
+            cg.blocksRaycasts = false;
+
+            Debug.Log("Created draggable: " + itemName);
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            if (hasItem && !isDragging)
+            {
+                ShowTooltip();
+            }
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            HideTooltip();
         }
 
         void ShowTooltip()
