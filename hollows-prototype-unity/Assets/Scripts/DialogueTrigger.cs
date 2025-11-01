@@ -1,13 +1,13 @@
 using UnityEngine;
-using Assets.Scripts; // Crucial to access the static HasItem method in your Item class
+using Assets.Scripts;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    // Assign your Dialogue GameObject (which has the Dialogue script) here
+    // Assign your Dialogue Panel GameObject here in the Inspector
     public Dialogue dialogueManager;
-    
+
     // --- Define your custom dialogue lines here ---
-    
+
     [Header("Default Dialogue (No Items)")]
     public string[] defaultLines = new string[] {
         "Hello there, adventurer. I'm afraid I can't help you yet.",
@@ -30,7 +30,7 @@ public class DialogueTrigger : MonoBehaviour
     public string[] allItemsLines = new string[] {
         "You have all the necessary items! Go, save yourself!",
     };
-    
+
     //---------------------------------------------------------
 
     void Start()
@@ -38,7 +38,6 @@ public class DialogueTrigger : MonoBehaviour
         // Basic check to prevent NullReferenceErrors
         if (dialogueManager == null)
         {
-            // Try to find it if not assigned (only recommended for single-instance manager scripts)
             dialogueManager = FindObjectOfType<Dialogue>();
             if (dialogueManager == null)
             {
@@ -47,18 +46,26 @@ public class DialogueTrigger : MonoBehaviour
         }
     }
 
-    void OnTriggerStay2D(Collider2D other)
+    void Update()
     {
-        // Check if the Player is in the trigger zone and presses 'E'
-        if (other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
+        // **CRITICAL CHANGE**: Check for 'E' key press every frame, globally.
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            string[] linesToShow = GetCurrentDialogue();
-            
-            if (linesToShow != null && linesToShow.Length > 0)
-            {
-                // Start the dialogue with the dynamically chosen lines
-                dialogueManager.StartCustomDialogue(linesToShow);
-            }
+            HandleGlobalDialogueTrigger();
+        }
+    }
+
+    // Removed all OnTriggerEnter2D, OnTriggerStay2D, and OnTriggerExit2D methods.
+
+    private void HandleGlobalDialogueTrigger()
+    {
+        // 1. Get the appropriate lines based on current inventory status
+        string[] linesToShow = GetCurrentDialogue();
+
+        // 2. Start the dialogue if lines are available
+        if (linesToShow != null && linesToShow.Length > 0 && dialogueManager != null)
+        {
+            dialogueManager.StartCustomDialogue(linesToShow);
         }
     }
 
@@ -72,22 +79,18 @@ public class DialogueTrigger : MonoBehaviour
 
         if (hasBattery && hasKey)
         {
-            // Highest priority: Both items found
             return allItemsLines;
         }
         else if (hasKey)
         {
-            // Second priority: Only the key
             return keyFoundLines;
         }
         else if (hasBattery)
         {
-            // Third priority: Only the battery
             return batteryFoundLines;
         }
         else
         {
-            // Default message
             return defaultLines;
         }
     }

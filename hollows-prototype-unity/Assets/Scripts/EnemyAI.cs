@@ -387,23 +387,23 @@ public class EnemyAI : MonoBehaviour
 
         if (!isWaitingAtPatrolPoint)
         {
-            Debug.Log("(!isWaitingAtPatrolPoint)");
+            //Debug.Log("(!isWaitingAtPatrolPoint)");
             // 1. Check if we reached the patrol point
             if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
             {
-                Debug.Log("reached patrol point");
+                //Debug.Log("reached patrol point");
                 // Reached the destination, start the wait
                 isWaitingAtPatrolPoint = true;
                 patrolWaitTimer = patrolWaitTime;
                 agent.isStopped = true;
-                Debug.Log("Enemy reached patrol point. Starting " + patrolWaitTime + " second wait.");
+                //Debug.Log("Enemy reached patrol point. Starting " + patrolWaitTime + " second wait.");
             }
         }
 
         // 2. If currently waiting at a patrol point
         if (isWaitingAtPatrolPoint)
         {
-            Debug.Log("(isWaitingAtPatrolPoint)");
+            //Debug.Log("(isWaitingAtPatrolPoint)");
             patrolWaitTimer -= Time.deltaTime;
 
             if (patrolWaitTimer <= 0f)
@@ -413,7 +413,7 @@ public class EnemyAI : MonoBehaviour
                 isWaitingAtPatrolPoint = false;
                 agent.isStopped = false;
                 GoToNextPatrolPoint();
-                Debug.Log("Patrol wait finished, heading to next point.");
+                //Debug.Log("Patrol wait finished, heading to next point.");
             }
             return; // Stay in the waiting state
         }

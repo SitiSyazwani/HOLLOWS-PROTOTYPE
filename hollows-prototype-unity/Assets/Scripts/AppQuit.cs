@@ -8,7 +8,7 @@ public class AppQuit : MonoBehaviour
         
     }
 
-    void ExitGame()
+    public void ExitGame()
     {
         
         Application.Quit();

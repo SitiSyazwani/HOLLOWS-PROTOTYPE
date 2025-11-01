@@ -11,9 +11,13 @@ public class Dialogue : MonoBehaviour
     // The lines array is now private and receives data from the trigger
     private string[] currentLines;
 
+    // --- NEW PUBLIC VARIABLES ---
     public float textSpeed = 0.05f; // Keep this public for inspector tuning
+    public float lineDuration = 4.0f; // NEW: Time in seconds before auto-advancing
+
     private int index;
     private bool dialogueActive = false;
+    private Coroutine autoAdvanceCoroutine; // NEW: Reference to the running timer coroutine
 
     void Start()
     {
@@ -30,7 +34,6 @@ public class Dialogue : MonoBehaviour
     void Update()
     {
         // Check if dialogue is active and game is NOT paused
-        // Assuming PauseMenu is correctly implemented.
         if (!dialogueActive || (FindObjectOfType<PauseMenu>() != null && PauseMenu.GameIsPaused))
         {
             return;
@@ -38,6 +41,13 @@ public class Dialogue : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+            // NEW: Stop the automatic timer immediately on a mouse click
+            if (autoAdvanceCoroutine != null)
+            {
+                StopCoroutine(autoAdvanceCoroutine);
+                autoAdvanceCoroutine = null;
+            }
+
             if (textComponent.text == currentLines[index])
             {
                 NextLine();
@@ -47,6 +57,12 @@ public class Dialogue : MonoBehaviour
                 // Skip the typing animation to show the full line immediately
                 StopAllCoroutines();
                 textComponent.text = currentLines[index];
+
+                // NEW: Since typing finished instantly, restart the auto-advance timer
+                if (dialogueActive) // Check if dialogue didn't just end from the skip
+                {
+                    autoAdvanceCoroutine = StartCoroutine(AutoAdvanceTimer());
+                }
             }
         }
     }
@@ -61,6 +77,13 @@ public class Dialogue : MonoBehaviour
         {
             Debug.LogWarning("Dialogue lines are empty, cannot start dialogue.");
             return;
+        }
+
+        // Stop any previous coroutine
+        if (autoAdvanceCoroutine != null)
+        {
+            StopCoroutine(autoAdvanceCoroutine);
+            autoAdvanceCoroutine = null;
         }
 
         currentLines = dialogueLines;
@@ -81,10 +104,36 @@ public class Dialogue : MonoBehaviour
             textComponent.text += c;
             yield return new WaitForSeconds(textSpeed);
         }
+
+        // NEW: Typing is finished. Start the auto-advance timer.
+        // We only start the timer if the line successfully finished typing.
+        if (textComponent.text == currentLines[index])
+        {
+            autoAdvanceCoroutine = StartCoroutine(AutoAdvanceTimer());
+        }
+    }
+
+    // NEW COROUTINE: Waits for the duration, then calls NextLine
+    IEnumerator AutoAdvanceTimer()
+    {
+        yield return new WaitForSeconds(lineDuration);
+
+        // Only advance if the dialogue is still active (wasn't manually closed)
+        if (dialogueActive)
+        {
+            NextLine();
+        }
     }
 
     void NextLine()
     {
+        // NEW: Stop the timer when advancing to prevent an immediate double-advance
+        if (autoAdvanceCoroutine != null)
+        {
+            StopCoroutine(autoAdvanceCoroutine);
+            autoAdvanceCoroutine = null;
+        }
+
         if (index < currentLines.Length - 1)
         {
             index++;

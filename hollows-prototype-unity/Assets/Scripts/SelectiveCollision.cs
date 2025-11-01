@@ -45,7 +45,7 @@ public class SelectiveCollision : MonoBehaviour
             {
                 // If it's a target, ensure collision is NOT ignored
                 Physics2D.IgnoreCollision(thisCollider, otherCollider, false);
-                Debug.Log($"Collision **enabled** between {gameObject.name} and {otherCollider.gameObject.name}.");
+                //Debug.Log($"Collision **enabled** between {gameObject.name} and {otherCollider.gameObject.name}.");
             }
             else
             {
@@ -56,7 +56,7 @@ public class SelectiveCollision : MonoBehaviour
 
         if (targetColliders != null && targetColliders.Length > 0)
         {
-            Debug.Log($"Collision setup complete for {gameObject.name}. {targetColliders.Length} targets enabled. All others ignored.");
+            //Debug.Log($"Collision setup complete for {gameObject.name}. {targetColliders.Length} targets enabled. All others ignored.");
         }
     }
 }
