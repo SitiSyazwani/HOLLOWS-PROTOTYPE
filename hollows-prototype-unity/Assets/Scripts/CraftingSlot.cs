@@ -11,6 +11,7 @@ namespace Assets.Scripts
 
         private string currentItem = "";
         private GameObject currentDraggableItem;
+        private ItemSlot sourceSlot; // NEW - track where item came from
 
         void Start()
         {
@@ -30,10 +31,11 @@ namespace Assets.Scripts
             return string.IsNullOrEmpty(currentItem);
         }
 
-        public void PlaceItem(string itemName, GameObject draggable)
+        public void PlaceItem(string itemName, GameObject draggable, ItemSlot source)
         {
             currentItem = itemName;
             currentDraggableItem = draggable;
+            sourceSlot = source; // Remember source
 
             CraftingPanelUI craftingPanel = GetComponentInParent<CraftingPanelUI>();
             if (craftingPanel != null)
@@ -49,8 +51,15 @@ namespace Assets.Scripts
                 Destroy(currentDraggableItem);
             }
 
+            // Restore item to inventory slot
+            if (sourceSlot != null)
+            {
+                sourceSlot.RestoreItem();
+            }
+
             currentItem = "";
             currentDraggableItem = null;
+            sourceSlot = null;
         }
 
         public string GetItemName()

@@ -26,6 +26,7 @@ namespace Assets.Scripts
         private Sprite currentIcon;
         private bool isDragging = false;
         private GameObject draggableItem;
+        private bool isInCraftingSlot = false;
 
         void Start()
         {
@@ -180,23 +181,9 @@ namespace Assets.Scripts
 
                 if (targetSlot != null)
                 {
-                    // Place in slot
-                    draggableItem.transform.SetParent(targetSlot.transform, false);
+                    draggableItem.transform.SetParent(targetSlot.transform);
+                    draggableItem.transform.position = targetSlot.transform.position;
 
-                    // Reset scale to avoid tiny or huge icons
-                    draggableItem.transform.localScale = Vector3.one;
-
-                    // Center inside the slot
-                    RectTransform rect = draggableItem.GetComponent<RectTransform>();
-                    rect.anchoredPosition = Vector2.zero;
-
-                    // Keep the same size as the original item icon
-                    if (itemIcon != null)
-                    {
-                        rect.sizeDelta = itemIcon.rectTransform.sizeDelta;
-                    }
-
-                    // Make it fully visible
                     CanvasGroup cg = draggableItem.GetComponent<CanvasGroup>();
                     if (cg != null)
                     {
@@ -204,7 +191,19 @@ namespace Assets.Scripts
                         cg.blocksRaycasts = true;
                     }
 
-                    targetSlot.PlaceItem(itemName, draggableItem);
+                    targetSlot.PlaceItem(itemName, draggableItem, this); // Pass reference to this slot
+
+                    // HIDE the item from inventory (but don't remove from list)
+                    if (itemIcon != null)
+                    {
+                        itemIcon.enabled = false;
+                    }
+                    if (itemNameText != null)
+                    {
+                        itemNameText.text = "";
+                    }
+                    isInCraftingSlot = true; // Mark as used
+
                     Debug.Log("Placed " + itemName + " in slot " + targetSlot.slotNumber);
                 }
                 else
@@ -279,6 +278,22 @@ namespace Assets.Scripts
                 ItemData data = ItemDatabase.GetItemData(itemName);
                 tooltipText.text = data.description;
                 tooltipPanel.SetActive(true);
+            }
+        }
+
+        public void RestoreItem()
+        {
+            isInCraftingSlot = false;
+
+            if (itemIcon != null && currentIcon != null)
+            {
+                itemIcon.enabled = true;
+                itemIcon.sprite = currentIcon;
+            }
+
+            if (itemNameText != null)
+            {
+                itemNameText.text = itemName;
             }
         }
 
