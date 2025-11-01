@@ -143,7 +143,19 @@ namespace Assets.Scripts
         {
             if (draggableItem != null)
             {
-                draggableItem.transform.position = eventData.position;
+                Canvas canvas = GetComponentInParent<Canvas>();
+                if (canvas == null)
+                    return;
+
+                RectTransform canvasRect = canvas.transform as RectTransform;
+                RectTransform draggableRect = draggableItem.transform as RectTransform;
+
+                Vector2 localPos;
+                if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                    canvasRect, eventData.position, canvas.worldCamera, out localPos))
+                {
+                    draggableRect.anchoredPosition = localPos;
+                }
             }
         }
 
@@ -168,7 +180,7 @@ namespace Assets.Scripts
 
                 if (targetSlot != null)
                 {
-                    draggableItem.transform.SetParent(targetSlot.transform);
+                    draggableItem.transform.SetParent(targetSlot.transform, false);
                     draggableItem.transform.position = targetSlot.transform.position;
 
                     CanvasGroup cg = draggableItem.GetComponent<CanvasGroup>();
@@ -207,7 +219,7 @@ namespace Assets.Scripts
 
             RectTransform rect = draggableItem.AddComponent<RectTransform>();
             rect.sizeDelta = new Vector2(100, 100);
-            rect.position = transform.position; // Start at slot position
+            rect.anchoredPosition = ((RectTransform)transform).anchoredPosition;
 
             Image img = draggableItem.AddComponent<Image>();
             if (currentIcon != null)
@@ -223,6 +235,11 @@ namespace Assets.Scripts
             CanvasGroup cg = draggableItem.AddComponent<CanvasGroup>();
             cg.alpha = 0.7f;
             cg.blocksRaycasts = false;
+
+            // Always appear on top of UI
+            Canvas dragCanvas = draggableItem.AddComponent<Canvas>();
+            dragCanvas.overrideSorting = true;
+            dragCanvas.sortingOrder = 999;
 
             Debug.Log("Created draggable: " + itemName);
         }
