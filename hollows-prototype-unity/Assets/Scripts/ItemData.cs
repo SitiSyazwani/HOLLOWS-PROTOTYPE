@@ -38,6 +38,34 @@ namespace Assets.Scripts
                         true
                     );
 
+                case "Metal Bed Frame Piece":
+                    return new ItemData(
+                        "Metal Bed Frame Piece",
+                        "A sturdy piece of metal from a bed frame. Could be useful for crafting.",
+                        false
+                    );
+
+                case "Toothbrush Handle":
+                    return new ItemData(
+                        "Toothbrush Handle",
+                        "A handle from a toothbrush. The bristles have been removed.",
+                        false
+                    );
+
+                case "Wire":
+                    return new ItemData(
+                        "Wire",
+                        "Thin wire salvaged from a light fixture. Flexible and strong.",
+                        false
+                    );
+
+                case "Makeshift Lockpick Set":
+                    return new ItemData(
+                        "Makeshift Lockpick Set",
+                        "A crude but functional lockpick set. Can unlock the reinforced security gate!",
+                        true
+                    );
+
                 default:
                     return new ItemData(
                         itemName,

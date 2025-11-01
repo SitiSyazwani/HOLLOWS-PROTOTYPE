@@ -97,21 +97,15 @@ namespace Assets.Scripts
                 else if (gameObject.CompareTag("ExitDoor") || gameObject.name.Contains("Exit"))
                 {
                     CheckExitCondition();
+                    // Exit condition handles its own message timing
+                    return; // Exit early for exit door
                 }
                 else
                 {
-                    // Generic item collection
                     CollectGenericItem();
                 }
 
-                // Hide the collected item
-                if (item != null)
-                {
-                    item.SetActive(false);
-                    Debug.Log("Item hidden: " + gameObject.name);
-                }
-
-                // Hide popup after collection
+                // Hide popup
                 popupUI.SetActive(false);
 
                 // Removed old message disable logic
@@ -179,16 +173,15 @@ namespace Assets.Scripts
 
         void CollectGenericItem()
         {
-            string itemName = gameObject.name;
+            string itemName = gameObject.name; // Just use GameObject name
+
             Debug.Log("Collecting generic item: " + itemName);
 
-            // Add to inventory with the object's name
             if (!collectedItems.Contains(itemName))
             {
                 collectedItems.Add(itemName);
                 Debug.Log(itemName + " added to inventory. Total items: " + collectedItems.Count);
 
-                // Refresh inventory UI
                 InventoryUI invUI = FindObjectOfType<InventoryUI>();
                 if (invUI != null)
                 {
