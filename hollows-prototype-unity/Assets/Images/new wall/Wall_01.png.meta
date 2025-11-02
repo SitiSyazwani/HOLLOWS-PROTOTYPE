@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f15932d53bc38514286ad8365ad62bd0
+guid: 27355e9ec8bd9be4a911ad65a5c0a3db
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -122,17 +122,17 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 787
-        width: 786
+        width: 787.5
         height: 787
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f2e7ece6a4535af4c8f8ebefc66ac14b
-      internalID: -68261591
+      spriteID: 4e489fc5cab29d842929c06ac63c66a4
+      internalID: -658420818
       vertices: []
       indices: 
       edges: []
@@ -141,19 +141,19 @@ TextureImporter:
       name: Wall_01_1
       rect:
         serializedVersion: 2
-        x: 786
+        x: 787
         y: 787
-        width: 786
+        width: 787.5
         height: 787
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da9d15d99141889409b90764b7d357c9
-      internalID: 1864534523
+      spriteID: 5b16d110741b3a54fb88f4ec46938596
+      internalID: -1095927511
       vertices: []
       indices: 
       edges: []
@@ -164,17 +164,17 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 786
+        width: 787.5
         height: 787
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58ff7696d695a77469e58048560ddeb5
-      internalID: -1231154745
+      spriteID: 75c9845947f96bc4787fb7d72a5b01cd
+      internalID: -651251034
       vertices: []
       indices: 
       edges: []
@@ -183,19 +183,19 @@ TextureImporter:
       name: Wall_01_3
       rect:
         serializedVersion: 2
-        x: 786
+        x: 787
         y: 0
-        width: 786
+        width: 787.5
         height: 787
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5040a62c4cb659e45915d7f18989a602
-      internalID: 530548956
+      spriteID: 665f2c5fe33e2974d99a03a667a2c28a
+      internalID: 1268922911
       vertices: []
       indices: 
       edges: []
@@ -204,17 +204,17 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Wall_01_1: 1864534523
-      Wall_01_2: -1231154745
-      Wall_01_3: 530548956
-      Wall_01_0: -68261591
+      Wall_01_1: -1095927511
+      Wall_01_2: -651251034
+      Wall_01_3: 1268922911
+      Wall_01_0: -658420818
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -3076,6 +3076,7 @@ MonoBehaviour:
   - {fileID: 1311243046}
   fadePanel: {fileID: 1550954923}
   fadeDuration: 1
+  scene: GameScene
 --- !u!1 &1160683197
 GameObject:
   m_ObjectHideFlags: 0
@@ -4609,7 +4610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6995c71f82aad3844a68146e65ebaf63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalLevelsInGame: 1
+  totalLevelsInGame: 0
 --- !u!4 &1802093597
 Transform:
   m_ObjectHideFlags: 0

@@ -10,20 +10,21 @@ public class SaveSlotManager : MonoBehaviour
     [Header("Fade Settings")]
     public Image fadePanel;
     public float fadeDuration = 1f;
+    public string scene;
 
     public void LoadGame(int slotNumber)
     {
         if (SaveSystem.Instance.LoadSlot(slotNumber))
         {
             int currentLevel = SaveSystem.Instance.GetCurrentLevel();
-            StartCoroutine(FadeAndLoadScene("GameScene"));
+            StartCoroutine(FadeAndLoadScene(scene));
         }
     }
 
     public void NewGame(int slotNumber)
     {
         SaveSystem.Instance.CreateNewSave(slotNumber);
-        StartCoroutine(FadeAndLoadScene("GameScene"));
+        StartCoroutine(FadeAndLoadScene(scene));
     }
 
     public void DeleteSave(int slotNumber)

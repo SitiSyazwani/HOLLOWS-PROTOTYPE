@@ -17,15 +17,12 @@ namespace Assets.Scripts
     public class Item : MonoBehaviour
     {
         public GameObject popupUI;       // UI popup prompt
-        // Removed: public GameObject message; // Pickup message
         public GameObject battHealth;    // Battery health UI
         public GameObject item;          // Reference to the collectible item object
 
         private bool itemFound = false;
-        //private float delayTime = 3f;
 
         // Shared inventory flags
-        public static bool keyFound = false;
         public static bool batteryCollected = false;
 
         // Inventory system
@@ -34,8 +31,17 @@ namespace Assets.Scripts
         // Add a private reference to the Flashlight script
         private Flashlight flashlight;
 
+        // **MODIFIED:** This needs to be static if used by other non-Item scripts.
+        // If only used by this instance or other components on the item, keep it public/non-static.
+        // Assuming it's used by the Exit item instance only:
+        public bool exitFound = false;
+
         void Start()
         {
+            if (item == null)
+            {
+                item = this.gameObject;
+            }
             // Hide popup UI initially
             if (popupUI != null) popupUI.SetActive(false);
             else Debug.LogError("Popup UI not assigned in Inspector on " + gameObject.name);
@@ -43,8 +49,6 @@ namespace Assets.Scripts
             // Ensure this collider is trigger
             Collider2D col = GetComponent<Collider2D>();
             if (col != null) col.isTrigger = true;
-
-            // Removed: if (message != null) message.SetActive(false);
 
             // Get a reference to the Flashlight component in the scene
             flashlight = FindObjectOfType<Flashlight>();
@@ -66,6 +70,12 @@ namespace Assets.Scripts
                 Debug.Log("Player entered the trigger. Showing UI popup.");
                 popupUI.SetActive(true);
                 itemFound = true;
+
+                // **NEW LOGIC:** Set exitFound to true if the item is the Exit Door
+                if (IsExitDoor())
+                {
+                    exitFound = true;
+                }
             }
         }
 
@@ -76,39 +86,71 @@ namespace Assets.Scripts
                 popupUI.SetActive(false);
                 Debug.Log("Player exited the trigger. Hiding UI popup.");
                 itemFound = false;
+
+                // **NEW LOGIC:** Set exitFound to false if the item is the Exit Door
+                if (IsExitDoor())
+                {
+                    exitFound = false;
+                }
             }
         }
+
+        // **NEW HELPER METHOD**
+        /// <summary>
+        /// Checks if this specific Item GameObject is the Exit Door, based on Tag or Name.
+        /// </summary>
+        private bool IsExitDoor()
+        {
+            return gameObject.CompareTag("ExitDoor") || gameObject.name.Contains("Exit");
+        }
+        // **END NEW HELPER METHOD**
 
         void HandleItemCollection()
         {
             if (itemFound && Input.GetKeyDown(KeyCode.E))
             {
-                // Removed: if (message != null) message.SetActive(true);
-
-                // Determine what type of item this is
+                // Determine what type of item this is based on its GameObject name
                 if (gameObject.CompareTag("Battery") || gameObject.name.Contains("Battery"))
                 {
                     CollectBattery();
                 }
-                else if (gameObject.CompareTag("Key") || gameObject.name.Contains("Key"))
+                // UPDATED CHECK for new items using full, specific names:
+                else if (
+                    gameObject.name.Contains("Toothbrush Handle") ||
+                    gameObject.name.Contains("Metal Bed Frame Piece") ||
+                    gameObject.name.Contains("Wire")
+                )
                 {
-                    CollectKey();
+                    CollectGenericItem();
                 }
-                else if (gameObject.CompareTag("ExitDoor") || gameObject.name.Contains("Exit"))
+                else if (IsExitDoor()) // Use the helper method here too
                 {
                     CheckExitCondition();
+
+                    // Do NOT set exitFound here. It's already handled by OnTriggerEnter/Exit.
+                    // Do NOT set item.SetActive(false) here, as the door should remain visible.
+
                     // Exit condition handles its own message timing
                     return; // Exit early for exit door
                 }
                 else
                 {
+                    // Fallback for any other collectible item
                     CollectGenericItem();
                 }
 
-                // Hide popup
-                popupUI.SetActive(false);
+                // Only hide UI and item for collectibles, not the exit door
+                if (!IsExitDoor())
+                {
+                    // Hide popup
+                    popupUI.SetActive(false);
 
-                // Removed old message disable logic
+                    // Hide the collected item object
+                    if (item != null)
+                    {
+                        item.SetActive(false);
+                    }
+                }
             }
         }
 
@@ -116,7 +158,6 @@ namespace Assets.Scripts
         {
             Debug.Log("Collecting Battery...");
 
-            // Check if the flashlight reference is valid before calling the method
             if (flashlight != null)
             {
                 flashlight.RechargeBattery();
@@ -137,45 +178,25 @@ namespace Assets.Scripts
                 collectedItems.Add("Battery");
                 Debug.Log("Battery added to inventory. Total items: " + collectedItems.Count);
 
-                // Refresh inventory UI
+                // Refresh inventory UI (assuming it exists)
                 InventoryUI invUI = FindObjectOfType<InventoryUI>();
                 if (invUI != null)
                 {
                     invUI.RefreshInventory();
                 }
             }
-
-            // Removed message display logic
-        }
-
-        void CollectKey()
-        {
-            Debug.Log("Collecting Key...");
-
-            keyFound = true;
-
-            // Add to inventory
-            if (!collectedItems.Contains("Key"))
-            {
-                collectedItems.Add("Key");
-                Debug.Log("Key added to inventory. Total items: " + collectedItems.Count);
-
-                // Refresh inventory UI
-                InventoryUI invUI = FindObjectOfType<InventoryUI>();
-                if (invUI != null)
-                {
-                    invUI.RefreshInventory();
-                }
-            }
-
-            // Removed message display logic
         }
 
         void CollectGenericItem()
         {
-            string itemName = gameObject.name; // Just use GameObject name
+            string itemName = gameObject.name;
 
-            Debug.Log("Collecting generic item: " + itemName);
+            // Normalize the name to the exact string we want in the inventory
+            if (itemName.Contains("Toothbrush Handle")) itemName = "Toothbrush Handle";
+            else if (itemName.Contains("Metal Bed Frame Piece")) itemName = "Metal Bed Frame Piece";
+            else if (itemName.Contains("Wire")) itemName = "Wire";
+
+            Debug.Log("Collecting item: " + itemName);
 
             if (!collectedItems.Contains(itemName))
             {
@@ -188,8 +209,6 @@ namespace Assets.Scripts
                     invUI.RefreshInventory();
                 }
             }
-
-            // Removed message display logic
         }
 
         void CheckExitCondition()
@@ -201,26 +220,22 @@ namespace Assets.Scripts
                 return;
             }
 
-            if (keyFound || collectedItems.Contains("Key"))
+            // CHECKING FOR EXACT ITEM NAMES:
+            bool hasToothbrushHandle = collectedItems.Contains("Toothbrush Handle");
+            bool hasBedFramePiece = collectedItems.Contains("Metal Bed Frame Piece");
+            bool hasWire = collectedItems.Contains("Wire");
+
+
+            if (hasToothbrushHandle && hasBedFramePiece && hasWire)
             {
                 winlose.state = WinLose.GameState.win;
-                Debug.Log("Key found! Player wins!");
-
-                // Removed success message display logic
+                Debug.Log("All components collected! Player wins!");
             }
             else
             {
-                Debug.Log("Need key to exit!");
-
-                // Removed failure message display logic
+                Debug.Log("Need all components to exit!");
             }
-
-            // Since the old message logic is removed, 
-            // the text that says "You need a Key to escape!" 
-            // will now come from the DialogueTrigger script!
         }
-
-        // Removed: IEnumerator DisableObjectAfterDelay(float seconds)
 
         // Static method to check if player has item (can be called from other scripts)
         public static bool HasItem(string itemName)
@@ -238,7 +253,6 @@ namespace Assets.Scripts
         public static void ClearInventory()
         {
             collectedItems.Clear();
-            keyFound = false;
             batteryCollected = false;
             Debug.Log("Inventory cleared");
         }

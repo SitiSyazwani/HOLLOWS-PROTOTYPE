@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 80900df1a629dee44baeabb74536353b
+guid: 57c1486fe5232f943a063e94a6995daa
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,9 +121,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 1574
-        height: 1572
+        y: 786
+        width: 787
+        height: 786
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,8 +131,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a1e0e5bb99b38543949fc88c428f05c
-      internalID: -558013925
+      spriteID: e97c1be7e1aa7fc4f90f3e8dd0e2d36d
+      internalID: 1149375478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wall_06_1
+      rect:
+        serializedVersion: 2
+        x: 787
+        y: 786
+        width: 787
+        height: 786
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44e2730b78f397b4eb0a23ba159903f4
+      internalID: -1584561276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wall_06_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 787
+        height: 786
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c5a001513ba18d4e86a5ff7cdad7fa2
+      internalID: -811405492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wall_06_3
+      rect:
+        serializedVersion: 2
+        x: 787
+        y: 0
+        width: 787
+        height: 786
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f495fb1b3a13bdb408e73afad7eabcd9
+      internalID: 2020972765
       vertices: []
       indices: 
       edges: []
@@ -141,14 +204,17 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Wall_06_0: -558013925
+      Wall_06_3: 2020972765
+      Wall_06_2: -811405492
+      Wall_06_0: 1149375478
+      Wall_06_1: -1584561276
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Assets.Scripts; // Import the namespace to access Item class statics
 
 public class WinLose : MonoBehaviour
 {
@@ -68,16 +69,18 @@ public class WinLose : MonoBehaviour
     private void ClearInventory()
     {
         // Clear the static inventory list
+        // Note: You need "using Assets.Scripts;" at the top to access Item.collectedItems
         if (Assets.Scripts.Item.collectedItems != null)
         {
             Assets.Scripts.Item.collectedItems.Clear();
         }
 
-        // Reset the static flags
-        Assets.Scripts.Item.keyFound = false;
+        // --- UPDATED RESET LOGIC ---
+        // Removed: Assets.Scripts.Item.keyFound = false;
+        // The batteryCollected flag is still relevant.
         Assets.Scripts.Item.batteryCollected = false;
 
-        Debug.Log("?? Inventory cleared! Ready for new game.");
+        Debug.Log("Inventory cleared! Ready for new game.");
     }
 
     public void ReplayGame()

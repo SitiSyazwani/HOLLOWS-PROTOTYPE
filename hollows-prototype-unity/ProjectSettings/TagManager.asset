@@ -10,6 +10,7 @@ TagManager:
   - HeadTrigger
   - FootstepTrigger
   - border
+  - ExitDoor
   layers:
   - Default
   - TransparentFX
