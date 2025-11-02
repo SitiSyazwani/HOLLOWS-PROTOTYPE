@@ -5,7 +5,7 @@ using UnityEngine.Rendering.Universal;
 // Author        : SitiSyazwani
 // Date          : 13/9/2025
 // Modified By   : Gemini
-// Modified Date : 27/10/2025 (updated rotation fixes)
+// Modified Date : 02/11/2025 (CRITICAL DEBUG LOGGING ADDED FOR MISSING COMPONENTS)
 // Description   : Controls the flashlight's aiming, battery drain, and light obstruction.
 //---------------------------------------------------------------------------------
 public class Flashlight : MonoBehaviour
@@ -17,17 +17,32 @@ public class Flashlight : MonoBehaviour
     public LayerMask obstructionMask;
 
     [Header("Battery Settings")]
-    public float maxBatteryLife = 3.0f; // Represents 3 bars
+    public float maxBatteryLife = 3.0f;
     public float drainRate = 0.1f;
-    public GameObject[] batteryBars; // UI squares for battery display
+    public GameObject[] batteryBars;
 
-    [Header("Aim Constraint Settings")]
+    [Header("Aim Constraint Settings (Pivots)")]
+    // These must remain public for aiming logic.
     public Transform playerBody;
-    [Tooltip("The arm GameObject used when facing Left (Side View - PARENT)")]
+    [Tooltip("The arm GameObject used when facing Left (arm_pivotL)")]
     public Transform armObjectLeft;
-    [Tooltip("The arm GameObject used when facing Right (Side View - PARENT)")]
+    [Tooltip("The arm GameObject used when facing Right (arm_pivotR)")]
     public Transform armObjectRight;
-    public Transform directFlashlight; // The light/object for front/back views (Vertical Light - CHILD)
+    public Transform directFlashlight; // The pivot for front/back views (lightV parent)
+
+    // --- Private references (Automatically fetched in Start) ---
+    private Light2D horizontalLightL;
+    private Collider2D horizontalColliderL;
+    private GameObject horizontalGOL; // GameObject of the LightL component
+
+    private Light2D horizontalLightR;
+    private Collider2D horizontalColliderR;
+    private GameObject horizontalGOR; // GameObject of the LightR component
+
+    private Light2D verticalLight;
+    private Collider2D verticalFlashlightCollider;
+    private GameObject verticalGO; // GameObject of the LightV component
+                                   // ------------------------------------------------------------
 
     [Tooltip("Max rotation angle upwards (positive relative to base).")]
     public float upRotationLimit = 60f;
@@ -41,25 +56,16 @@ public class Flashlight : MonoBehaviour
     public float flashBwdZRotation = 0f;
     public float flashFwdZRotation = 180f;
 
-    [SerializeField] private Light2D verticalLight;
-    [SerializeField] private Collider2D verticalFlashlightCollider;
-
     private bool flashOn = true;
-    private AudioSource flashSound;
+    public AudioSource flashSound;
     private float currentBatteryLife;
 
-    private Transform currentArm;
-    private Light2D currentHorizontalLight;
-    private Collider2D currentHorizontalFlashlightCollider;
-
-    // --- store each arm's initial world Z rotation so clamps are relative to them ---
     private float armLeftBaseZ = 0f;
     private float armRightBaseZ = 0f;
 
-    public float flashUpMinZ = -30f;   // When facing upward
+    public float flashUpMinZ = -30f;
     public float flashUpMaxZ = 30f;
-
-    public float flashDownMinZ = 150f; // When facing downward (rotated 180°)
+    public float flashDownMinZ = 150f;
     public float flashDownMaxZ = 210f;
 
     #endregion
@@ -67,13 +73,89 @@ public class Flashlight : MonoBehaviour
     #region Own Methods
     void Start()
     {
-        flashSound = GetComponent<AudioSource>();
         currentBatteryLife = maxBatteryLife;
 
         if (armObjectLeft != null)
-            armLeftBaseZ = armObjectLeft.rotation.eulerAngles.z;
+        {
+            // Try to find the Light2D component anywhere in the children/grandchildren
+            horizontalLightL = armObjectLeft.GetComponentInChildren<Light2D>(true);
+
+            // This is the robust check based on your hierarchy image:
+            // Try getting the 'arm' child first, then finding Light2D under that.
+            if (horizontalLightL == null)
+            {
+                Transform armChild = armObjectLeft.Find("arm");
+                if (armChild != null)
+                {
+                    horizontalLightL = armChild.GetComponentInChildren<Light2D>(true);
+                }
+            }
+
+            if (horizontalLightL != null)
+            {
+                horizontalGOL = horizontalLightL.gameObject;
+                horizontalColliderL = horizontalGOL.GetComponent<Collider2D>();
+                Debug.Log("Flashlight: Found Left Horizontal Light.");
+            }
+            else
+            {
+                Debug.LogError("Flashlight Error: Failed to find Light2D for Left Arm. Check your 'arm_pivotL' assignment.");
+            }
+        }
+
+        // 2. HORIZONTAL RIGHT (Apply the same check)
         if (armObjectRight != null)
-            armRightBaseZ = armObjectRight.rotation.eulerAngles.z;
+        {
+            horizontalLightR = armObjectRight.GetComponentInChildren<Light2D>(true);
+
+            if (horizontalLightR == null)
+            {
+                Transform armChild = armObjectRight.Find("arm");
+                if (armChild != null)
+                {
+                    horizontalLightR = armChild.GetComponentInChildren<Light2D>(true);
+                }
+            }
+
+            if (horizontalLightR != null)
+            {
+                horizontalGOR = horizontalLightR.gameObject;
+                horizontalColliderR = horizontalGOR.GetComponent<Collider2D>();
+                Debug.Log("Flashlight: Found Right Horizontal Light.");
+            }
+            else
+            {
+                Debug.LogError("Flashlight Error: Failed to find Light2D for Right Arm. Check your 'arm_pivotR' assignment.");
+            }
+        }
+
+        // 3. VERTICAL (Still simple as lightV is directly under the assigned pivot)
+        if (directFlashlight != null)
+        {
+            // In your hierarchy, lightV seems to BE the object you assigned, 
+            // so we check on the object itself first.
+            verticalLight = directFlashlight.GetComponent<Light2D>();
+
+            if (verticalLight == null)
+            {
+                // Fallback: check children if lightV is a parent pivot
+                verticalLight = directFlashlight.GetComponentInChildren<Light2D>(true);
+            }
+
+            if (verticalLight != null)
+            {
+                verticalGO = verticalLight.gameObject;
+                verticalFlashlightCollider = verticalGO.GetComponent<Collider2D>();
+                Debug.Log("Flashlight: Found Vertical Light.");
+            }
+            else
+            {
+                Debug.LogError("Flashlight Error: Failed to find Light2D for Vertical Light. Check your 'directFlashlight' assignment.");
+            }
+        }
+
+        // Initial state check
+        SetAllLightsState(flashOn);
     }
 
     void Update()
@@ -83,132 +165,153 @@ public class Flashlight : MonoBehaviour
         {
             flashOn = !flashOn;
             if (flashSound != null) flashSound.Play();
+            SetAllLightsState(flashOn);
         }
 
         // Drain battery
-        if (flashOn)
+        if (flashOn && currentBatteryLife > 0)
         {
             currentBatteryLife -= drainRate * Time.deltaTime;
             currentBatteryLife = Mathf.Max(currentBatteryLife, 0f);
         }
 
+        // Check for battery death
+        if (currentBatteryLife <= 0.0f && flashOn)
+        {
+            flashOn = false;
+            Debug.Log("Battery dead! Flashlight cannot be turned on.");
+            SetAllLightsState(false);
+        }
+
         UpdateBatteryUI();
 
-        bool isArmActive = (armObjectLeft != null && armObjectLeft.gameObject.activeSelf) || (armObjectRight != null && armObjectRight.gameObject.activeSelf);
-        bool isDirectFlashlightActive = directFlashlight != null && directFlashlight.gameObject.activeSelf;
+        // CRITICAL: Call every frame to synchronize with player movement/arm activity
+        // This is the logic that FIXES the original bug.
+        SetAllLightsState(flashOn);
 
-        currentArm = null;
-        currentHorizontalLight = null;
-        currentHorizontalFlashlightCollider = null;
-
-        if (armObjectLeft != null && armObjectLeft.gameObject.activeSelf)
-            currentArm = armObjectLeft;
-        else if (armObjectRight != null && armObjectRight.gameObject.activeSelf)
-            currentArm = armObjectRight;
-
-        if (currentArm != null)
+        // The rest of the aiming logic...
+        if (flashOn)
         {
-            currentHorizontalLight = currentArm.GetComponent<Light2D>();
-            currentHorizontalFlashlightCollider = currentArm.GetComponent<Collider2D>();
-        }
+            Transform currentArm = null;
+            Vector3 playerPos = playerBody.position;
+            Light2D activeLight = null;
 
-        if (currentHorizontalLight != null) currentHorizontalLight.enabled = flashOn && isArmActive;
-        if (currentHorizontalFlashlightCollider != null) currentHorizontalFlashlightCollider.enabled = flashOn && isArmActive;
-        if (verticalLight != null) verticalLight.enabled = flashOn && isDirectFlashlightActive;
-        if (verticalFlashlightCollider != null) verticalFlashlightCollider.enabled = flashOn && isDirectFlashlightActive;
+            // 1. HORIZONTAL AIMING - LEFT
+            if (armObjectLeft != null && armObjectLeft.gameObject.activeSelf)
+            {
+                currentArm = armObjectLeft;
+                activeLight = horizontalLightL;
 
-        Vector3 playerPos = playerBody.position;
+                if (activeLight == null) return; // Exit if light wasn't found in Start()
 
-        // ===========================
-        // SIMPLE: Clamp arm rotation only
-        // ===========================
-        if (isArmActive && currentArm != null)
-        {
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3 aimDirection = (mousePos - playerPos).normalized;
+                // ... (rest of aiming logic for left arm) ...
+                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector3 aimDirection = (mousePos - playerPos).normalized;
 
-            // Compute the aiming angle
-            float targetAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
-
-            //  FIX: Invert the angle for the left arm (it faces opposite direction)
-            if (currentArm == armObjectLeft)
+                float targetAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
                 targetAngle += 180f;
 
-            // Smoothly rotate toward the target
-            Quaternion targetRotation = Quaternion.Euler(0f, 0f, targetAngle);
-            currentArm.rotation = Quaternion.Slerp(
-                currentArm.rotation,
-                targetRotation,
-                rotationSpeed * Time.deltaTime
-            );
+                Quaternion targetRotation = Quaternion.Euler(0f, 0f, targetAngle);
+                currentArm.rotation = Quaternion.Slerp(currentArm.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
-            // Clamp rotation to [-60, +30] relative to base facing
-            float z = currentArm.eulerAngles.z;
-            if (z > 180f) z -= 360f; // normalize to -180 ~ +180
-            z = Mathf.Clamp(z, -60f, 30f);
-            currentArm.rotation = Quaternion.Euler(0f, 0f, z);
+                float z = currentArm.eulerAngles.z;
+                if (z > 180f) z -= 360f;
+                z = Mathf.Clamp(z, -60f, 30f);
+                currentArm.rotation = Quaternion.Euler(0f, 0f, z);
 
-            // Optional: handle light obstruction
-            if (currentHorizontalLight != null)
-                HandleLightObstruction(playerPos, currentArm.transform.right, currentHorizontalLight);
-        }
-        else if (isDirectFlashlightActive && directFlashlight != null)
-        {
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3 targetDir = (mousePos - playerBody.position).normalized;
-
-            // ----------------------
-            // Determine Facing Direction
-            // ----------------------
-            bool facingUp = playerBody.localScale.y >= 0f; // adjust if your facing is on x-axis instead
-
-            // Ignore mouse on "wrong side"
-            if (facingUp && mousePos.y < playerBody.position.y) return;
-            if (!facingUp && mousePos.y > playerBody.position.y) return;
-
-            // ----------------------
-            // Base rotation and limits
-            // ----------------------
-            float minLimit, maxLimit;
-            if (facingUp)
-            {
-                minLimit = flashUpMinZ;   // e.g., -30
-                maxLimit = flashUpMaxZ;   // e.g., 30
+                HandleLightObstruction(playerPos, currentArm.transform.right, activeLight);
             }
-            else
+            // 1. HORIZONTAL AIMING - RIGHT
+            else if (armObjectRight != null && armObjectRight.gameObject.activeSelf)
             {
-                minLimit = flashDownMinZ; // e.g., -30 relative to downward
-                maxLimit = flashDownMaxZ; // e.g., 30 relative to downward
+                currentArm = armObjectRight;
+                activeLight = horizontalLightR;
+
+                if (activeLight == null) return; // Exit if light wasn't found in Start()
+
+                // ... (rest of aiming logic for right arm) ...
+                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector3 aimDirection = (mousePos - playerPos).normalized;
+
+                float targetAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
+
+                Quaternion targetRotation = Quaternion.Euler(0f, 0f, targetAngle);
+                currentArm.rotation = Quaternion.Slerp(currentArm.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
+                float z = currentArm.eulerAngles.z;
+                if (z > 180f) z -= 360f;
+                z = Mathf.Clamp(z, -60f, 30f);
+                currentArm.rotation = Quaternion.Euler(0f, 0f, z);
+
+                HandleLightObstruction(playerPos, currentArm.transform.right, activeLight);
             }
+            // 2. VERTICAL AIMING
+            else if (directFlashlight != null && directFlashlight.gameObject.activeSelf)
+            {
+                activeLight = verticalLight;
 
-            // ----------------------
-            // Compute angle relative to the flashlight's local "up"
-            // ----------------------
-            Vector2 baseForward = directFlashlight.up; // use the actual transform up
-            float angleDiff = Vector2.SignedAngle(baseForward, targetDir);
+                if (activeLight == null) return; // Exit if light wasn't found in Start()
 
-            // Clamp angle difference
-            float clampedAngleDiff = Mathf.Clamp(angleDiff, minLimit, maxLimit);
+                // ... (rest of aiming logic for vertical light) ...
+                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector3 targetDir = (mousePos - playerBody.position).normalized;
 
-            // Final rotation
-            Quaternion targetRot = Quaternion.AngleAxis(clampedAngleDiff, Vector3.forward) * directFlashlight.rotation;
+                bool facingUp = playerBody.localScale.y >= 0f;
 
-            // Smooth rotation
-            directFlashlight.rotation = Quaternion.Slerp(
-                directFlashlight.rotation,
-                targetRot,
-                rotationSpeed * Time.deltaTime
-            );
+                float minLimit = facingUp ? flashUpMinZ : flashDownMinZ;
+                float maxLimit = facingUp ? flashUpMaxZ : flashDownMaxZ;
 
-            // ----------------------
-            // Light obstruction
-            // ----------------------
-            HandleLightObstruction(playerBody.position, directFlashlight.up, verticalLight);
+                float angleDiff = Vector2.SignedAngle(directFlashlight.up, targetDir);
+                float clampedAngleDiff = Mathf.Clamp(angleDiff, minLimit, maxLimit);
+
+                Quaternion targetRot = Quaternion.AngleAxis(clampedAngleDiff, Vector3.forward) * directFlashlight.rotation;
+
+                directFlashlight.rotation = Quaternion.Slerp(directFlashlight.rotation, targetRot, rotationSpeed * Time.deltaTime);
+
+                HandleLightObstruction(playerBody.position, directFlashlight.up, verticalLight);
+            }
         }
-
-
-
     }
+
+    /// <summary>
+    /// CRITICAL FIX: Central function to control the light GameObject's Active State.
+    /// This forces the physical light objects OFF if the global flashOn state is false.
+    /// </summary>
+    private void SetAllLightsState(bool userToggleState)
+    {
+        // Combined state: Must be turned on by the user AND have battery
+        bool finalState = userToggleState && (currentBatteryLife > 0f);
+
+        // Horizontal Left
+        if (horizontalGOL != null)
+        {
+            // Only active if finalState is true AND the parent arm pivot is active
+            horizontalGOL.SetActive(finalState && armObjectLeft.gameObject.activeSelf);
+        }
+
+        // Horizontal Right
+        if (horizontalGOR != null)
+        {
+            // Only active if finalState is true AND the parent arm pivot is active
+            horizontalGOR.SetActive(finalState && armObjectRight.gameObject.activeSelf);
+        }
+
+        // Vertical
+        if (verticalGO != null)
+        {
+            // Only active if finalState is true AND the parent pivot is active
+            verticalGO.SetActive(finalState && directFlashlight.gameObject.activeSelf);
+        }
+
+        // Ensure component enabled state is synchronized for obstruction checks
+        if (horizontalLightL != null) horizontalLightL.enabled = horizontalGOL != null && horizontalGOL.activeSelf;
+        if (horizontalColliderL != null) horizontalColliderL.enabled = horizontalGOL != null && horizontalGOL.activeSelf;
+        if (horizontalLightR != null) horizontalLightR.enabled = horizontalGOR != null && horizontalGOR.activeSelf;
+        if (horizontalColliderR != null) horizontalColliderR.enabled = horizontalGOR != null && horizontalGOR.activeSelf;
+        if (verticalLight != null) verticalLight.enabled = verticalGO != null && verticalGO.activeSelf;
+        if (verticalFlashlightCollider != null) verticalFlashlightCollider.enabled = verticalGO != null && verticalGO.activeSelf;
+    }
+
 
     private void UpdateBatteryUI()
     {
@@ -220,22 +323,13 @@ public class Flashlight : MonoBehaviour
             if (currentBatteryLife <= 0.0f)
             {
                 if (batteryBars[0] != null && batteryBars[0].activeSelf) batteryBars[0].SetActive(false);
-
-                if (flashOn)
-                {
-                    flashOn = false;
-                    if (armObjectLeft != null) armObjectLeft.gameObject.SetActive(false);
-                    if (armObjectRight != null) armObjectRight.gameObject.SetActive(false);
-                    if (directFlashlight != null) directFlashlight.gameObject.SetActive(false);
-                    Debug.Log("Battery dead! Flashlight cannot be turned on.");
-                }
             }
         }
     }
 
     private void HandleLightObstruction(Vector3 playerPos, Vector2 rayDirection, Light2D activeLight)
     {
-        if (activeLight != null && flashOn)
+        if (activeLight != null && activeLight.enabled)
         {
             RaycastHit2D hit = Physics2D.Raycast(playerPos, rayDirection, maxRadius, obstructionMask);
 
@@ -258,6 +352,7 @@ public class Flashlight : MonoBehaviour
             if (batteryBars[i] != null)
                 batteryBars[i].SetActive(true);
         }
+        SetAllLightsState(flashOn);
     }
     #endregion
 }
