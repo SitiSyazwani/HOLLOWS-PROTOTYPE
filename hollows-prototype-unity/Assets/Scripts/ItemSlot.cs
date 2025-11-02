@@ -15,6 +15,10 @@ namespace Assets.Scripts
         [Header("Item Icons")]
         public Sprite batteryIcon;
         public Sprite keyIcon;
+        public Sprite metalBedFrameIcon;  // NEW
+        public Sprite toothbrushIcon;      // NEW
+        public Sprite wireIcon;            // NEW
+        public Sprite lockpickIcon;        // NEW
         public Sprite defaultIcon;
 
         [Header("Tooltip")]
@@ -26,6 +30,7 @@ namespace Assets.Scripts
         private Sprite currentIcon;
         private bool isDragging = false;
         private GameObject draggableItem;
+        private bool isInCraftingSlot = false;
 
         void Start()
         {
@@ -39,11 +44,14 @@ namespace Assets.Scripts
         {
             itemName = item;
             hasItem = true;
+            isInCraftingSlot = false; // Important - reset this flag
 
+            // Set the text
             if (itemNameText != null)
             {
                 itemNameText.text = item;
 
+                // Set text color based on item type
                 if (item == "Battery")
                 {
                     itemNameText.color = Color.yellow;
@@ -58,9 +66,10 @@ namespace Assets.Scripts
                 }
             }
 
+            // Set the icon
             if (itemIcon != null)
             {
-                itemIcon.enabled = true;
+                itemIcon.enabled = true; // Important - show the icon
 
                 if (item == "Battery" && batteryIcon != null)
                 {
@@ -72,6 +81,26 @@ namespace Assets.Scripts
                     itemIcon.sprite = keyIcon;
                     currentIcon = keyIcon;
                 }
+                else if (item == "Metal Bed Frame Piece" && metalBedFrameIcon != null)
+                {
+                    itemIcon.sprite = metalBedFrameIcon;
+                    currentIcon = metalBedFrameIcon;
+                }
+                else if (item == "Toothbrush Handle" && toothbrushIcon != null)
+                {
+                    itemIcon.sprite = toothbrushIcon;
+                    currentIcon = toothbrushIcon;
+                }
+                else if (item == "Wire" && wireIcon != null)
+                {
+                    itemIcon.sprite = wireIcon;
+                    currentIcon = wireIcon;
+                }
+                else if (item == "Makeshift Lockpick Set" && lockpickIcon != null)
+                {
+                    itemIcon.sprite = lockpickIcon;
+                    currentIcon = lockpickIcon;
+                }
                 else if (defaultIcon != null)
                 {
                     itemIcon.sprite = defaultIcon;
@@ -79,6 +108,7 @@ namespace Assets.Scripts
                 }
             }
 
+            // Hide empty slot indicator
             if (emptySlotIndicator != null)
             {
                 emptySlotIndicator.SetActive(false);
@@ -180,7 +210,7 @@ namespace Assets.Scripts
 
                 if (targetSlot != null)
                 {
-                    draggableItem.transform.SetParent(targetSlot.transform, false);
+                    draggableItem.transform.SetParent(targetSlot.transform);
                     draggableItem.transform.position = targetSlot.transform.position;
 
                     CanvasGroup cg = draggableItem.GetComponent<CanvasGroup>();
@@ -190,7 +220,18 @@ namespace Assets.Scripts
                         cg.blocksRaycasts = true;
                     }
 
-                    targetSlot.PlaceItem(itemName, draggableItem);
+                    targetSlot.PlaceItem(itemName, draggableItem, this); // Pass reference to this slot
+
+                    // HIDE the item from inventory (but don't remove from list)
+                    if (itemIcon != null)
+                    {
+                        itemIcon.enabled = false;
+                    }
+                    if (itemNameText != null)
+                    {
+                        itemNameText.text = "";
+                    }
+                    isInCraftingSlot = true; // Mark as used
 
                     Debug.Log("Placed " + itemName + " in slot " + targetSlot.slotNumber);
                 }
@@ -204,6 +245,8 @@ namespace Assets.Scripts
             draggableItem = null;
             isDragging = false;
         }
+
+
 
         void CreateDraggableItem()
         {
@@ -264,6 +307,22 @@ namespace Assets.Scripts
                 ItemData data = ItemDatabase.GetItemData(itemName);
                 tooltipText.text = data.description;
                 tooltipPanel.SetActive(true);
+            }
+        }
+
+        public void RestoreItem()
+        {
+            isInCraftingSlot = false;
+
+            if (itemIcon != null && currentIcon != null)
+            {
+                itemIcon.enabled = true;
+                itemIcon.sprite = currentIcon;
+            }
+
+            if (itemNameText != null)
+            {
+                itemNameText.text = itemName;
             }
         }
 
