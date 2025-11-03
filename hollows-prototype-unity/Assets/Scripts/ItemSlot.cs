@@ -2,10 +2,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
+using System.Collections.Generic;
 
 namespace Assets.Scripts
 {
-    public class ItemSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
+    public class ItemSlot : MonoBehaviour, 
+        IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, 
+        IPointerEnterHandler, IPointerExitHandler
     {
         [Header("UI References")]
         public TMP_Text itemNameText;
@@ -15,10 +18,10 @@ namespace Assets.Scripts
         [Header("Item Icons")]
         public Sprite batteryIcon;
         public Sprite keyIcon;
-        public Sprite metalBedFrameIcon;  // NEW
-        public Sprite toothbrushIcon;      // NEW
-        public Sprite wireIcon;            // NEW
-        public Sprite lockpickIcon;        // NEW
+        public Sprite metalBedFrameIcon;
+        public Sprite toothbrushIcon;
+        public Sprite wireIcon;
+        public Sprite lockpickIcon;
         public Sprite defaultIcon;
 
         [Header("Tooltip")]
@@ -44,75 +47,35 @@ namespace Assets.Scripts
         {
             itemName = item;
             hasItem = true;
-            isInCraftingSlot = false; // Important - reset this flag
+            isInCraftingSlot = false;
 
-            // Set the text
             if (itemNameText != null)
             {
                 itemNameText.text = item;
 
-                // Set text color based on item type
-                if (item == "Battery")
-                {
-                    itemNameText.color = Color.yellow;
-                }
-                else if (item == "Key")
-                {
-                    itemNameText.color = Color.gray;
-                }
-                else
-                {
-                    itemNameText.color = Color.white;
-                }
+                // Text color logic
+                if (item == "Battery") itemNameText.color = Color.yellow;
+                else if (item == "Key") itemNameText.color = Color.gray;
+                else itemNameText.color = Color.white;
             }
 
-            // Set the icon
             if (itemIcon != null)
             {
-                itemIcon.enabled = true; // Important - show the icon
+                itemIcon.enabled = true;
 
-                if (item == "Battery" && batteryIcon != null)
-                {
-                    itemIcon.sprite = batteryIcon;
-                    currentIcon = batteryIcon;
-                }
-                else if (item == "Key" && keyIcon != null)
-                {
-                    itemIcon.sprite = keyIcon;
-                    currentIcon = keyIcon;
-                }
-                else if (item == "Metal Bed Frame Piece" && metalBedFrameIcon != null)
-                {
-                    itemIcon.sprite = metalBedFrameIcon;
-                    currentIcon = metalBedFrameIcon;
-                }
-                else if (item == "Toothbrush Handle" && toothbrushIcon != null)
-                {
-                    itemIcon.sprite = toothbrushIcon;
-                    currentIcon = toothbrushIcon;
-                }
-                else if (item == "Wire" && wireIcon != null)
-                {
-                    itemIcon.sprite = wireIcon;
-                    currentIcon = wireIcon;
-                }
-                else if (item == "Makeshift Lockpick Set" && lockpickIcon != null)
-                {
-                    itemIcon.sprite = lockpickIcon;
-                    currentIcon = lockpickIcon;
-                }
-                else if (defaultIcon != null)
-                {
-                    itemIcon.sprite = defaultIcon;
-                    currentIcon = defaultIcon;
-                }
+                if (item == "Battery" && batteryIcon != null) currentIcon = batteryIcon;
+                else if (item == "Key" && keyIcon != null) currentIcon = keyIcon;
+                else if (item == "Metal Bed Frame Piece" && metalBedFrameIcon != null) currentIcon = metalBedFrameIcon;
+                else if (item == "Toothbrush Handle" && toothbrushIcon != null) currentIcon = toothbrushIcon;
+                else if (item == "Wire" && wireIcon != null) currentIcon = wireIcon;
+                else if (item == "Makeshift Lockpick Set" && lockpickIcon != null) currentIcon = lockpickIcon;
+                else currentIcon = defaultIcon;
+
+                itemIcon.sprite = currentIcon;
             }
 
-            // Hide empty slot indicator
             if (emptySlotIndicator != null)
-            {
                 emptySlotIndicator.SetActive(false);
-            }
         }
 
         public void ClearSlot()
@@ -121,26 +84,16 @@ namespace Assets.Scripts
             hasItem = false;
             currentIcon = null;
 
-            if (itemNameText != null)
-            {
-                itemNameText.text = "";
-            }
-
+            if (itemNameText != null) itemNameText.text = "";
             if (itemIcon != null)
             {
                 itemIcon.enabled = false;
                 itemIcon.sprite = null;
             }
-
             if (emptySlotIndicator != null)
-            {
                 emptySlotIndicator.SetActive(true);
-            }
-
             if (tooltipPanel != null)
-            {
                 tooltipPanel.SetActive(false);
-            }
         }
 
         public void OnPointerClick(PointerEventData eventData)
@@ -154,7 +107,6 @@ namespace Assets.Scripts
         void EquipItem()
         {
             Debug.Log("Equipping item: " + itemName);
-
             if (EquippedItemUI.Instance != null)
             {
                 EquippedItemUI.Instance.EquipItem(itemName, currentIcon);
@@ -164,28 +116,25 @@ namespace Assets.Scripts
         public void OnBeginDrag(PointerEventData eventData)
         {
             if (!hasItem) return;
-
             isDragging = true;
             CreateDraggableItem();
         }
 
         public void OnDrag(PointerEventData eventData)
         {
-            if (draggableItem != null)
+            if (draggableItem == null) return;
+
+            Canvas canvas = GetComponentInParent<Canvas>();
+            if (canvas == null) return;
+
+            RectTransform canvasRect = canvas.transform as RectTransform;
+            RectTransform draggableRect = draggableItem.transform as RectTransform;
+
+            Vector2 localPos;
+            if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                canvasRect, eventData.position, canvas.worldCamera, out localPos))
             {
-                Canvas canvas = GetComponentInParent<Canvas>();
-                if (canvas == null)
-                    return;
-
-                RectTransform canvasRect = canvas.transform as RectTransform;
-                RectTransform draggableRect = draggableItem.transform as RectTransform;
-
-                Vector2 localPos;
-                if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
-                    canvasRect, eventData.position, canvas.worldCamera, out localPos))
-                {
-                    draggableRect.anchoredPosition = localPos;
-                }
+                draggableRect.anchoredPosition = localPos;
             }
         }
 
@@ -195,7 +144,7 @@ namespace Assets.Scripts
             {
                 CraftingSlot targetSlot = null;
 
-                var results = new System.Collections.Generic.List<RaycastResult>();
+                var results = new List<RaycastResult>();
                 EventSystem.current.RaycastAll(eventData, results);
 
                 foreach (var result in results)
@@ -210,9 +159,13 @@ namespace Assets.Scripts
 
                 if (targetSlot != null)
                 {
-                    draggableItem.transform.SetParent(targetSlot.transform);
-                    draggableItem.transform.position = targetSlot.transform.position;
+                    // Parent and center item in slot
+                    draggableItem.transform.SetParent(targetSlot.transform, false);
+                    RectTransform rect = draggableItem.GetComponent<RectTransform>();
+                    rect.anchoredPosition = Vector2.zero;
+                    rect.sizeDelta = ((RectTransform)targetSlot.transform).rect.size;
 
+                    // Make visible again
                     CanvasGroup cg = draggableItem.GetComponent<CanvasGroup>();
                     if (cg != null)
                     {
@@ -220,19 +173,14 @@ namespace Assets.Scripts
                         cg.blocksRaycasts = true;
                     }
 
-                    targetSlot.PlaceItem(itemName, draggableItem, this); // Pass reference to this slot
+                    // Tell slot what item it now holds
+                    targetSlot.PlaceItem(itemName, draggableItem, this);
 
-                    // HIDE the item from inventory (but don't remove from list)
-                    if (itemIcon != null)
-                    {
-                        itemIcon.enabled = false;
-                    }
-                    if (itemNameText != null)
-                    {
-                        itemNameText.text = "";
-                    }
-                    isInCraftingSlot = true; // Mark as used
+                    // Hide inventory visuals
+                    if (itemIcon != null) itemIcon.enabled = false;
+                    if (itemNameText != null) itemNameText.text = "";
 
+                    isInCraftingSlot = true;
                     Debug.Log("Placed " + itemName + " in slot " + targetSlot.slotNumber);
                 }
                 else
@@ -246,8 +194,6 @@ namespace Assets.Scripts
             isDragging = false;
         }
 
-
-
         void CreateDraggableItem()
         {
             Canvas canvas = GetComponentInParent<Canvas>();
@@ -259,6 +205,7 @@ namespace Assets.Scripts
 
             draggableItem = new GameObject(itemName + "_Draggable");
             draggableItem.transform.SetParent(canvas.transform, false);
+            draggableItem.transform.SetAsLastSibling(); // Ensure on top of other UI
 
             RectTransform rect = draggableItem.AddComponent<RectTransform>();
             rect.sizeDelta = new Vector2(100, 100);
@@ -266,23 +213,12 @@ namespace Assets.Scripts
 
             Image img = draggableItem.AddComponent<Image>();
             if (currentIcon != null)
-            {
                 img.sprite = currentIcon;
-            }
-            else
-            {
-                img.color = Color.white;
-            }
             img.raycastTarget = false;
 
             CanvasGroup cg = draggableItem.AddComponent<CanvasGroup>();
             cg.alpha = 0.7f;
             cg.blocksRaycasts = false;
-
-            // Always appear on top of UI
-            Canvas dragCanvas = draggableItem.AddComponent<Canvas>();
-            dragCanvas.overrideSorting = true;
-            dragCanvas.sortingOrder = 999;
 
             Debug.Log("Created draggable: " + itemName);
         }
@@ -290,9 +226,7 @@ namespace Assets.Scripts
         public void OnPointerEnter(PointerEventData eventData)
         {
             if (hasItem && !isDragging)
-            {
                 ShowTooltip();
-            }
         }
 
         public void OnPointerExit(PointerEventData eventData)
@@ -310,6 +244,12 @@ namespace Assets.Scripts
             }
         }
 
+        void HideTooltip()
+        {
+            if (tooltipPanel != null)
+                tooltipPanel.SetActive(false);
+        }
+
         public void RestoreItem()
         {
             isInCraftingSlot = false;
@@ -321,27 +261,10 @@ namespace Assets.Scripts
             }
 
             if (itemNameText != null)
-            {
                 itemNameText.text = itemName;
-            }
         }
 
-        void HideTooltip()
-        {
-            if (tooltipPanel != null)
-            {
-                tooltipPanel.SetActive(false);
-            }
-        }
-
-        public string GetItemName()
-        {
-            return itemName;
-        }
-
-        public bool HasItem()
-        {
-            return hasItem;
-        }
+        public string GetItemName() => itemName;
+        public bool HasItem() => hasItem;
     }
 }

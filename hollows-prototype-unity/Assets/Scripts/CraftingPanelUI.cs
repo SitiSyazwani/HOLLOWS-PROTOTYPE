@@ -126,6 +126,10 @@ namespace Assets.Scripts
             Item.collectedItems.Add(currentRecipe.resultItem);
             Debug.Log("Crafted " + currentRecipe.resultItem + "!");
 
+            // **NEW: Set the lockpickCrafted flag in Item.cs**
+            Item.lockpickCrafted = true;
+            Debug.Log("Lockpick crafted flag set - player can now escape!");
+
             // Clear slots
             foreach (CraftingSlot slot in craftingSlots)
             {

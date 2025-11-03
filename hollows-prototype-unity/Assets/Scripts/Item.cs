@@ -11,8 +11,8 @@ namespace Assets.Scripts
     //---------------------------------------------------------------------------------
     // Author        : SitiSyazwani
     // Date          : 2025-09-14
-    // Modified By   : Rifqah Added Inventory System
-    // Description   : Handles item collection and inventory system
+    // Modified By   : Rifqah Added Inventory System, Claude Added Lockpick Crafting
+    // Description   : Handles item collection, inventory system, and lockpick crafting
     //---------------------------------------------------------------------------------
     public class Item : MonoBehaviour
     {
@@ -24,6 +24,7 @@ namespace Assets.Scripts
 
         // Shared inventory flags
         public static bool batteryCollected = false;
+        public static bool lockpickCrafted = false; // NEW: Track if lockpick has been crafted
 
         // Inventory system
         public static List<string> collectedItems = new List<string>();
@@ -220,20 +221,29 @@ namespace Assets.Scripts
                 return;
             }
 
-            // CHECKING FOR EXACT ITEM NAMES:
-            bool hasToothbrushHandle = collectedItems.Contains("Toothbrush Handle");
-            bool hasBedFramePiece = collectedItems.Contains("Metal Bed Frame Piece");
-            bool hasWire = collectedItems.Contains("Wire");
-
-
-            if (hasToothbrushHandle && hasBedFramePiece && hasWire)
+            // NEW WINNING CONDITION: Player must have the crafted lockpick
+            // Check for "Makeshift Lockpick Set" which is created by the CraftingPanelUI
+            if (collectedItems.Contains("Makeshift Lockpick Set"))
             {
+                lockpickCrafted = true; // Set flag for consistency
                 winlose.state = WinLose.GameState.win;
-                Debug.Log("All components collected! Player wins!");
+                Debug.Log("Makeshift Lockpick Set used! Player escapes and wins!");
             }
             else
             {
-                Debug.Log("Need all components to exit!");
+                // Check what components they have
+                bool hasToothbrushHandle = collectedItems.Contains("Toothbrush Handle");
+                bool hasBedFramePiece = collectedItems.Contains("Metal Bed Frame Piece");
+                bool hasWire = collectedItems.Contains("Wire");
+
+                if (hasToothbrushHandle && hasBedFramePiece && hasWire)
+                {
+                    Debug.Log("You have all the components! Open the crafting menu to create the Makeshift Lockpick Set.");
+                }
+                else
+                {
+                    Debug.Log("Need to craft a Makeshift Lockpick Set to exit! Collect: Metal Bed Frame Piece, Toothbrush Handle, and Wire, then use the crafting menu.");
+                }
             }
         }
 
@@ -254,6 +264,7 @@ namespace Assets.Scripts
         {
             collectedItems.Clear();
             batteryCollected = false;
+            lockpickCrafted = false; // NEW: Reset lockpick status
             Debug.Log("Inventory cleared");
         }
     }
