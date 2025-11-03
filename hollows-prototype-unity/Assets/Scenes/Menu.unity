@@ -2774,6 +2774,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldStaySelected: 1
   disableAllButtonsOnClick: 1
+  clickSound: {fileID: 8300000, guid: a023353d8ffff944db2ba90fc43eee1a, type: 3}
+  clickVolume: 1
+  actionDelay: 0.1
 --- !u!1 &944279740
 GameObject:
   m_ObjectHideFlags: 0
@@ -3991,6 +3994,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldStaySelected: 1
   disableAllButtonsOnClick: 0
+  clickSound: {fileID: 8300000, guid: a023353d8ffff944db2ba90fc43eee1a, type: 3}
+  clickVolume: 1
+  actionDelay: 0.1
 --- !u!1 &1550954921
 GameObject:
   m_ObjectHideFlags: 0
@@ -4498,6 +4504,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldStaySelected: 0
   disableAllButtonsOnClick: 0
+  clickSound: {fileID: 8300000, guid: a023353d8ffff944db2ba90fc43eee1a, type: 3}
+  clickVolume: 1
+  actionDelay: 0.1
 --- !u!1 &1703363797
 GameObject:
   m_ObjectHideFlags: 0
