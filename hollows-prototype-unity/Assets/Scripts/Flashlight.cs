@@ -252,21 +252,50 @@ public class Flashlight : MonoBehaviour
 
                 if (activeLight == null) return; // Exit if light wasn't found in Start()
 
-                // ... (rest of aiming logic for vertical light) ...
                 Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 Vector3 targetDir = (mousePos - playerBody.position).normalized;
 
-                bool facingUp = playerBody.localScale.y >= 0f;
+                // Determine facing direction by checking the current Z rotation
+                // If close to 0-90 range, facing up. If close to 150-210 range, facing down
+                float currentZ = directFlashlight.eulerAngles.z;
+                bool facingUp = (currentZ >= 0f && currentZ <= 90f) || (currentZ >= 270f && currentZ <= 360f);
 
-                float minLimit = facingUp ? flashUpMinZ : flashDownMinZ;
-                float maxLimit = facingUp ? flashUpMaxZ : flashDownMaxZ;
+                // Calculate target angle toward mouse
+                float targetAngle = Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg - 90f;
 
-                float angleDiff = Vector2.SignedAngle(directFlashlight.up, targetDir);
-                float clampedAngleDiff = Mathf.Clamp(angleDiff, minLimit, maxLimit);
+                // Normalize to 0-360 range
+                if (targetAngle < 0) targetAngle += 360f;
 
-                Quaternion targetRot = Quaternion.AngleAxis(clampedAngleDiff, Vector3.forward) * directFlashlight.rotation;
+                // Set limits based on facing direction
+                float minLimit, maxLimit;
+                if (facingUp)
+                {
+                    // Facing UP: 271° to 89° (crossing through 0°)
+                    minLimit = 271f;
+                    maxLimit = 89f;
+                    
+                    // Handle the wraparound at 0°/360°
+                    if (targetAngle >= 90f && targetAngle <= 270f)
+                    {
+                        // Mouse is in the "forbidden zone" (90-270 range)
+                        // Clamp to nearest edge
+                        if (targetAngle < 180f)
+                            targetAngle = maxLimit;  // Closer to 89°
+                        else
+                            targetAngle = minLimit;  // Closer to 271°
+                    }
+                }
+                else
+                {
+                    // Facing DOWN: 91° to 270°
+                    minLimit = 91f;
+                    maxLimit = 270f;
+                    targetAngle = Mathf.Clamp(targetAngle, minLimit, maxLimit);
+                }
 
-                directFlashlight.rotation = Quaternion.Slerp(directFlashlight.rotation, targetRot, rotationSpeed * Time.deltaTime);
+                // Apply rotation
+                Quaternion targetRotation = Quaternion.Euler(0f, 0f, targetAngle);
+                directFlashlight.rotation = Quaternion.Slerp(directFlashlight.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
                 HandleLightObstruction(playerBody.position, directFlashlight.up, verticalLight);
             }
