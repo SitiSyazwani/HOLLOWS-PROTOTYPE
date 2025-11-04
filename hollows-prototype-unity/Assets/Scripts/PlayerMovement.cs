@@ -73,34 +73,31 @@ public class PlayerMovement : MonoBehaviour
             animator = player.GetComponent<Animator>();
         }
 
-        // --- NEW: Initialize the state of the separate flashlight components ---
+        // --- CRITICAL: Force ALL flashlights OFF first ---
         if (armGameObjectL != null) armGameObjectL.SetActive(false);
         if (armGameObjectR != null) armGameObjectR.SetActive(false);
         if (flashlight != null) flashlight.SetActive(false);
 
-        // Default to the left arm being active at the start (Player facing left/forward)
-        // Default sprite is 'frontSprite' (facing down), so the flashlight should be active there if possible.
-        if (flashlight != null)
+        // Disable animator initially so it doesn't override our setup
+        if (animator != null)
         {
-            // Assuming flashlight (vertical) is the correct default for the frontSprite
-            flashlight.SetActive(true);
-            lastActiveFlashlight = flashlight;
-            // Also set the correct position for the frontSprite (facing down)
-            FlipFlashlightVertical(false);
+            animator.enabled = false;
         }
-        else if (armGameObjectL != null)
+
+        // Set initial sprite to SIDE (facing left)
+        if (spriteRenderer != null && sideSprite != null)
+        {
+            spriteRenderer.sprite = sideSprite;
+            spriteRenderer.flipX = false; // false = facing LEFT
+            lastFacingSide = sideSprite;
+        }
+
+        // NOW activate ONLY the LEFT arm flashlight
+        if (armGameObjectL != null)
         {
             armGameObjectL.SetActive(true);
             lastActiveFlashlight = armGameObjectL;
         }
-
-        if (spriteRenderer != null && frontSprite != null)
-        {
-            lastFacingSide = frontSprite;
-            spriteRenderer.sprite = frontSprite; // Set initial sprite
-        }
-
-        // --- END NEW INIT ---
 
         currentEnergy = maxEnergy;
         if (sprint != null)
