@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 52bba71121b30aa40b429510aeee406e
+guid: 37e0cf8cdcf335748afd4ac0ddbaf11a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,12 +42,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 500
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -103,91 +103,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Tile_Wood_03_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 732
-        width: 732.5
-        height: 732
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: de2d24acf429f5b46ac05fd4bd11d27d
-      internalID: 2107796307
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tile_Wood_03_1
-      rect:
-        serializedVersion: 2
-        x: 732
-        y: 732
-        width: 732.5
-        height: 732
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 16825e05692b289458d0ea0ea540cfe0
-      internalID: 196180008
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tile_Wood_03_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 732.5
-        height: 732
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 97b5978cd358c0843ba7a203ab4478d6
-      internalID: 1983824309
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tile_Wood_03_3
-      rect:
-        serializedVersion: 2
-        x: 732
-        y: 0
-        width: 732.5
-        height: 732
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e51da206bfeac0d47ba8cabc4a428ef9
-      internalID: 1129787378
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -198,11 +114,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Tile_Wood_03_1: 196180008
-      Tile_Wood_03_0: 2107796307
-      Tile_Wood_03_2: 1983824309
-      Tile_Wood_03_3: 1129787378
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

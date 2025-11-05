@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 52bba71121b30aa40b429510aeee406e
+guid: 8e4612f7ee3d672499679f1a5eb062b7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tile_Wood_03_0
+      name: BlueTile_Floor_01_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 732
-        width: 732.5
-        height: 732
+        y: 554
+        width: 557
+        height: 554
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de2d24acf429f5b46ac05fd4bd11d27d
-      internalID: 2107796307
+      spriteID: a7bc662f15e8cd443ae0b8fde53e6272
+      internalID: 805221258
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tile_Wood_03_1
+      name: BlueTile_Floor_01_1
       rect:
         serializedVersion: 2
-        x: 732
-        y: 732
-        width: 732.5
-        height: 732
+        x: 557
+        y: 554
+        width: 557
+        height: 554
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16825e05692b289458d0ea0ea540cfe0
-      internalID: 196180008
+      spriteID: 8ebccb2372b11ba48a0ffd4179e2d56e
+      internalID: -1995649384
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tile_Wood_03_2
+      name: BlueTile_Floor_01_2
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 732.5
-        height: 732
+        width: 557
+        height: 554
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97b5978cd358c0843ba7a203ab4478d6
-      internalID: 1983824309
+      spriteID: f21f6ead6d8c2cf468dd5dec831b1a41
+      internalID: -1419020045
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tile_Wood_03_3
+      name: BlueTile_Floor_01_3
       rect:
         serializedVersion: 2
-        x: 732
+        x: 557
         y: 0
-        width: 732.5
-        height: 732
+        width: 557
+        height: 554
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,8 +182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e51da206bfeac0d47ba8cabc4a428ef9
-      internalID: 1129787378
+      spriteID: 2396988066f071543a21a730663cf98e
+      internalID: 1492624437
       vertices: []
       indices: 
       edges: []
@@ -199,10 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Tile_Wood_03_1: 196180008
-      Tile_Wood_03_0: 2107796307
-      Tile_Wood_03_2: 1983824309
-      Tile_Wood_03_3: 1129787378
+      BlueTile_Floor_01_3: 1492624437
+      BlueTile_Floor_01_1: -1995649384
+      BlueTile_Floor_01_0: 805221258
+      BlueTile_Floor_01_2: -1419020045
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
