@@ -41,6 +41,15 @@ public class PlayerMovement : MonoBehaviour
     public Transform energyBar;
     public GameObject flashlight; // This is the 'directFlashlight' for vertical movement
 
+    [Header("Audio Settings")]
+    public AudioSource footstepAudioSource;
+    public AudioClip walkingFootstepLoop; // Single looping audio for walking
+    public AudioClip sprintingFootstepLoop; // Single looping audio for sprinting
+    [Range(0f, 1f)] public float walkingFootstepVolume = 0.3f; // Quieter for walking
+    [Range(0f, 1f)] public float sprintingFootstepVolume = 0.7f; // Louder for sprinting
+
+    private bool wasMovingLastFrame = false;
+
     // NEW: Variable to track the last flashlight object that was active
     private GameObject lastActiveFlashlight = null;
 
@@ -105,6 +114,30 @@ public class PlayerMovement : MonoBehaviour
             sprint.Stop();
         }
         enemyAI = FindObjectOfType<EnemyAI>();
+
+        // Initialize footstep audio source
+        if (footstepAudioSource == null)
+        {
+            // Try to find or create a dedicated audio source for footsteps
+            AudioSource[] audioSources = GetComponents<AudioSource>();
+            if (audioSources.Length > 1)
+            {
+                // Use second audio source if available
+                footstepAudioSource = audioSources[1];
+            }
+            else
+            {
+                // Create a new audio source for footsteps
+                footstepAudioSource = gameObject.AddComponent<AudioSource>();
+            }
+        }
+        
+        // Configure footstep audio source
+        if (footstepAudioSource != null)
+        {
+            footstepAudioSource.playOnAwake = false;
+            footstepAudioSource.loop = true; // Enable looping for continuous footsteps
+        }
     }
 
     void Update()
@@ -133,6 +166,9 @@ public class PlayerMovement : MonoBehaviour
 
         // --- Sprite/Flashlight/Animation State Logic ---
         UpdateSprite();
+
+        // --- Footstep Audio Logic ---
+        UpdateFootsteps();
 
         if (isSprinting && !wasSprintingLastFrame)
         {
@@ -194,6 +230,47 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetFloat(ANIM_SPEED_MULTIPLIER, animationSpeedMultiplier);
         }
+    }
+
+    /// <summary>
+    /// Handles footstep audio playback based on player movement state
+    /// </summary>
+    void UpdateFootsteps()
+    {
+        if (footstepAudioSource == null) return;
+
+        bool isMoving = movementDirection.magnitude > 0.01f;
+
+        // Player is moving
+        if (isMoving)
+        {
+            // Determine which clip and volume to use
+            AudioClip currentClip = isSprinting ? sprintingFootstepLoop : walkingFootstepLoop;
+            float currentVolume = isSprinting ? sprintingFootstepVolume : walkingFootstepVolume;
+
+            // If the clip changed or audio isn't playing, start the new clip
+            if (footstepAudioSource.clip != currentClip || !footstepAudioSource.isPlaying)
+            {
+                footstepAudioSource.clip = currentClip;
+                footstepAudioSource.volume = currentVolume;
+                footstepAudioSource.Play();
+            }
+            else
+            {
+                // Just update the volume if already playing the correct clip
+                footstepAudioSource.volume = currentVolume;
+            }
+        }
+        else
+        {
+            // Player stopped moving - stop the audio
+            if (footstepAudioSource.isPlaying)
+            {
+                footstepAudioSource.Stop();
+            }
+        }
+
+        wasMovingLastFrame = isMoving;
     }
 
 

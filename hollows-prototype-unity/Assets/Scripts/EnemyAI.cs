@@ -42,6 +42,18 @@ public class EnemyAI : MonoBehaviour
     public float minIntensity = 0.3f;
     //private bool hasShaken = false;
 
+    [Header("Audio Settings")]
+    public AudioSource audioSource;
+    public AudioClip[] roamingSounds; // Array of sounds to play randomly while patrolling
+    public AudioClip proximitySound; // Sound to play when close to player
+    public float roamingSoundMinInterval = 5f;
+    public float roamingSoundMaxInterval = 10f;
+    public float proximityAudioRange = 8f; // Distance at which proximity sound plays
+    
+    private float roamingSoundTimer = 0f;
+    private float nextRoamingSoundTime;
+    private bool isPlayingProximitySound = false;
+
     private NavMeshAgent agent;
     private int currentPatrolIndex = 0;
 
@@ -101,6 +113,19 @@ public class EnemyAI : MonoBehaviour
             }
         }
 
+        // Initialize audio system
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+            if (audioSource == null)
+            {
+                audioSource = gameObject.AddComponent<AudioSource>();
+            }
+        }
+        
+        // Set first roaming sound time
+        nextRoamingSoundTime = Random.Range(roamingSoundMinInterval, roamingSoundMaxInterval);
+
         StartPatrol();
     }
 
@@ -131,6 +156,7 @@ public class EnemyAI : MonoBehaviour
 
         UpdateAnimation();
         UpdateVFX(); // Added VFX update
+        UpdateAudio(); // Added audio update
         //UpdateCameraShake();
         UpdateExclamationMark();
 
@@ -153,6 +179,51 @@ public class EnemyAI : MonoBehaviour
         {
             winlose.state = WinLose.GameState.lose;
             Debug.Log("Enemy caught the player! Game Over.");
+        }
+    }
+
+    private void UpdateAudio()
+    {
+        if (audioSource == null || player == null) return;
+
+        // Handle proximity sound (plays once when entering Chase state / red screen)
+        if (currentState == State.Chase)
+        {
+            if (!isPlayingProximitySound && proximitySound != null)
+            {
+                audioSource.PlayOneShot(proximitySound);
+                isPlayingProximitySound = true;
+                Debug.Log("Playing proximity sound - chase started!");
+            }
+        }
+        else
+        {
+            // Reset flag when not chasing anymore
+            isPlayingProximitySound = false;
+        }
+
+        // Handle roaming sounds (only during Patrol state)
+        if (currentState == State.Patrol && roamingSounds != null && roamingSounds.Length > 0)
+        {
+            roamingSoundTimer += Time.deltaTime;
+
+            if (roamingSoundTimer >= nextRoamingSoundTime)
+            {
+                // Play random roaming sound
+                AudioClip randomSound = roamingSounds[Random.Range(0, roamingSounds.Length)];
+                audioSource.PlayOneShot(randomSound);
+                
+                // Reset timer and set next interval
+                roamingSoundTimer = 0f;
+                nextRoamingSoundTime = Random.Range(roamingSoundMinInterval, roamingSoundMaxInterval);
+                
+                Debug.Log("Playing roaming sound. Next sound in: " + nextRoamingSoundTime + " seconds");
+            }
+        }
+        else
+        {
+            // Reset timer when not patrolling
+            roamingSoundTimer = 0f;
         }
     }
 
