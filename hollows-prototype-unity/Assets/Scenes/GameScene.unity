@@ -3159,7 +3159,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3e67ceefc1f45748b769344ef331526, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueManager: {fileID: 486136419}
+  dialogueManager: {fileID: 0}
+  dialogueEnabled: 0
   exitItemReference: {fileID: 0}
   startLines:
   - Where am I.. its pitch black here
@@ -20403,7 +20404,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1212234335}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -23979,7 +23980,7 @@ RectTransform:
   - {fileID: 425091008}
   - {fileID: 579167104}
   m_Father: {fileID: 1212234335}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -25553,7 +25554,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &486136418
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25568,7 +25569,7 @@ RectTransform:
   m_Children:
   - {fileID: 92903910}
   m_Father: {fileID: 1212234335}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -30606,7 +30607,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1212234335}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -36215,7 +36216,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1212234335}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -37838,7 +37839,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1212234335}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -39218,16 +39219,16 @@ RectTransform:
   - {fileID: 982239894}
   - {fileID: 1451021022}
   - {fileID: 1040324496}
+  - {fileID: 2053358935}
+  - {fileID: 1734796953}
   - {fileID: 1343052376}
   - {fileID: 385154390}
   - {fileID: 486136418}
   - {fileID: 1336829411}
-  - {fileID: 1734796953}
   - {fileID: 1005770734}
   - {fileID: 658551705}
   - {fileID: 1140881523}
   - {fileID: 364205993}
-  - {fileID: 2053358935}
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -43148,7 +43149,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1212234335}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -43224,7 +43225,7 @@ RectTransform:
   - {fileID: 1865137356}
   - {fileID: 1199388426}
   m_Father: {fileID: 1212234335}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -43406,7 +43407,7 @@ MonoBehaviour:
   footstepAudioSource: {fileID: 1359452565}
   walkingFootstepLoop: {fileID: 8300000, guid: de8ed720de3c6d8408fc243161ab92c5, type: 3}
   sprintingFootstepLoop: {fileID: 8300000, guid: de8ed720de3c6d8408fc243161ab92c5, type: 3}
-  walkingFootstepVolume: 0.3
+  walkingFootstepVolume: 0.05
   sprintingFootstepVolume: 1
   isTriggering: 0
   isHiding: 0
@@ -43511,6 +43512,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueManager: {fileID: 486136419}
+  dialogueEnabled: 0
   exitItemReference: {fileID: 757606482}
   startLines:
   - Where am I.. its pitch black here
@@ -43765,7 +43767,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3e67ceefc1f45748b769344ef331526, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueManager: {fileID: 486136419}
+  dialogueManager: {fileID: 0}
+  dialogueEnabled: 0
   exitItemReference: {fileID: 0}
   startLines:
   - Where am I.. its pitch black here
@@ -48490,7 +48493,7 @@ RectTransform:
   - {fileID: 981607678}
   - {fileID: 387859375}
   m_Father: {fileID: 1212234335}
-  m_RootOrder: 7
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -51090,7 +51093,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2053358934}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -51098,7 +51101,7 @@ RectTransform:
   - {fileID: 1448753585}
   - {fileID: 796659372}
   m_Father: {fileID: 1212234335}
-  m_RootOrder: 12
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}

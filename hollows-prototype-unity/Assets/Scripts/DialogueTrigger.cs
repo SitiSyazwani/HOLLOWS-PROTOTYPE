@@ -3,8 +3,14 @@ using Assets.Scripts;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    // Assign your Dialogue Panel GameObject here in the Inspector
-    public Dialogue dialogueManager;
+    // Assign your Dialogue Panel GameObject here in the Inspector
+    public Dialogue dialogueManager;
+
+    // **NEW: Master toggle to disable all dialogue**
+    [Header("Dialogue Settings")]
+    [Tooltip("Uncheck this to completely disable all dialogue")]
+    public bool dialogueEnabled = false;
+    // --------------------------------------------
 
     // **FIX 1: NEW PUBLIC REFERENCE**
     [Header("Exit Reference")]
@@ -28,8 +34,8 @@ public class DialogueTrigger : MonoBehaviour
     "Battery! I can use this for my flashlight."
   };
 
-    // UPDATED DIALOGUE ARRAYS
-    [Header("Toothbrush Handle Found Dialogue")]
+    // UPDATED DIALOGUE ARRAYS
+    [Header("Toothbrush Handle Found Dialogue")]
     public string[] toothbrushHandleFoundLines = new string[] {
     "A toothbrush handle... useless for hygiene, but the handle might be useful.",
   };
@@ -51,9 +57,9 @@ public class DialogueTrigger : MonoBehaviour
 
     // **FIX 2: Removed buggy 'infrontexit' and 'item' declarations.**
 
-    //---------------------------------------------------------
+    //---------------------------------------------------------
 
-    void Start()
+    void Start()
     {
         // **FIX 3: Removed crashing line that tried to access an unassigned 'item'.**
 
@@ -76,8 +82,8 @@ public class DialogueTrigger : MonoBehaviour
 
     void Update()
     {
-        // Check for 'E' key press every frame, globally.
-        if (Input.GetKeyDown(KeyCode.E))
+        // Check for 'E' key press every frame, globally.
+        if (Input.GetKeyDown(KeyCode.E))
         {
             HandleGlobalDialogueTrigger(GetCurrentDialogue());
         }
@@ -85,11 +91,14 @@ public class DialogueTrigger : MonoBehaviour
 
     private void HandleGlobalDialogueTrigger(string[] dialogue)
     {
-        // 1. Get the appropriate lines based on current inventory status
-        string[] linesToShow = GetCurrentDialogue();
+        // **NEW: Early exit if dialogue is disabled**
+        if (!dialogueEnabled) return;
+        
+        // 1. Get the appropriate lines based on current inventory status
+        string[] linesToShow = GetCurrentDialogue();
 
-        // 2. Start the dialogue if lines are available
-        if (linesToShow != null && linesToShow.Length > 0 && dialogueManager != null)
+        // 2. Start the dialogue if lines are available
+        if (linesToShow != null && linesToShow.Length > 0 && dialogueManager != null)
         {
             dialogueManager.StartCustomDialogue(linesToShow);
         }
@@ -105,8 +114,8 @@ public class DialogueTrigger : MonoBehaviour
     {
         bool hasBattery = Assets.Scripts.Item.HasItem("Battery");
 
-        // CHECKING FOR EXACT ITEM NAMES:
-        bool hasToothbrushHandle = Assets.Scripts.Item.HasItem("Toothbrush Handle");
+        // CHECKING FOR EXACT ITEM NAMES:
+        bool hasToothbrushHandle = Assets.Scripts.Item.HasItem("Toothbrush Handle");
         bool hasBedFramePiece = Assets.Scripts.Item.HasItem("Metal Bed Frame Piece");
         bool hasWire = Assets.Scripts.Item.HasItem("Wire");
 
@@ -124,8 +133,8 @@ public class DialogueTrigger : MonoBehaviour
             return allItemsLines;
         }
 
-        // Individual item checks (Only show if *only* one of the new items is collected)
-        if (hasToothbrushHandle && !hasBedFramePiece && !hasWire)
+        // Individual item checks (Only show if *only* one of the new items is collected)
+        if (hasToothbrushHandle && !hasBedFramePiece && !hasWire)
         {
             return toothbrushHandleFoundLines;
         }
@@ -138,13 +147,13 @@ public class DialogueTrigger : MonoBehaviour
             return wireFoundLines;
         }
 
-        // Battery check
-        else if (hasBattery)
+        // Battery check
+        else if (hasBattery)
         {
             return batteryFoundLines;
         }
-        // **FIX 5: Logic updated to use the correct variable (isInFrontOfExit) and operator (&&)**
-        else if (!hasToothbrushHandle && !hasBedFramePiece && !hasWire && isInFrontOfExit)
+        // **FIX 5: Logic updated to use the correct variable (isInFrontOfExit) and operator (&&)**
+        else if (!hasToothbrushHandle && !hasBedFramePiece && !hasWire && isInFrontOfExit)
         {
             return defaultLines;
         }
