@@ -8,6 +8,8 @@ public class MainMenu : MonoBehaviour
     [Header("UI Panels")]
     public GameObject mainMenuPanel;
     public GameObject saveSlotPanel;
+    public GameObject howToPlayPanel;
+    public GameObject quitConfirmationPanel;  // New confirmation panel
     public Image fadePanel;
 
     [Header("Settings")]
@@ -18,6 +20,16 @@ public class MainMenu : MonoBehaviour
         if (saveSlotPanel != null)
         {
             saveSlotPanel.SetActive(false);
+        }
+
+        if (howToPlayPanel != null)
+        {
+            howToPlayPanel.SetActive(false);
+        }
+
+        if (quitConfirmationPanel != null)
+        {
+            quitConfirmationPanel.SetActive(false);
         }
 
         if (mainMenuPanel != null)
@@ -32,9 +44,17 @@ public class MainMenu : MonoBehaviour
         saveSlotPanel.SetActive(true);
     }
 
+    public void OpenHowToPlay()
+    {
+        mainMenuPanel.SetActive(false);
+        howToPlayPanel.SetActive(true);
+    }
+
     public void BackToMainMenu()
     {
         saveSlotPanel.SetActive(false);
+        howToPlayPanel.SetActive(false);
+        quitConfirmationPanel.SetActive(false);
         mainMenuPanel.SetActive(true);
 
         // Reset all button states in the main menu
@@ -56,6 +76,23 @@ public class MainMenu : MonoBehaviour
 
     public void QuitGame()
     {
+        // Show confirmation panel WITHOUT hiding main menu
+        if (quitConfirmationPanel != null)
+        {
+            // Don't deactivate mainMenuPanel here!
+            quitConfirmationPanel.SetActive(true);
+            quitConfirmationPanel.transform.SetAsLastSibling(); // Brings to front
+        }
+        else
+        {
+            // Fallback if no confirmation panel is set
+            ConfirmQuit();
+        }
+    }
+
+
+    public void ConfirmQuit()
+    {
         if (fadePanel != null)
         {
             StartCoroutine(FadeAndQuit());
@@ -65,6 +102,11 @@ public class MainMenu : MonoBehaviour
             Debug.Log("QUIT!");
             Application.Quit();
         }
+    }
+
+    public void CancelQuit()
+    {
+        quitConfirmationPanel.SetActive(false);
     }
 
     private IEnumerator FadeAndQuit()
