@@ -719,12 +719,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 434063441}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -123.34088, y: -4.409}
-  m_SizeDelta: {x: 337.3182, y: 278.818}
+  m_AnchoredPosition: {x: -199, y: -22.31}
+  m_SizeDelta: {x: 182.4641, y: 276.79}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &154951656
 MonoBehaviour:
@@ -746,13 +746,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "HOW TO PLAY\r\n\r\nTHE SITUATION\r\nYou're trapped in Holloway Correctional
-    Facility. Sound therapy experiments \r\nturned inmates into \"Listeners\" - creatures
-    that hunt by sound. Craft tools \r\nto escape.\r\n\r\nSURVIVE\r\n- Scavenge materials
-    from rooms\r\n- Combine 3 items in inventory to craft escape tools\r\n- Hide
-    in lockers when monsters are near\r\n- Avoid noise - sprint and light attract
-    Listeners!\r\n- Red pulsing screen = You're being chased!\r\n\r\nESCAPE\r\nCraft
-    the right tools to unlock new areas and find your way out."
+  m_text: "You're trapped in Holloway Correctional Facility \r\nwhere sound therapy
+    experiments turned inmates \r\ninto \"Listeners\" - creatures that hunt by sound.\r\n\r\nScavenge
+    materials, craft escape tools, and use \r\nstealth to avoid detection. Your craftiness
+    is \r\nyour only way out."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4a41508ec8a552645a1918f0ffa788e9, type: 2}
   m_sharedMaterial: {fileID: 8210664333142194277, guid: 4a41508ec8a552645a1918f0ffa788e9, type: 2}
@@ -779,8 +776,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12.95
-  m_fontSizeBase: 12.95
+  m_fontSize: 15.8
+  m_fontSizeBase: 15.8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1128,12 +1125,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 434063441}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 167, y: -17}
-  m_SizeDelta: {x: 253.8517, y: 266.1716}
+  m_AnchoredPosition: {x: 102.43, y: -15.065}
+  m_SizeDelta: {x: 393.14, y: 262.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &318103137
 MonoBehaviour:
@@ -1155,8 +1152,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "CONTROLS\r\nWASD - Move \nSHIFT - Sprint (noisy!) MOUSE - Look around\r\nE
-    - Interact \nRight Click - Flashlight\r\nInventory Icon (Top Left) - Open inventory\r"
+  m_text: "WASD\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014Move \n\nSHIFT \u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014Sprint
+    \n\nMOUSE\u2014\u2014\u2014\u2014\u2014\u2014 Look around\r\n\nE \u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014Interact
+    \n\nRight Mouse Click \u2014\u2014 Flashlight\r\n\nInventory Icon \u2014 Open
+    inventory\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4a41508ec8a552645a1918f0ffa788e9, type: 2}
   m_sharedMaterial: {fileID: 8210664333142194277, guid: 4a41508ec8a552645a1918f0ffa788e9, type: 2}
@@ -1165,8 +1164,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1183,8 +1182,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25.9
-  m_fontSizeBase: 25.9
+  m_fontSize: 18.4
+  m_fontSizeBase: 18.4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1666,7 +1665,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &434063441
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1680,6 +1679,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1482881463}
+  - {fileID: 1256555301}
   - {fileID: 154951655}
   - {fileID: 318103136}
   m_Father: {fileID: 959312719}
@@ -3912,6 +3912,82 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &1256555300
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1256555301}
+  - component: {fileID: 1256555303}
+  - component: {fileID: 1256555302}
+  m_Layer: 5
+  m_Name: ControlPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1256555301
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256555300}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 434063441}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 108.17652, y: -22.309883}
+  m_SizeDelta: {x: 404.6269, y: 276.7917}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1256555302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256555300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: e9f9f91228d420e4782484a8e0c24203, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1256555303
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256555300}
+  m_CullTransparentMesh: 1
 --- !u!1 &1262490497
 GameObject:
   m_ObjectHideFlags: 0
